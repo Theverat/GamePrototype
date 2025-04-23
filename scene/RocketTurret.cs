@@ -20,6 +20,9 @@ public partial class RocketTurret : Node3D
 	// TODO limit rotation speed
 	// TODO make reusable?
 	private void AimAtTarget() {
+		if (Target == null)
+			return;
+		
 		var globalPos = CentralPillar.GlobalTransform.Origin;
 		var targetPos = Target.GlobalTransform.Origin;
 		var oldRotation = CentralPillar.GlobalTransform.Basis.GetRotationQuaternion();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dcdkghwmlv3hg"]
+[gd_scene load_steps=33 format=4 uid="uid://dcdkghwmlv3hg"]
 
 [ext_resource type="Script" uid="uid://b6kmf0fs2dnir" path="res://script/player_interface.gd" id="1_m5mgf"]
 [ext_resource type="Script" uid="uid://bildnriqltubr" path="res://script/RTS_Camera.gd" id="2_emkrx"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://pbsnd3gd4vcw" path="res://assets/image/textures/Ground/mud_leaves/brown_mud_leaves_01/brown_mud_leaves_01_nor_gl_4k.jpg" id="12_a81yy"]
 [ext_resource type="PackedScene" uid="uid://btqyjtcbkow2x" path="res://scene/RocketTurret.tscn" id="17_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://bv1c2bf0pbv81" path="res://scene/kaserne.tscn" id="18_1402k"]
+[ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/GatlingTurret.tscn" id="19_1402k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0tg4p"]
 size = Vector3(50, 2.74274, 35)
@@ -204,7 +205,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.894, -0.010116, -1.51729)
 Target = NodePath("../RocketTurretTarget")
 
 [node name="RocketTurretTarget" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6436, 3.32803, 18.3346)
+transform = Transform3D(0.914374, 0.40487, 0, -0.40487, 0.914374, 0, 0, 0, 1, 29.2133, 3.32803, 10.6244)
 
 [node name="Node3D" parent="." instance=ExtResource("18_1402k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1272, 0, -30.4099)
+
+[node name="GatlingTurret" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("19_1402k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.8716, 0, 14.0486)
+Target = NodePath("../RocketTurretTarget")
+
+[node name="GatlingTurret2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("19_1402k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3861, 0, 5.32141)
+Target = NodePath("../RocketTurretTarget")

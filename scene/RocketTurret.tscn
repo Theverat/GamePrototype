@@ -17,7 +17,7 @@ RocketTubes = NodePath("TurretBase_01/RocketTurret_CentralPillar_01/RocketTurret
 transform = Transform3D(-0.583362, 1.54143e-44, 0.812212, 4.2039e-45, 1, -1.54143e-44, -0.812212, -4.2039e-45, -0.583362, 0, 0, 0)
 
 [node name="RocketTurret_RocketTubes_01" parent="TurretBase_01/RocketTurret_CentralPillar_01" instance=ExtResource("3_j8skk")]
-transform = Transform3D(1, -1.2517e-06, 4.02331e-07, -4.2039e-45, 0.287995, 0.957632, -1.40071e-06, -0.957632, 0.287995, 2.03272e-41, 4, -1.31596e-41)
+transform = Transform3D(1, -1.10269e-06, 2.38419e-07, 1.49012e-07, 0.287995, 0.957632, -1.13249e-06, -0.957632, 0.287995, 2.03272e-41, 4, -1.31596e-41)
 
 [node name="Target" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.977048, 0, 0.701755)

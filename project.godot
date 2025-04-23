@@ -27,7 +27,7 @@ project/assembly_name="RTS_Test_v0.2"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ImportCleaner/plugin.cfg", "res://addons/grid_Distributor/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
+enabled=PackedStringArray("res://addons/ImportCleaner/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
 
 [input]
 

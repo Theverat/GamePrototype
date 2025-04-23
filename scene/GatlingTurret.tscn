@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://6druwv3j8l2c"]
+
+[ext_resource type="Script" uid="uid://dp3okuiy10j08" path="res://scene/RocketTurret.cs" id="1_03h8t"]
+[ext_resource type="PackedScene" uid="uid://dtxqa2qjgllub" path="res://assets/buildings/Turrets/TurretBase_01.blend" id="2_0krec"]
+[ext_resource type="PackedScene" uid="uid://dn24dmhkv7wxe" path="res://assets/buildings/Turrets/GatlingTurretSimon_CenterPillar.blend" id="3_iips0"]
+[ext_resource type="PackedScene" uid="uid://dwex1rfsdhpaw" path="res://assets/buildings/Turrets/GatlingTurretSimon_GunBarrel.blend" id="4_qucgh"]
+
+[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("CentralPillar", "RocketTubes")]
+script = ExtResource("1_03h8t")
+CentralPillar = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar")
+RocketTubes = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel")
+
+[node name="TurretBase_01" parent="." instance=ExtResource("2_0krec")]
+
+[node name="GatlingTurretSimon_CenterPillar" parent="TurretBase_01" instance=ExtResource("3_iips0")]
+
+[node name="GatlingTurretSimon_GunBarrel" parent="TurretBase_01/GatlingTurretSimon_CenterPillar" instance=ExtResource("4_qucgh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.77856, 0)
