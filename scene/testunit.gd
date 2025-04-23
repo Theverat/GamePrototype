@@ -47,6 +47,7 @@ func rotation_to_direction(dir:Vector3, delta:float) -> void:
 		rotation.y -= pos_2D.angle_to(goal_2D) *delta * steer_speed
 		
 
+# updates Path for accurate Pathfinding to moving goals
 func nav_path_timer_update() -> void:
 	if nav_agent.is_navigation_finished():return
 	nav_agent.set_target_position(nav_path_goal_position)
