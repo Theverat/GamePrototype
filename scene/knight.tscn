@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqldohfni2ixh"]
+
+[ext_resource type="PackedScene" uid="uid://b6u68okwnjb7f" path="res://assets/units/tripo_rigging_8f424229-1aeb-4c81-bcf3-ee54fda95fa1.glb" id="1_4gu1h"]
+
+[node name="Knight" instance=ExtResource("1_4gu1h")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Armature" index="2"]

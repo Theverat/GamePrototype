@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://fy1uq4oivhhg"]
+
+[ext_resource type="PackedScene" uid="uid://cyls77s2tmmfg" path="res://assets/image/kenney-spacekit/astronautB.glb" id="1_jppna"]
+
+[node name="astronautB" instance=ExtResource("1_jppna")]
+
+[node name="astronautB2" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

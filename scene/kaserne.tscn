@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv1c2bf0pbv81"]
+
+[ext_resource type="PackedScene" uid="uid://vy6lfi0fs6uy" path="res://assets/buildings/kaserne_0.1.blend" id="1_5oxeh"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="kaserne_0_1" parent="." instance=ExtResource("1_5oxeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0255737, 0, 0.440918)

@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://olopf0u52qfh"
+path.s3tc="res://.godot/imported/tripo_rigging_8f424229-1aeb-4c81-bcf3-ee54fda95fa1_1.jpg-f6f1f82da852cc2ff5cce016e4241c90.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "2eda1e2a7f5c372049934c33d8b215ab"
+}
+
+[deps]
+
+source_file="res://assets/units/tripo_rigging_8f424229-1aeb-4c81-bcf3-ee54fda95fa1_1.jpg"
+dest_files=["res://.godot/imported/tripo_rigging_8f424229-1aeb-4c81-bcf3-ee54fda95fa1_1.jpg-f6f1f82da852cc2ff5cce016e4241c90.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

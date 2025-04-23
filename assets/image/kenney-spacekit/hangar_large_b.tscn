@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5jt7r8d4vxj8"]
+
+[ext_resource type="PackedScene" uid="uid://cogveyejd1tu4" path="res://assets/image/kenney-spacekit/hangar_largeB.glb" id="1_gs23x"]
+
+[node name="hangar_largeB" instance=ExtResource("1_gs23x")]
+
+[node name="hangar_largeB2" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
