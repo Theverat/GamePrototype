@@ -1,4 +1,6 @@
+@tool
 extends CharacterBody3D
+
 
 const module_camera:GDScript = preload("res://script/module_camera.gd")
 

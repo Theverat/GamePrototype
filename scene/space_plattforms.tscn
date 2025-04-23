@@ -1,0 +1,158 @@
+[gd_scene load_steps=40 format=3 uid="uid://da3djh5do3pyh"]
+
+[ext_resource type="Script" uid="uid://dti27h8brp73s" path="res://addons/grid_Distributor/grid_distributor.gd" id="1_pch0s"]
+[ext_resource type="PackedScene" uid="uid://ba68ykvntvikj" path="res://assets/Terrain/Space_Station/Door_DarkMetal.gltf" id="1_tnr7e"]
+[ext_resource type="PackedScene" uid="uid://b8xkyr3pv58bu" path="res://assets/Terrain/Space_Station/Door_Frame_A.gltf" id="2_pch0s"]
+[ext_resource type="PackedScene" uid="uid://duvqoti5mvagv" path="res://assets/Terrain/Space_Station/Door_Frame_Square.gltf" id="3_065et"]
+[ext_resource type="PackedScene" uid="uid://csy7bgk764gxp" path="res://assets/Terrain/Space_Station/Door_Frame_SquareTall.gltf" id="4_35r8s"]
+[ext_resource type="PackedScene" uid="uid://cwg5b1a2p4ea2" path="res://assets/Terrain/Space_Station/Door_Frame_Square_Blocked.gltf" id="5_xksxx"]
+[ext_resource type="PackedScene" uid="uid://qsfmyppa5wuh" path="res://assets/Terrain/Space_Station/Door_Metal.gltf" id="6_i2bhv"]
+[ext_resource type="PackedScene" uid="uid://e5smeix78gde" path="res://assets/Terrain/Space_Station/Door_Simple.gltf" id="7_yr5ax"]
+[ext_resource type="PackedScene" uid="uid://dt457da7waur5" path="res://assets/Terrain/Space_Station/Platform_3Plates.gltf" id="8_u2bl8"]
+[ext_resource type="PackedScene" uid="uid://b2omgonrwfk1a" path="res://assets/Terrain/Space_Station/Platform_CenterPlate.gltf" id="9_ql0es"]
+[ext_resource type="PackedScene" uid="uid://r7axb1rcasxg" path="res://assets/Terrain/Space_Station/Platform_CenterPlate_Curve.gltf" id="10_udpko"]
+[ext_resource type="PackedScene" uid="uid://b75lbuxdn7bpo" path="res://assets/Terrain/Space_Station/Platform_DarkPlates.gltf" id="11_pkm1d"]
+[ext_resource type="PackedScene" uid="uid://bikj8fkxwgbjv" path="res://assets/Terrain/Space_Station/Platform_DarkPlates_Curves.gltf" id="12_qqht6"]
+[ext_resource type="PackedScene" uid="uid://bqxylo6vss2wa" path="res://assets/Terrain/Space_Station/Platform_Metal2.gltf" id="13_fbl4m"]
+[ext_resource type="PackedScene" uid="uid://d4qelxvj06q2" path="res://assets/Terrain/Space_Station/Platform_Metal2_Curve.gltf" id="14_yffv7"]
+[ext_resource type="PackedScene" uid="uid://cwqm7rtg0ry02" path="res://assets/Terrain/Space_Station/Platform_Metal.gltf" id="15_fhh0y"]
+[ext_resource type="PackedScene" uid="uid://bgjtedwb2vb3d" path="res://assets/Terrain/Space_Station/Platform_Metal_Curve.gltf" id="16_88ehh"]
+[ext_resource type="PackedScene" uid="uid://dff5rqt3eqwy8" path="res://assets/Terrain/Space_Station/Platform_Rails_2.gltf" id="17_17lka"]
+[ext_resource type="PackedScene" uid="uid://bq64fcgnm6fer" path="res://assets/Terrain/Space_Station/Platform_Rails_4.gltf" id="18_f5wif"]
+[ext_resource type="PackedScene" uid="uid://dmv1gs250cox5" path="res://assets/Terrain/Space_Station/Platform_Rails_4Wide.gltf" id="19_pc8ur"]
+[ext_resource type="PackedScene" uid="uid://bg3ljh7dr8v1h" path="res://assets/Terrain/Space_Station/Platform_Rails_4WideTall.gltf" id="20_kiioj"]
+[ext_resource type="PackedScene" uid="uid://cgo8sq5mquvpj" path="res://assets/Terrain/Space_Station/Platform_Ramp_2.gltf" id="21_1h7k3"]
+[ext_resource type="PackedScene" uid="uid://bxwu584wnaex3" path="res://assets/Terrain/Space_Station/Platform_Ramp_2Short.gltf" id="22_r8lse"]
+[ext_resource type="PackedScene" uid="uid://cvf77jikdiho2" path="res://assets/Terrain/Space_Station/Platform_Ramp_4.gltf" id="23_u2eq3"]
+[ext_resource type="PackedScene" uid="uid://cy68oyg3ee5oe" path="res://assets/Terrain/Space_Station/Platform_Ramp_4Wide.gltf" id="24_g7vwj"]
+[ext_resource type="PackedScene" uid="uid://dgjq2adt3gikl" path="res://assets/Terrain/Space_Station/Platform_Round1.gltf" id="25_fipyq"]
+[ext_resource type="PackedScene" uid="uid://dvb1kfbxj6wdc" path="res://assets/Terrain/Space_Station/Platform_Simple2.gltf" id="26_7gjpb"]
+[ext_resource type="PackedScene" uid="uid://dblulufk5quqi" path="res://assets/Terrain/Space_Station/Platform_Simple2_Curve.gltf" id="27_nwp2n"]
+[ext_resource type="PackedScene" uid="uid://cjttf4skg0j7w" path="res://assets/Terrain/Space_Station/Platform_Simple.gltf" id="28_3504c"]
+[ext_resource type="PackedScene" uid="uid://dqmuk7ljl6bgy" path="res://assets/Terrain/Space_Station/Platform_Simple_Curve.gltf" id="29_7hjb5"]
+[ext_resource type="PackedScene" uid="uid://076w55v4ifbu" path="res://assets/Terrain/Space_Station/Platform_Squares.gltf" id="30_5y2uj"]
+[ext_resource type="PackedScene" uid="uid://dowdcvjwjhgnp" path="res://assets/Terrain/Space_Station/Platform_Squares_Curve.gltf" id="31_tbs6v"]
+[ext_resource type="PackedScene" uid="uid://c4o0xd2uwa8a4" path="res://assets/Terrain/Space_Station/Platform_Stairs_2.gltf" id="32_q37ua"]
+[ext_resource type="PackedScene" uid="uid://ds5h6jvq5f56" path="res://assets/Terrain/Space_Station/Platform_Stairs_4.gltf" id="33_u3xxx"]
+[ext_resource type="PackedScene" uid="uid://lcnjcsbqqslg" path="res://assets/Terrain/Space_Station/Platform_Stairs_4Wide.gltf" id="34_jg7ve"]
+[ext_resource type="PackedScene" uid="uid://cdstbyttmbu7t" path="res://assets/Terrain/Space_Station/Platform_Stairs_4WideTall.gltf" id="35_aq3xv"]
+[ext_resource type="PackedScene" uid="uid://dbqpbp57n1d6k" path="res://assets/Terrain/Space_Station/Platform_Window_Thin.gltf" id="36_vulov"]
+[ext_resource type="PackedScene" uid="uid://2p1lvw6talg6" path="res://assets/Terrain/Space_Station/Platform_Window_Wide.gltf" id="37_mij7k"]
+[ext_resource type="PackedScene" uid="uid://yten1wpls8cp" path="res://assets/Terrain/Space_Station/Platform_X.gltf" id="38_8w5j8"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_pch0s")
+
+[node name="Door_DarkMetal2" parent="." instance=ExtResource("1_tnr7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Door_Frame_A2" parent="." instance=ExtResource("2_pch0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Door_Frame_Square2" parent="." instance=ExtResource("3_065et")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Door_Frame_SquareTall2" parent="." instance=ExtResource("4_35r8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Door_Frame_Square_Blocked2" parent="." instance=ExtResource("5_xksxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Door_Metal2" parent="." instance=ExtResource("6_i2bhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Door_Simple2" parent="." instance=ExtResource("7_yr5ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_3Plates2" parent="." instance=ExtResource("8_u2bl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_CenterPlate2" parent="." instance=ExtResource("9_ql0es")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_CenterPlate_Curve2" parent="." instance=ExtResource("10_udpko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_DarkPlates2" parent="." instance=ExtResource("11_pkm1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_DarkPlates_Curves2" parent="." instance=ExtResource("12_qqht6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Metal22" parent="." instance=ExtResource("13_fbl4m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Metal2_Curve2" parent="." instance=ExtResource("14_yffv7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Metal2" parent="." instance=ExtResource("15_fhh0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Metal_Curve2" parent="." instance=ExtResource("16_88ehh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Rails_22" parent="." instance=ExtResource("17_17lka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Rails_42" parent="." instance=ExtResource("18_f5wif")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Rails_4Wide2" parent="." instance=ExtResource("19_pc8ur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Rails_4WideTall2" parent="." instance=ExtResource("20_kiioj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Ramp_22" parent="." instance=ExtResource("21_1h7k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Ramp_2Short2" parent="." instance=ExtResource("22_r8lse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Ramp_42" parent="." instance=ExtResource("23_u2eq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Ramp_4Wide2" parent="." instance=ExtResource("24_g7vwj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Round12" parent="." instance=ExtResource("25_fipyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Simple22" parent="." instance=ExtResource("26_7gjpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Simple2_Curve2" parent="." instance=ExtResource("27_nwp2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Simple2" parent="." instance=ExtResource("28_3504c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Simple_Curve2" parent="." instance=ExtResource("29_7hjb5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Squares2" parent="." instance=ExtResource("30_5y2uj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Squares_Curve2" parent="." instance=ExtResource("31_tbs6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Stairs_22" parent="." instance=ExtResource("32_q37ua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Stairs_42" parent="." instance=ExtResource("33_u3xxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Stairs_4Wide2" parent="." instance=ExtResource("34_jg7ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Stairs_4WideTall2" parent="." instance=ExtResource("35_aq3xv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Window_Thin2" parent="." instance=ExtResource("36_vulov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_Window_Wide2" parent="." instance=ExtResource("37_mij7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
+
+[node name="Platform_X2" parent="." instance=ExtResource("38_8w5j8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
