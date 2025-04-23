@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dcdkghwmlv3hg"]
+[gd_scene load_steps=32 format=4 uid="uid://dcdkghwmlv3hg"]
 
 [ext_resource type="Script" uid="uid://b6kmf0fs2dnir" path="res://script/player_interface.gd" id="1_m5mgf"]
 [ext_resource type="Script" uid="uid://bildnriqltubr" path="res://script/RTS_Camera.gd" id="2_emkrx"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b5jt7r8d4vxj8" path="res://assets/image/kenney-spacekit/hangar_large_b.tscn" id="2_m5mgf"]
 [ext_resource type="Script" uid="uid://1rfojkmage1d" path="res://addons/zylann.hterrain/hterrain.gd" id="4_tmyho"]
 [ext_resource type="PackedScene" uid="uid://lnucfn67od1o" path="res://scene/testunit.tscn" id="5_emkrx"]
-[ext_resource type="Resource" uid="uid://bom1s70oimuoc" path="res://assets/Terrain/data.hterrain" id="5_hnm4a"]
+[ext_resource type="Resource" path="res://assets/Terrain/data.hterrain" id="5_hnm4a"]
 [ext_resource type="Texture2D" uid="uid://c0j5f00jg54qg" path="res://assets/image/textures/Prototype/texture_10.png" id="6_0tg4p"]
 [ext_resource type="Script" uid="uid://cqnlv7skrfl6d" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="6_e4vd1"]
 [ext_resource type="Texture2D" uid="uid://b8k0knft3rjoq" path="res://assets/image/textures/Ground/dirt/brown_dirt_1-4K/4K-dirt_1.jpg-diffuse.jpg" id="7_1402k"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://3njiq2rbjgte" path="res://assets/image/textures/Ground/dirt/brown_dirt_1-4K/4K-dirt_1.jpg-normal.jpg" id="10_vme25"]
 [ext_resource type="Texture2D" uid="uid://l1houirtefi6" path="res://assets/image/textures/Ground/mud/brown_mud_dry/brown_mud_dry_nor_gl_4k.jpg" id="11_oiypb"]
 [ext_resource type="Texture2D" uid="uid://pbsnd3gd4vcw" path="res://assets/image/textures/Ground/mud_leaves/brown_mud_leaves_01/brown_mud_leaves_01_nor_gl_4k.jpg" id="12_a81yy"]
+[ext_resource type="PackedScene" uid="uid://btqyjtcbkow2x" path="res://scene/RocketTurret.tscn" id="17_e4vd1"]
+[ext_resource type="PackedScene" uid="uid://bv1c2bf0pbv81" path="res://scene/kaserne.tscn" id="18_1402k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0tg4p"]
 size = Vector3(50, 2.74274, 35)
@@ -188,3 +190,21 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 
 [node name="astronautB4" parent="." instance=ExtResource("5_emkrx")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.09193, 0, 1.92432)
+
+[node name="RocketTurret" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("17_e4vd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54255, -0.00337201, 3.71855)
+Target = NodePath("../RocketTurretTarget")
+
+[node name="RocketTurret2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("17_e4vd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3093, -0.00674402, -2.77927)
+Target = NodePath("../RocketTurretTarget")
+
+[node name="RocketTurret3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("17_e4vd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.894, -0.010116, -1.51729)
+Target = NodePath("../RocketTurretTarget")
+
+[node name="RocketTurretTarget" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.111, 3.32803, 7.39175)
+
+[node name="Node3D" parent="." instance=ExtResource("18_1402k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1272, 0, -30.4099)
