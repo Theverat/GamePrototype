@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://btqyjtcbkow2x"]
 
-[ext_resource type="Script" uid="uid://dp3okuiy10j08" path="res://scene/RocketTurret.cs" id="1_j8skk"]
+[ext_resource type="Script" uid="uid://dp3okuiy10j08" path="res://script/RocketTurret.cs" id="1_j8skk"]
 [ext_resource type="PackedScene" uid="uid://dtxqa2qjgllub" path="res://assets/buildings/Turrets/TurretBase_01.blend" id="1_klvr7"]
 [ext_resource type="PackedScene" uid="uid://b7g1oeu1t1uf4" path="res://assets/buildings/Turrets/RocketTurret_CentralPillar_01.blend" id="2_vbet6"]
 [ext_resource type="PackedScene" uid="uid://ckxmgo8v7161c" path="res://assets/buildings/Turrets/RocketTurret_RocketTubes_01.blend" id="3_j8skk"]
