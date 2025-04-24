@@ -1,6 +1,5 @@
-[gd_scene load_steps=40 format=3 uid="uid://da3djh5do3pyh"]
+[gd_scene load_steps=39 format=3 uid="uid://da3djh5do3pyh"]
 
-[ext_resource type="Script" uid="uid://dti27h8brp73s" path="res://addons/grid_Distributor/grid_distributor.gd" id="1_pch0s"]
 [ext_resource type="PackedScene" uid="uid://ba68ykvntvikj" path="res://assets/Terrain/Space_Station/Door_DarkMetal.gltf" id="1_tnr7e"]
 [ext_resource type="PackedScene" uid="uid://b8xkyr3pv58bu" path="res://assets/Terrain/Space_Station/Door_Frame_A.gltf" id="2_pch0s"]
 [ext_resource type="PackedScene" uid="uid://duvqoti5mvagv" path="res://assets/Terrain/Space_Station/Door_Frame_Square.gltf" id="3_065et"]
@@ -41,7 +40,6 @@
 [ext_resource type="PackedScene" uid="uid://yten1wpls8cp" path="res://assets/Terrain/Space_Station/Platform_X.gltf" id="38_8w5j8"]
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_pch0s")
 
 [node name="Door_DarkMetal2" parent="." instance=ExtResource("1_tnr7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221008, 0, 3.38574)
