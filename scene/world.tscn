@@ -152,7 +152,7 @@ mesh = SubResource("ArrayMesh_l0ymk")
 skeleton = NodePath("")
 
 [node name="astronautB2" parent="." instance=ExtResource("5_emkrx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01316, -1.20158)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0414857, 1.01316, -1.36503)
 visible = false
 
 [node name="astronautB3" parent="." instance=ExtResource("5_emkrx")]
@@ -229,5 +229,11 @@ shape = SubResource("SphereShape3D_y3jn2")
 material_override = SubResource("StandardMaterial3D_yur6x")
 mesh = SubResource("SphereMesh_7ghph")
 
-[node name="testmonster" parent="." instance=ExtResource("18_a7xoa")]
-transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0, 0.553488, 0)
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+
+[node name="testmonster" parent="MultiMeshInstance3D" instance=ExtResource("18_a7xoa")]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, -0.615352, 0.553488, -0.24231)
+
+[node name="testmonster2" parent="MultiMeshInstance3D" instance=ExtResource("18_a7xoa")]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 1.95502, 0.553488, 0.289475)
+visible = false
