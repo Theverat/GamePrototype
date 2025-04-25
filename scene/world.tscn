@@ -151,14 +151,56 @@ visible = false
 mesh = SubResource("ArrayMesh_l0ymk")
 skeleton = NodePath("")
 
+[node name="astronautB2" parent="." instance=ExtResource("5_emkrx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01316, -1.20158)
+visible = false
+
+[node name="astronautB3" parent="." instance=ExtResource("5_emkrx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0547496, 4.89846e-07, 4.41998)
+visible = false
+
+[node name="astronautB4" parent="." instance=ExtResource("5_emkrx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.25876, 4.77142e-07, 1.92432)
+visible = false
+
+[node name="RocketTurret" parent="." instance=ExtResource("17_e4vd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54255, -0.00337201, 3.71855)
+visible = false
+
+[node name="RocketTurret2" parent="." instance=ExtResource("17_e4vd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3093, -0.00674402, -2.77927)
+visible = false
+
+[node name="RocketTurret3" parent="." instance=ExtResource("17_e4vd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.894, -0.010116, -1.51729)
+visible = false
+
+[node name="Node3D" parent="." instance=ExtResource("18_1402k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1272, 0, -30.4099)
+visible = false
+
+[node name="GatlingTurret" parent="." instance=ExtResource("19_1402k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.8716, 0, 14.0486)
+visible = false
+
+[node name="GatlingTurret2" parent="." instance=ExtResource("19_1402k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3861, 0, 5.32141)
+visible = false
+
+[node name="Node3D2" parent="." instance=ExtResource("20_ol7uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4974, 0, 29.0738)
+visible = false
+
 [node name="hangar_largeB" parent="." instance=ExtResource("2_m5mgf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9976, 0.0957921, -2.15228)
+visible = false
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="hangar_largeB"]
 radius = 1.55
 
 [node name="Avoidance_Block" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.69943, 0.0155029, 0)
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Avoidance_Block"]
 
@@ -175,6 +217,7 @@ shape = SubResource("BoxShape3D_yur6x")
 
 [node name="Physics_Block" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9053, 1.73938, -4.73547)
+visible = false
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Physics_Block"]
 mass = 0.4
@@ -186,47 +229,5 @@ shape = SubResource("SphereShape3D_y3jn2")
 material_override = SubResource("StandardMaterial3D_yur6x")
 mesh = SubResource("SphereMesh_7ghph")
 
-[node name="astronautB2" parent="." instance=ExtResource("5_emkrx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01316, 0)
-visible = false
-
-[node name="astronautB3" parent="." instance=ExtResource("5_emkrx")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0547496, 4.89846e-07, 4.41998)
-visible = false
-
-[node name="astronautB4" parent="." instance=ExtResource("5_emkrx")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.25288, 4.77142e-07, 1.92432)
-visible = false
-
-[node name="RocketTurret" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("17_e4vd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54255, -0.00337201, 3.71855)
-Target = NodePath("../Monster/RocketTurretTarget")
-
-[node name="Monster" parent="." instance=ExtResource("18_a7xoa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.51792, 4.89195, 14.4984)
-
-[node name="RocketTurretTarget" type="Marker3D" parent="Monster"]
-transform = Transform3D(0.914374, 0.40487, 0, -0.40487, 0.914374, 0, 0, 0, 1, 36.8403, 11.3771, 3.04777)
-
-[node name="RocketTurret2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("17_e4vd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3093, -0.00674402, -2.77927)
-Target = NodePath("../Monster/RocketTurretTarget")
-
-[node name="RocketTurret3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("17_e4vd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.894, -0.010116, -1.51729)
-Target = NodePath("../Monster/RocketTurretTarget")
-
-[node name="Node3D" parent="." instance=ExtResource("18_1402k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1272, 0, -30.4099)
-
-[node name="GatlingTurret" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("19_1402k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.8716, 0, 14.0486)
-Target = NodePath("../Monster/RocketTurretTarget")
-
-[node name="GatlingTurret2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("19_1402k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3861, 0, 5.32141)
-Target = NodePath("../Monster/RocketTurretTarget")
-
-[node name="Node3D2" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("20_ol7uo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4974, 0, 29.0738)
-Target = NodePath("../Monster/RocketTurretTarget")
+[node name="testmonster" parent="." instance=ExtResource("18_a7xoa")]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 0, 0.553488, 0)
