@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://be53kkeigbfgx"]
+
+[ext_resource type="Script" uid="uid://dbg5fbkec1aot" path="res://scene/testunit.gd" id="1_td1dc"]
+[ext_resource type="PackedScene" uid="uid://ch42rmt5hvmbv" path="res://assets/Monster/Monster_01-autorig_v.0.2.glb" id="2_qgxu7"]
+[ext_resource type="Texture2D" uid="uid://cwx6vqlh5fguu" path="res://assets/image/ui/ui_select_dragbox01.png" id="3_c3hjf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_td1dc"]
+
+[node name="astronautB2" type="CharacterBody3D"]
+script = ExtResource("1_td1dc")
+
+[node name="unit_graphics" type="Node3D" parent="."]
+
+[node name="Monster_01-autorig_v_0_2" parent="unit_graphics" instance=ExtResource("2_qgxu7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3.79954, 0, 0, 0, 2.90698, 0, 0, 0, 3.29294, 0.107567, 1.73046, -0.479919)
+shape = SubResource("BoxShape3D_td1dc")
+
+[node name="selected" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0158424, 0)
+visible = false
+modulate = Color(0.490196, 1, 1, 0.47451)
+pixel_size = 0.04
+axis = 1
+texture = ExtResource("3_c3hjf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+path_height_offset = 0.5
+avoidance_enabled = true
+radius = 0.8
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
