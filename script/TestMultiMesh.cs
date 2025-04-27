@@ -1,4 +1,6 @@
 using Godot;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public partial class TestMultiMesh : MultiMeshInstance3D
 {
@@ -28,20 +30,76 @@ public partial class TestMultiMesh : MultiMeshInstance3D
         }
     }
 
+    private enum Method
+    {
+        SINGLETHREAD,
+        MULTITHREAD_1,
+        MULTITHREAD_2,
+    }
+
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta) {
         ulong processStart = Time.GetTicksMsec();
         float elapsed = (processStart - startTime) / 1000f;
 
+        List<Transform3D> transforms = [];
+
+        // It seems that Multimesh.GetInstanceTransform() is not thread safe, so we have to make this expensive copy
         for (int i = 0; i < Multimesh.InstanceCount; i++) {
+            transforms.Add(Multimesh.GetInstanceTransform(i));
+        }
+
+        static void update(int i, float elapsed, List<Transform3D> transforms) {
             int x = i % gridSize;
             int z = i / gridSize;
 
-            var transform = Multimesh.GetInstanceTransform(i);
+            //var transform = Multimesh.GetInstanceTransform(i);
+            var transform = transforms[i];
+
             transform.Origin.Y = Mathf.Sin(x * 0.3f + elapsed) + Mathf.Cos(z * 0.6f + elapsed * 0.7f);
-            //var origin = transform.Origin;
-            //transform.Origin = new Vector3(origin.X, Mathf.Sin(elapsed), origin.Z);
-            Multimesh.SetInstanceTransform(i, transform);
+            transforms[i] = transform;
+
+            //Multimesh.SetInstanceTransform(i, transform);
+        }
+
+        // -----------------------------------------------------
+        var method = Method.SINGLETHREAD;
+
+        if (method == Method.SINGLETHREAD) {
+            for (int i = 0; i < Multimesh.InstanceCount; i++) {
+                update(i, elapsed, transforms);
+            }
+        }
+        else if (method == Method.MULTITHREAD_1) {
+            Parallel.For(0, Multimesh.InstanceCount, i => {
+                update(i, elapsed, transforms);
+            });
+        }
+        else if (method == Method.MULTITHREAD_2) {
+            var taskCount = 16;
+            var tasks = new Task[taskCount];
+
+            for (int taskNumber = 0; taskNumber < taskCount; taskNumber++) {
+                // capturing taskNumber in lambda wouldn't work correctly
+                int taskNumberCopy = taskNumber;
+
+                tasks[taskNumber] = Task.Factory.StartNew(
+                    () => {
+                        for (int i = Multimesh.InstanceCount * taskNumberCopy / taskCount;
+                            i < Multimesh.InstanceCount * (taskNumberCopy + 1) / taskCount;
+                            i++) {
+                            update(i, elapsed, transforms);
+                        }
+                    });
+            }
+
+            Task.WaitAll(tasks);
+        }
+        // -----------------------------------------------------
+
+        // It seems that Multimesh.GetInstanceTransform() is not thread safe, so we have to make this expensive copy
+        for (int i = 0; i < Multimesh.InstanceCount; i++) {
+            Multimesh.SetInstanceTransform(i, transforms[i]);
         }
 
         GD.Print($"Instance Transform took {Time.GetTicksMsec() - processStart} ms");
