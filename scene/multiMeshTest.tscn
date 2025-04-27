@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8hs1ycuhd3f8"]
+
+[ext_resource type="ArrayMesh" uid="uid://b2dswkx3aa1dl" path="res://assets/units/TestSimpleUnit/SimpleUnitTorso.obj" id="1_yjkyc"]
+[ext_resource type="Script" uid="uid://cr1smddxuyjic" path="res://script/TestMultiMesh.cs" id="2_766nq"]
+[ext_resource type="PackedScene" uid="uid://dyl7wnvfepkeo" path="res://scene/RTSCam.tscn" id="3_766nq"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_ywn1n"]
+transform_format = 1
+mesh = ExtResource("1_yjkyc")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_ywn1n")
+script = ExtResource("2_766nq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.901546, -0.432684, 0, 0.14937, 0.311228, 0.938523, -0.406084, -0.846122, 0.345216, -11.5556, 9.00984, 0)
+
+[node name="camera_base" parent="." instance=ExtResource("3_766nq")]
+transform = Transform3D(0.859763, 0, -0.510693, 0, 1, 0, 0.510693, 0, 0.859763, -2.59254, 14.9335, 10.1763)
