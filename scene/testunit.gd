@@ -23,6 +23,8 @@ func _ready() -> void:
 	nav_path_timer.timeout.connect(nav_path_timer_update)
 	deselect()
 
+
+
 func create_squad() -> void:
 	if not is_instance_valid(self):
 		return
