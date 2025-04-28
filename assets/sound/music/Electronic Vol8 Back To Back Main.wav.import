@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blqidcnxu82mm"
+path="res://.godot/imported/Electronic Vol8 Back To Back Main.wav-09cbe29137206d341b2fb9c8e0d67db6.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/Electronic Vol8 Back To Back Main.wav"
+dest_files=["res://.godot/imported/Electronic Vol8 Back To Back Main.wav-09cbe29137206d341b2fb9c8e0d67db6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

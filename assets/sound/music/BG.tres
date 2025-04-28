@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="OvaniSong" load_steps=7 format=3 uid="uid://7iwni8nw27uq"]
+
+[ext_resource type="AudioStream" uid="uid://d28ohf0un4q73" path="res://assets/sound/music/Electronic Vol8 Back To Back Intensity 1.wav" id="1_3fd07"]
+[ext_resource type="Script" uid="uid://ytk0ocf3se2v" path="res://addons/OvaniPlugin/OvaniSong.gd" id="1_lvkes"]
+[ext_resource type="AudioStream" uid="uid://dhnog6gas8yb5" path="res://assets/sound/music/Electronic Vol8 Back To Back Intensity 2.wav" id="2_dl7vu"]
+[ext_resource type="AudioStream" uid="uid://blqidcnxu82mm" path="res://assets/sound/music/Electronic Vol8 Back To Back Main.wav" id="3_xqb6s"]
+[ext_resource type="AudioStream" uid="uid://cn0r77y1byyvx" path="res://assets/sound/music/Electronic Vol8 Back To Back Cut 30.wav" id="4_ojxqv"]
+[ext_resource type="AudioStream" uid="uid://oho54uj0fn1j" path="res://assets/sound/music/Electronic Vol8 Back To Back Cut 60.wav" id="5_2gwdv"]
+
+[resource]
+script = ExtResource("1_lvkes")
+Intensity1 = ExtResource("1_3fd07")
+Intensity2 = ExtResource("2_dl7vu")
+Intensity3 = ExtResource("3_xqb6s")
+Loop30 = ExtResource("4_ojxqv")
+Loop60 = ExtResource("5_2gwdv")
+ReverbTail = 3.429
+SongMode = 0
+metadata/_custom_type_script = "uid://ytk0ocf3se2v"

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dfijws8mse10v"
+path="res://.godot/imported/Electronic Vol8 Cargo Cut 30.wav-858ba3ad475463bc668994c40772d26d.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/Cargo (RT 2.543)/Electronic Vol8 Cargo Cut 30.wav"
+dest_files=["res://.godot/imported/Electronic Vol8 Cargo Cut 30.wav-858ba3ad475463bc668994c40772d26d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

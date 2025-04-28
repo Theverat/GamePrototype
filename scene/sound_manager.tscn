@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://btlmocffh72pu"]
+
+[ext_resource type="Script" uid="uid://l1pp7puohc82" path="res://addons/OvaniPlugin/OvaniPlayer.gd" id="1_2xa14"]
+[ext_resource type="Script" uid="uid://ytk0ocf3se2v" path="res://addons/OvaniPlugin/OvaniSong.gd" id="2_6d0mt"]
+[ext_resource type="Resource" uid="uid://7iwni8nw27uq" path="res://assets/sound/music/BG.tres" id="3_5c1a0"]
+[ext_resource type="Resource" uid="uid://cbfuaobsqotk2" path="res://assets/sound/music/Cargo (RT 2.543)/bg2.tres" id="4_6d0mt"]
+
+[node name="Sound_Manager" type="Node"]
+
+[node name="OvaniPlayer" type="Node" parent="."]
+script = ExtResource("1_2xa14")
+QueuedSongs = Array[ExtResource("2_6d0mt")]([ExtResource("3_5c1a0"), ExtResource("4_6d0mt")])
+Volume = -20.207
+metadata/_custom_type_script = "uid://l1pp7puohc82"

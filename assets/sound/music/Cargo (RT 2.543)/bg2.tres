@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="OvaniSong" load_steps=7 format=3 uid="uid://cbfuaobsqotk2"]
+
+[ext_resource type="AudioStream" uid="uid://cl41r00pil8e" path="res://assets/sound/music/Cargo (RT 2.543)/Electronic Vol8 Cargo Intensity 1.wav" id="1_4m5xn"]
+[ext_resource type="Script" uid="uid://ytk0ocf3se2v" path="res://addons/OvaniPlugin/OvaniSong.gd" id="1_u3hsh"]
+[ext_resource type="AudioStream" uid="uid://dh861su6l2pcy" path="res://assets/sound/music/Cargo (RT 2.543)/Electronic Vol8 Cargo Intensity 2.wav" id="2_va1mk"]
+[ext_resource type="AudioStream" uid="uid://bbaabyh4q7vsf" path="res://assets/sound/music/Cargo (RT 2.543)/Electronic Vol8 Cargo Main.wav" id="3_xmqqp"]
+[ext_resource type="AudioStream" uid="uid://dfijws8mse10v" path="res://assets/sound/music/Cargo (RT 2.543)/Electronic Vol8 Cargo Cut 30.wav" id="4_ytixn"]
+[ext_resource type="AudioStream" uid="uid://dgvjupvpsk6gj" path="res://assets/sound/music/Cargo (RT 2.543)/Electronic Vol8 Cargo Cut 60.wav" id="5_i41sg"]
+
+[resource]
+script = ExtResource("1_u3hsh")
+Intensity1 = ExtResource("1_4m5xn")
+Intensity2 = ExtResource("2_va1mk")
+Intensity3 = ExtResource("3_xmqqp")
+Loop30 = ExtResource("4_ytixn")
+Loop60 = ExtResource("5_i41sg")
+ReverbTail = 2.543
+SongMode = 0
+metadata/_custom_type_script = "uid://ytk0ocf3se2v"

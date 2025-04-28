@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cn0r77y1byyvx"
+path="res://.godot/imported/Electronic Vol8 Back To Back Cut 30.wav-506a46274dd20a952bf64b5009a03b62.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/Electronic Vol8 Back To Back Cut 30.wav"
+dest_files=["res://.godot/imported/Electronic Vol8 Back To Back Cut 30.wav-506a46274dd20a952bf64b5009a03b62.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

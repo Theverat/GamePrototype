@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbaabyh4q7vsf"
+path="res://.godot/imported/Electronic Vol8 Cargo Main.wav-20103e120384692fd39d514103be3548.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/Cargo (RT 2.543)/Electronic Vol8 Cargo Main.wav"
+dest_files=["res://.godot/imported/Electronic Vol8 Cargo Main.wav-20103e120384692fd39d514103be3548.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

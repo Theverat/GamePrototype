@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhnog6gas8yb5"
+path="res://.godot/imported/Electronic Vol8 Back To Back Intensity 2.wav-f629058b4097eb8317e9e8ffea8b4a46.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/Electronic Vol8 Back To Back Intensity 2.wav"
+dest_files=["res://.godot/imported/Electronic Vol8 Back To Back Intensity 2.wav-f629058b4097eb8317e9e8ffea8b4a46.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
