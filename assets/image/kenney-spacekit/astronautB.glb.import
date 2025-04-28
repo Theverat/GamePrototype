@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cyls77s2tmmfg"
-path="res://.godot/imported/astronautB.glb-94200475aa91a968e1ee5c06855282cb.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/image/kenney-spacekit/astronautB.glb"
-dest_files=["res://.godot/imported/astronautB.glb-94200475aa91a968e1ee5c06855282cb.scn"]
 
 [params]
 

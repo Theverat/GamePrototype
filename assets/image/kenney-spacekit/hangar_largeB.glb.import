@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cogveyejd1tu4"
-path="res://.godot/imported/hangar_largeB.glb-e0975dd7a93b3ac07227a7a61236fbb5.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/image/kenney-spacekit/hangar_largeB.glb"
-dest_files=["res://.godot/imported/hangar_largeB.glb-e0975dd7a93b3ac07227a7a61236fbb5.scn"]
 
 [params]
 
