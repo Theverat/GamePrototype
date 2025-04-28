@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dhsohn31jflua"
+path.s3tc="res://.godot/imported/Synth_v.0_Ch50_1001_Emissive.png-deb3bd8c7b65a752061e6798aac8d970.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "6eac41beab8dd9bde3d1d291c28df777"
+}
+
+[deps]
+
+source_file="res://assets/units/TestSoldier/Synth_v.0_Ch50_1001_Emissive.png"
+dest_files=["res://.godot/imported/Synth_v.0_Ch50_1001_Emissive.png-deb3bd8c7b65a752061e6798aac8d970.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

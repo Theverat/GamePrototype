@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfgir14sn7m1p"]
+
+[ext_resource type="Script" uid="uid://bh54b21akv788" path="res://scene/ui_controller.gd" id="1_ewn2j"]
+
+[node name="ui_controller" type="Control"]
+custom_minimum_size = Vector2(1920, 1024)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -6.0
+offset_right = 915.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ewn2j")
+
+[node name="Build Menu" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 1704.0
+offset_top = 915.0
+offset_right = 1891.0
+offset_bottom = 1016.0
+
+[node name="Spalte 1" type="VBoxContainer" parent="Build Menu"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Build Menu/Spalte 1"]
+layout_mode = 2
+text = "Spawn Unit"
+
+[node name="Button2" type="Button" parent="Build Menu/Spalte 1"]
+layout_mode = 2
+text = "Test"
+
+[node name="Button3" type="Button" parent="Build Menu/Spalte 1"]
+layout_mode = 2
+text = "Test"
+
+[node name="Spalte 2" type="VBoxContainer" parent="Build Menu"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Build Menu/Spalte 2"]
+layout_mode = 2
+text = "Test"
+
+[node name="Button3" type="Button" parent="Build Menu/Spalte 2"]
+layout_mode = 2
+text = "Test"
+
+[node name="Button4" type="Button" parent="Build Menu/Spalte 2"]
+layout_mode = 2
+text = "Test"
+
+[node name="Spalte 3" type="VBoxContainer" parent="Build Menu"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Build Menu/Spalte 3"]
+layout_mode = 2
+text = "Test"
+
+[node name="Button3" type="Button" parent="Build Menu/Spalte 3"]
+layout_mode = 2
+text = "Test"
+
+[node name="Button4" type="Button" parent="Build Menu/Spalte 3"]
+layout_mode = 2
+text = "Test"
+
+[connection signal="pressed" from="Build Menu/Spalte 1/Button" to="." method="_on_button_pressed"]

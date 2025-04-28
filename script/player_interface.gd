@@ -24,18 +24,18 @@ func unit_entered(unit:CharacterBody3D) -> void:
 	var unit_id:int = unit.get_instance_id()
 	if BoxSelectionUnits_Visible.keys().has(unit_id):return
 	BoxSelectionUnits_Visible[unit_id] = unit
-	print("unit entered: ", unit, " id:", unit_id, " unit_node:", unit.get_parent())
-	debug_units_visible()
+	#print("unit entered: ", unit, " id:", unit_id, " unit_node:", unit.get_parent())
+	#debug_units_visible()
 	
 func unit_exited(unit:CharacterBody3D) -> void:
 	var unit_id:int = unit.get_instance_id()
 	if !BoxSelectionUnits_Visible.keys().has(unit_id):return
 	BoxSelectionUnits_Visible.erase(unit_id)
-	print("unit exited: ", unit, " id:", unit_id, " unit_node:", unit.get_parent())
+	#print("unit exited: ", unit, " id:", unit_id, " unit_node:", unit.get_parent())
 	
 	
-func debug_units_visible() -> void:
-	print(BoxSelectionUnits_Visible)
+#func debug_units_visible() -> void:
+	#print(BoxSelectionUnits_Visible)
 func initialize_interface() -> void:
 	ui_dragbox.visible = false
 	player_camera_visibleunits_Area3D.body_entered.connect(unit_entered)
@@ -59,7 +59,7 @@ func cast_selection() -> void:
 				unit.selected()
 			else:
 				unit.deselect()
-	print(BoxSelectionUnits_Visible)
+	#print(BoxSelectionUnits_Visible)
 	pass
 
 

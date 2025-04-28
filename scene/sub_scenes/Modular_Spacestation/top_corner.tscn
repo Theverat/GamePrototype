@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://75vs33uir14e"]
+
+[ext_resource type="Material" uid="uid://c0yoscws01g34" path="res://assets/Textures/prototyp01.tres" id="1_gjl3x"]
+
+[node name="TopCorner" type="CSGCombiner3D"]
+transform = Transform3D(0.998264, 0, 0, 0, 0.998264, 0, 0, 0, 0.998264, 0, 0, 0)
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -11.7304, 9.50974, -20.2454)
+size = Vector3(20, 1, 20)
+material = ExtResource("1_gjl3x")
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2.22014, 21.0721, -20.2457)
+size = Vector3(1, 20, 20)
+material = ExtResource("1_gjl3x")
+
+[node name="Trim" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -12.2229, 20.5681, -10.2454)
+polygon = PackedVector2Array(0, 0, 0, 3, 1.05816, 0.993296, 1.05463, -0.00481415)
+depth = 20.0
+material = ExtResource("1_gjl3x")

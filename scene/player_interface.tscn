@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://merx2rr8j18v"]
+
+[ext_resource type="Script" uid="uid://b6kmf0fs2dnir" path="res://script/player_interface.gd" id="1_fkg3j"]
+[ext_resource type="Texture2D" uid="uid://dswhun35h01ea" path="res://assets/image/ui/ui_select_dragbox04.png" id="2_5jjhg"]
+[ext_resource type="Script" uid="uid://bildnriqltubr" path="res://script/RTS_Camera.gd" id="3_lexre"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tg4p"]
+size = Vector3(50, 2.74274, 35)
+
+[node name="Player_Interface" type="Node2D"]
+script = ExtResource("1_fkg3j")
+
+[node name="ui_dragbox" type="NinePatchRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5jjhg")
+region_rect = Rect2(0, 0, 12, 11.9551)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 99.0
+offset_top = 1084.0
+offset_right = 266.0
+offset_bottom = 1115.0
+text = "Player Test Interface"
+
+[node name="camera_base" type="Node3D" parent="."]
+script = ExtResource("3_lexre")
+camera_zoom_speed = 61.0
+
+[node name="camera_socket" type="Node3D" parent="camera_base"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3, 5.681)
+
+[node name="Camera3D" type="Camera3D" parent="camera_base/camera_socket"]
+
+[node name="visibleunits_area3D" type="Area3D" parent="camera_base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="camera_base/visibleunits_area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89823, 0)
+shape = SubResource("BoxShape3D_0tg4p")

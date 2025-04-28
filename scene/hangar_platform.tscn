@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsy2l07x3dx8t"]
+
+[ext_resource type="Script" uid="uid://dtaqyh3wjxt3h" path="res://hangar_platform_builder.gd" id="1_cqogp"]
+[ext_resource type="PackedScene" uid="uid://yten1wpls8cp" path="res://assets/Terrain/Space_Station/Platform_X.gltf" id="2_hhd0e"]
+[ext_resource type="Texture2D" uid="uid://263654afewff" path="res://assets/Terrain/Space_Station/Materials/Photograph_detail_of_worn_clay_tiles_with_.jpeg" id="3_mj3pl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17e5t"]
+albedo_texture = ExtResource("3_mj3pl")
+uv1_scale = Vector3(8.2, 8.2, 8.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_455st"]
+size = Vector3(1, 0.01, 1)
+
+[node name="HangarPlatform" type="StaticBody3D"]
+script = ExtResource("1_cqogp")
+tile_scene = ExtResource("2_hhd0e")
+num_x = null
+num_y = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_17e5t")
+mesh = SubResource("BoxMesh_455st")
