@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cs728bc5i45wc"]
+[gd_scene load_steps=15 format=3 uid="uid://cs728bc5i45wc"]
 
 [ext_resource type="Script" uid="uid://dulljhk68l5hb" path="res://scene/test_environment.gd" id="1_kirra"]
 [ext_resource type="PackedScene" uid="uid://merx2rr8j18v" path="res://scene/player_interface.tscn" id="1_m0x7q"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://cmoxdu5tnx5wh" path="res://assets/Textures/MI_Trim_01.tres" id="3_l5g2p"]
 [ext_resource type="Script" uid="uid://bildnriqltubr" path="res://script/RTS_Camera.gd" id="5_i3w0s"]
 [ext_resource type="PackedScene" uid="uid://btlmocffh72pu" path="res://scene/sound_manager.tscn" id="9_r2x2m"]
+[ext_resource type="PackedScene" uid="uid://bo7l1w8y2l6po" path="res://scene/sub_scenes/speaker.tscn" id="10_xlaeq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i3w0s"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -110,6 +111,11 @@ polygon = PackedVector2Array(0, 0, 0, 3, 1.05816, 0.993296, 1.05463, -0.00481415
 depth = 204.45
 material = ExtResource("1_uejnu")
 
+[node name="Wall2" type="CSGBox3D" parent="NavigationRegion3D/Spaceship/Walls-Floor/Side_y"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3742, 29.4796, 103.273)
+size = Vector3(4, 59.939, 37)
+material = ExtResource("1_uejnu")
+
 [node name="Side_x" type="CSGCombiner3D" parent="NavigationRegion3D/Spaceship/Walls-Floor"]
 transform = Transform3D(-0.998264, 0, -8.7271e-08, 0, 0.998264, 0, 8.7271e-08, 0, -0.998264, 180.336, 0, -397.346)
 
@@ -167,3 +173,6 @@ waypoint_path = NodePath("../Marker3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -90)
 
 [node name="Sound_Manager" parent="." instance=ExtResource("9_r2x2m")]
+
+[node name="Speaker" parent="." instance=ExtResource("10_xlaeq")]
+transform = Transform3D(-1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, 8, 7, 138)
