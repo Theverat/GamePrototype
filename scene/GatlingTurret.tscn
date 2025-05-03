@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://6druwv3j8l2c"]
 
-[ext_resource type="Script" uid="uid://dp3okuiy10j08" path="res://script/RocketTurret.cs" id="1_03h8t"]
+[ext_resource type="Script" uid="uid://d10fy3poq38au" path="res://script/turret.gd" id="1_03h8t"]
 [ext_resource type="PackedScene" uid="uid://dtxqa2qjgllub" path="res://assets/buildings/Turrets/TurretBase_01.blend" id="2_0krec"]
 [ext_resource type="PackedScene" uid="uid://dn24dmhkv7wxe" path="res://assets/buildings/Turrets/GatlingTurretSimon_CenterPillar.blend" id="3_iips0"]
 [ext_resource type="PackedScene" uid="uid://dwex1rfsdhpaw" path="res://assets/buildings/Turrets/GatlingTurretSimon_GunBarrel.blend" id="4_qucgh"]
 
-[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("CentralPillar", "RocketTubes")]
+[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar") groups=["ally"]]
 script = ExtResource("1_03h8t")
-CentralPillar = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar")
-RocketTubes = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel")
+center_pillar = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar")
 
 [node name="TurretBase_01" parent="." instance=ExtResource("2_0krec")]
 

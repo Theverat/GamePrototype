@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c57qsoaaqqnsw"]
+[gd_scene load_steps=8 format=3 uid="uid://c57qsoaaqqnsw"]
 
 [ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/Portal.tscn" id="1_h1bjm"]
+[ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/GatlingTurret.tscn" id="2_lksu8"]
+[ext_resource type="PackedScene" uid="uid://lnucfn67od1o" path="res://scene/testunit.tscn" id="3_ckyo8"]
+[ext_resource type="PackedScene" uid="uid://bcqgnmsnee6hj" path="res://scene/rts_camera.tscn" id="4_ualwm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyfww"]
 albedo_color = Color(0.188371, 0.188371, 0.188371, 1)
@@ -9,11 +12,40 @@ albedo_color = Color(0.188371, 0.188371, 0.188371, 1)
 material = SubResource("StandardMaterial3D_uyfww")
 size = Vector3(100, 1, 100)
 
-[node name="World2" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ckyo8"]
+size = Vector3(100, 1, 100)
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
-mesh = SubResource("BoxMesh_h1bjm")
+[node name="World2" type="Node3D"]
 
 [node name="Portal" parent="." instance=ExtResource("1_h1bjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 0, -0.294641)
+
+[node name="GatlingTurret" parent="." instance=ExtResource("2_lksu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7451, -0.0183067, 41.9788)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
+mesh = SubResource("BoxMesh_h1bjm")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
+shape = SubResource("BoxShape3D_ckyo8")
+
+[node name="testUnit2" parent="." instance=ExtResource("3_ckyo8")]
+transform = Transform3D(0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, -32.5427, -0.0143814, 9.76942)
+
+[node name="testUnit2" parent="testUnit2" instance=ExtResource("3_ckyo8")]
+transform = Transform3D(0.978147, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978147, 16.1363, -0.0143814, 6.61624)
+
+[node name="testUnit2" parent="testUnit2/testUnit2" instance=ExtResource("3_ckyo8")]
+transform = Transform3D(0.978147, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978147, 15.482, -0.0143814, 4.48629)
+
+[node name="camera_base" parent="." instance=ExtResource("4_ualwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15557, 13.8804, 64.6897)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.471566, -0.643627, 0.602801, 0, 0.68358, 0.729876, -0.881831, 0.344185, -0.322353, 0, 38.8362, 0)
+shadow_enabled = true
