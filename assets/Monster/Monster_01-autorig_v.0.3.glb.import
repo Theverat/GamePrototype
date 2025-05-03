@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cb70ky5msflww"
-valid=false
+path="res://.godot/imported/Monster_01-autorig_v.0.3.glb-084109a6447aa544f2388701397a796d.scn"
 
 [deps]
 
 source_file="res://assets/Monster/Monster_01-autorig_v.0.3.glb"
+dest_files=["res://.godot/imported/Monster_01-autorig_v.0.3.glb-084109a6447aa544f2388701397a796d.scn"]
 
 [params]
 

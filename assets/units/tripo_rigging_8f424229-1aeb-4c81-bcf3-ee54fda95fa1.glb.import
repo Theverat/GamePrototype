@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b6u68okwnjb7f"
-valid=false
+path="res://.godot/imported/tripo_rigging_8f424229-1aeb-4c81-bcf3-ee54fda95fa1.glb-38233c50de502cf9728fb3ad77112a5f.scn"
 
 [deps]
 
 source_file="res://assets/units/tripo_rigging_8f424229-1aeb-4c81-bcf3-ee54fda95fa1.glb"
+dest_files=["res://.godot/imported/tripo_rigging_8f424229-1aeb-4c81-bcf3-ee54fda95fa1.glb-38233c50de502cf9728fb3ad77112a5f.scn"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cs728bc5i45wc"]
+[gd_scene load_steps=16 format=3 uid="uid://cs728bc5i45wc"]
 
 [ext_resource type="Script" uid="uid://dulljhk68l5hb" path="res://scene/test_environment.gd" id="1_kirra"]
 [ext_resource type="PackedScene" uid="uid://merx2rr8j18v" path="res://scene/player_interface.tscn" id="1_m0x7q"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bildnriqltubr" path="res://script/RTS_Camera.gd" id="5_i3w0s"]
 [ext_resource type="PackedScene" uid="uid://btlmocffh72pu" path="res://scene/sound_manager.tscn" id="9_r2x2m"]
 [ext_resource type="PackedScene" uid="uid://bo7l1w8y2l6po" path="res://scene/sub_scenes/speaker.tscn" id="10_xlaeq"]
+[ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/Portal.tscn" id="11_kd1k6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i3w0s"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -176,3 +177,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -90)
 
 [node name="Speaker" parent="." instance=ExtResource("10_xlaeq")]
 transform = Transform3D(-1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, 8, 7, 138)
+
+[node name="Portal" parent="." instance=ExtResource("11_kd1k6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6939, 10.4877, 22.1696)

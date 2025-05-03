@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bid458x0wbpub"
-valid=false
+path="res://.godot/imported/weapon_rifle.glb-e75bf2b824d7a8c21509f7709677e1c8.scn"
 
 [deps]
 
 source_file="res://assets/image/kenney-spacekit/weapon_rifle.glb"
+dest_files=["res://.godot/imported/weapon_rifle.glb-e75bf2b824d7a8c21509f7709677e1c8.scn"]
 
 [params]
 

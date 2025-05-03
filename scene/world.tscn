@@ -1,10 +1,10 @@
-[gd_scene load_steps=40 format=4 uid="uid://dcdkghwmlv3hg"]
+[gd_scene load_steps=41 format=4 uid="uid://dcdkghwmlv3hg"]
 
 [ext_resource type="PackedScene" uid="uid://merx2rr8j18v" path="res://scene/player_interface.tscn" id="1_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://b5jt7r8d4vxj8" path="res://assets/image/kenney-spacekit/hangar_large_b.tscn" id="2_m5mgf"]
 [ext_resource type="Script" uid="uid://1rfojkmage1d" path="res://addons/zylann.hterrain/hterrain.gd" id="4_tmyho"]
 [ext_resource type="PackedScene" uid="uid://lnucfn67od1o" path="res://scene/testunit.tscn" id="5_emkrx"]
-[ext_resource type="Resource" uid="uid://bom1s70oimuoc" path="res://assets/Terrain/data.hterrain" id="5_hnm4a"]
+[ext_resource type="Resource" path="res://assets/Terrain/data.hterrain" id="5_hnm4a"]
 [ext_resource type="Script" uid="uid://cqnlv7skrfl6d" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="6_e4vd1"]
 [ext_resource type="Texture2D" uid="uid://b8k0knft3rjoq" path="res://assets/image/textures/Ground/dirt/brown_dirt_1-4K/4K-dirt_1.jpg-diffuse.jpg" id="7_1402k"]
 [ext_resource type="Texture2D" uid="uid://cg0os10ac044j" path="res://assets/image/textures/Ground/mud/brown_mud_dry/brown_mud_dry_diff_4k.jpg" id="8_ol7uo"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://btqyjtcbkow2x" path="res://scene/RocketTurret.tscn" id="17_e4vd1"]
 [ext_resource type="PackedScene" uid="uid://bv1c2bf0pbv81" path="res://scene/kaserne.tscn" id="18_1402k"]
 [ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/GatlingTurret.tscn" id="19_1402k"]
+[ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/Portal.tscn" id="19_ol7uo"]
 [ext_resource type="PackedScene" uid="uid://kkbpdgtxodxg" path="res://scene/RailgunTurret.tscn" id="20_ol7uo"]
 [ext_resource type="Texture2D" uid="uid://bk1kctqiefnc" path="res://assets/units/TestSoldier/Walking_0.png" id="21_vme25"]
 [ext_resource type="Texture2D" uid="uid://4v05lwer8n6m" path="res://assets/units/TestSoldier/Walking_2.png" id="22_oiypb"]
@@ -1434,3 +1435,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_mi8sw")
 }
 autoplay = "mixamo_com"
+
+[node name="Portal" parent="." instance=ExtResource("19_ol7uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7533, 4.74492, 27.4792)
