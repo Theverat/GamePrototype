@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cegh26ay5s0cp"]
+
+[ext_resource type="Script" uid="uid://c3ondgq4ecb6f" path="res://MoveToComponent.gd" id="1_o7g58"]
+
+[node name="moveTo" type="Node"]
+script = ExtResource("1_o7g58")
+speed = 3.0
+rotation_speed = 5.0

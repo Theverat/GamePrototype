@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://t0s7ffbs0bo3"]
+
+[ext_resource type="Script" uid="uid://bgyg1mb1ssqim" path="res://script/UnitController.gd" id="1_fli3q"]
+
+[node name="UnitController" type="Node3D"]
+script = ExtResource("1_fli3q")
+target_marker_path = NodePath("Waypoint")
+
+[node name="Waypoint" type="Marker3D" parent="."]

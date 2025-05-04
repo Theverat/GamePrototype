@@ -24,7 +24,7 @@ float tex1(vec3 point) {
 	return snoise(point * noiseScale + TIME * speed) * 0.5 + 0.5;
 }
 
-vec3 displace(vec3 point, vec3 normal) {	
+vec3 displace(vec3 point, vec3 normal) {
 	float noise = tex1(point);
 	noise += make_spiky(noise);
 	return point + normal * noise;
@@ -33,21 +33,21 @@ vec3 displace(vec3 point, vec3 normal) {
 void vertex() {
 	// Displace vertices by moving along original normal
 	vec3 newPos = displace(VERTEX, NORMAL);
-	
+
 	// Recalculate the normal by displacing two neighbouring points
 	// and constructing vectors to them
 	float offset = 0.02;
 	vec3 posPlusTangent = VERTEX + TANGENT * offset;
 	vec3 posPlusTangentDisp = displace(posPlusTangent, NORMAL);
-	
+
 	vec3 bitangent = cross(NORMAL, TANGENT);
 	vec3 posPlusBitangent = VERTEX + bitangent * offset;
 	vec3 posPlusBitangentDisp = displace(posPlusBitangent, NORMAL);
-	
+
 	vec3 newTangent = posPlusTangentDisp - newPos;
 	vec3 newBitangent = posPlusBitangentDisp - newPos;
 	vec3 newNormal = normalize(cross(newTangent, newBitangent));
-	
+
 	origVertexPos = VERTEX;
 	VERTEX = newPos;
 	displacedVertexPos = newPos;
@@ -57,14 +57,14 @@ void vertex() {
 void fragment() {
 	float noise = tex1(origVertexPos);
 	noise += make_spiky(noise);
-	
+
 	ALBEDO = vec3(0.03, 0, 0);
 	//ALBEDO = vec3(noise < 0.1 ? 1.0 : 0.0);
 	SPECULAR = 1.0;
 	METALLIC = 1.0;
 	ROUGHNESS = 0.0;
 
-	
+
 	float onlySpikes = clamp(noise, spikeMin, 1.);
 	onlySpikes = remap(onlySpikes, spikeMin, 1., 0., 1.);
 	EMISSION = vec3(0., 0.3, 1.) * onlySpikes * spikeBrightness;

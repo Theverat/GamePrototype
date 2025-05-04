@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cs728bc5i45wc"]
+[gd_scene load_steps=19 format=3 uid="uid://cs728bc5i45wc"]
 
-[ext_resource type="Script" uid="uid://dulljhk68l5hb" path="res://scene/test_environment.gd" id="1_kirra"]
+[ext_resource type="Script" uid="uid://dulljhk68l5hb" path="res://script/test_environment.gd" id="1_kirra"]
 [ext_resource type="PackedScene" uid="uid://merx2rr8j18v" path="res://scene/player_interface.tscn" id="1_m0x7q"]
 [ext_resource type="Material" uid="uid://c0yoscws01g34" path="res://assets/Textures/prototyp01.tres" id="1_uejnu"]
 [ext_resource type="Material" uid="uid://d0dt8fljw8n0p" path="res://assets/Textures/prototyp02.tres" id="2_00dcf"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bo7l1w8y2l6po" path="res://scene/sub_scenes/speaker.tscn" id="10_xlaeq"]
 [ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/Portal.tscn" id="11_kd1k6"]
 [ext_resource type="PackedScene" uid="uid://dfm44h8ceskrv" path="res://scene/sub_scenes/Components/spawner_component.tscn" id="12_tt815"]
+[ext_resource type="PackedScene" uid="uid://b35trn8noww2y" path="res://scene/monster.tscn" id="13_5wio8"]
+[ext_resource type="Script" uid="uid://bgyg1mb1ssqim" path="res://script/UnitController.gd" id="14_lyjtc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i3w0s"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -185,3 +187,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6939, 10.4877, 22.1696)
 [node name="SpawnerComponent" parent="Portal" instance=ExtResource("12_tt815")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, -4, 0)
 unit_scene = ExtResource("2_i3w0s")
+
+[node name="monster_root" parent="." instance=ExtResource("13_5wio8")]
+transform = Transform3D(6.27, 0, 0, 0, 6.27, 0, 0, 0, 6.27, 0, 1, -220)
+
+[node name="UnitController" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68, 2, -90)
+script = ExtResource("14_lyjtc")
+unit_node_path = NodePath("../monster_root")
+target_marker_path = NodePath("Waypoint")
+
+[node name="Waypoint" type="Marker3D" parent="UnitController"]
