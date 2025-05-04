@@ -3,14 +3,6 @@ shader_type spatial;
 #include "simplex_noise.gdshaderinc"
 #include "utils.gdshaderinc"
 
-<<<<<<< HEAD
-vec3 displace(vec3 point, vec3 normal) {
-	float noiseScale = 0.8;
-	float timeScale = 0.2;
-	float noise = snoise(point * noiseScale + TIME * timeScale);
-	noise = abs(noise*1.2);
-	noise = pow(noise,15);
-=======
 uniform float noiseScale = 0.2;
 uniform float speed = 0.9;
 uniform float spikeBrightness = 3.0;
@@ -35,7 +27,6 @@ float tex1(vec3 point) {
 vec3 displace(vec3 point, vec3 normal) {	
 	float noise = tex1(point);
 	noise += make_spiky(noise);
->>>>>>> b95a53faa555460a623b864f5990f619ac16542c
 	return point + normal * noise;
 }
 
@@ -72,14 +63,12 @@ void fragment() {
 	SPECULAR = 1.0;
 	METALLIC = 1.0;
 	ROUGHNESS = 0.0;
-<<<<<<< HEAD
-	EMISSION = vec3(0.1, 0, 0);
-=======
+
 	
 	float onlySpikes = clamp(noise, spikeMin, 1.);
 	onlySpikes = remap(onlySpikes, spikeMin, 1., 0., 1.);
 	EMISSION = vec3(0., 0.3, 1.) * onlySpikes * spikeBrightness;
->>>>>>> b95a53faa555460a623b864f5990f619ac16542c
+
 }
 
 //void light() {
