@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://lnucfn67od1o"]
+[gd_scene load_steps=23 format=4 uid="uid://lnucfn67od1o"]
 
 [ext_resource type="Script" uid="uid://dbg5fbkec1aot" path="res://script/testunit.gd" id="1_7tvtk"]
 [ext_resource type="Texture2D" uid="uid://b7u8sxnbjhngj" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1002_Diffuse.png" id="2_hho5e"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dhsohn31jflua" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1001_Emissive.png" id="7_l3v8u"]
 [ext_resource type="Texture2D" uid="uid://fl4ufogg0ltk" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1001_Glossiness.png" id="8_vlhk4"]
 [ext_resource type="Texture2D" uid="uid://dvm3s3i78dxld" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1001_Normal.png" id="9_kwg4f"]
+[ext_resource type="Shader" uid="uid://8mre0iskalys" path="res://shaders/testunit.gdshader" id="10_ooiku"]
 [ext_resource type="Animation" uid="uid://7i3dxuklkva2" path="res://assets/animation/Kneel.res" id="10_s423r"]
 [ext_resource type="ArrayMesh" uid="uid://c0178sc0n6quv" path="res://scene/sub_scenes/testunit_mesh_highres.mesh" id="12_5evm4"]
 
@@ -226,6 +227,31 @@ bind/47/pose = Transform3D(-99.7431, -6.7167, -2.49055, -2.34155, -2.28808, 99.9
 bind/48/name = &"mixamorig1_RightToe_End"
 bind/48/bone = -1
 bind/48/pose = Transform3D(-99.7431, -6.7167, -2.49055, -2.34155, -2.28807, 99.9464, -6.77008, 99.7479, 2.12492, -9.10366, -25.6161, -1.25345)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ung1p"]
+render_priority = 0
+shader = ExtResource("10_ooiku")
+shader_parameter/albedo_texture = ExtResource("6_ung1p")
+shader_parameter/albedo_alpha = 1.0
+shader_parameter/tint_color = Color(1.97336e-06, 0.530208, 0.497775, 0.5)
+shader_parameter/edge_color = Color(1, 0, 0, 1)
+shader_parameter/edge_power = 0.436
+shader_parameter/edge_size = 1.0
+shader_parameter/edge_intensity = 0.8
+shader_parameter/scanline_tint = Color(1, 0.5, 0, 1)
+shader_parameter/scanline_intensity = 1.0
+shader_parameter/scanline_density = 5.0
+shader_parameter/scanline_thickness = 1.0
+shader_parameter/scanline_spacing = 1.0
+shader_parameter/scanline_angle = 0.0
+shader_parameter/scanline_speed = 0.2
+shader_parameter/enable_glitch = false
+shader_parameter/glitch_intensity = 0.5
+shader_parameter/shake_power = 0.5
+shader_parameter/shake_rate = 0.5
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.5
 
 [sub_resource type="Animation" id="Animation_v8xdb"]
 resource_name = "Run"
@@ -1371,6 +1397,8 @@ bones/48/scale = Vector3(1, 1, 1)
 [node name="Ch50" type="MeshInstance3D" parent="Synth_v_0_1/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_8jtno")
 skin = SubResource("Skin_c4byr")
+surface_material_override/0 = SubResource("ShaderMaterial_ung1p")
+surface_material_override/1 = SubResource("ShaderMaterial_ung1p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Synth_v_0_1"]
 libraries = {
