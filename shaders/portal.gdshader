@@ -63,10 +63,12 @@ void fragment() {
 	SPECULAR = 1.0;
 	METALLIC = 1.0;
 	ROUGHNESS = 0.0;
+
 	
 	float onlySpikes = clamp(noise, spikeMin, 1.);
 	onlySpikes = remap(onlySpikes, spikeMin, 1., 0., 1.);
 	EMISSION = vec3(0., 0.3, 1.) * onlySpikes * spikeBrightness;
+
 }
 
 //void light() {
