@@ -5,11 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://lnucfn67od1o" path="res://scene/testunit.tscn" id="3_ckyo8"]
 [ext_resource type="PackedScene" uid="uid://bcqgnmsnee6hj" path="res://scene/rts_camera.tscn" id="4_ualwm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyfww"]
-albedo_color = Color(0.188371, 0.188371, 0.188371, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0o40"]
+albedo_color = Color(0.123473, 0.123473, 0.123473, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_h1bjm"]
-material = SubResource("StandardMaterial3D_uyfww")
 size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckyo8"]
@@ -21,12 +20,13 @@ size = Vector3(100, 1, 100)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 0, -0.294641)
 
 [node name="GatlingTurret" parent="." instance=ExtResource("2_lksu8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7451, -0.0183067, 41.9788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9734, -0.0183067, 41.9788)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="Floor" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
+material_override = SubResource("StandardMaterial3D_j0o40")
 mesh = SubResource("BoxMesh_h1bjm")
 skeleton = NodePath("../..")
 
@@ -35,17 +35,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
 shape = SubResource("BoxShape3D_ckyo8")
 
 [node name="testUnit2" parent="." instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, -32.5427, -0.0143814, 9.76942)
-
-[node name="testUnit2" parent="testUnit2" instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.978147, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978147, 16.1363, -0.0143814, 6.61624)
-
-[node name="testUnit2" parent="testUnit2/testUnit2" instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.978147, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978147, 15.482, -0.0143814, 4.48629)
+transform = Transform3D(0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, -32.5427, -0.112003, 9.76942)
 
 [node name="camera_base" parent="." instance=ExtResource("4_ualwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15557, 13.8804, 64.6897)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.471566, -0.643627, 0.602801, 0, 0.68358, 0.729876, -0.881831, 0.344185, -0.322353, 0, 38.8362, 0)
+transform = Transform3D(-0.471566, -0.643627, 0.602802, -0.0485951, 0.701508, 0.711003, -0.880491, 0.305992, -0.362084, 0, 38.8362, 0)
 shadow_enabled = true
+
+[node name="testUnit3" parent="." instance=ExtResource("3_ckyo8")]
+transform = Transform3D(0.913546, 0, -0.406737, 0, 1, 0, 0.406737, 0, 0.913546, -18.1346, -0.112003, 19.596)
+
+[node name="testUnit4" parent="." instance=ExtResource("3_ckyo8")]
+transform = Transform3D(0.809017, 0, -0.587786, 0, 1, 0, 0.587786, 0, 0.809017, -18.5107, -0.112003, 12.2673)
+
+[node name="testUnit5" parent="." instance=ExtResource("3_ckyo8")]
+transform = Transform3D(0.669129, 0, -0.743145, 0, 1, 0, 0.743145, 0, 0.669129, -1.71636, -0.112003, 37.8901)
+
+[node name="testUnit7" parent="." instance=ExtResource("3_ckyo8")]
+transform = Transform3D(0.309015, 0, -0.951056, 0, 1, 0, 0.951056, 0, 0.309015, -28.8303, -0.112005, 32.4376)
+
+[node name="testUnit8" parent="." instance=ExtResource("3_ckyo8")]
+transform = Transform3D(0.104526, 0, -0.994521, 0, 1, 0, 0.994521, 0, 0.104526, -20.369, -0.112003, 24.994)
