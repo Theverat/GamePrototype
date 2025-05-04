@@ -1,4 +1,3 @@
-@tool
 extends CharacterBody3D
 
 const MODULE_CAMERA: GDScript = preload("res://script/module_camera.gd")
@@ -18,7 +17,8 @@ var rotation_fast: bool = false
 var squad_members: Array[CharacterBody3D] = []
 
 func _ready() -> void:
-	GameEvents.spawn_squad_requested.connect(_on_spawn_requested)
+	if GameEvents.has_signal("spawn_squad_requested"):
+		GameEvents.spawn_squad_requested.connect(_on_spawn_requested)
 	nav_agent.velocity_computed.connect(char_move)
 	nav_path_timer.timeout.connect(nav_path_timer_update)
 	deselect()

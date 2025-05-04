@@ -5,11 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://lnucfn67od1o" path="res://scene/testunit.tscn" id="3_ckyo8"]
 [ext_resource type="PackedScene" uid="uid://bcqgnmsnee6hj" path="res://scene/rts_camera.tscn" id="4_ualwm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyfww"]
-albedo_color = Color(0.188371, 0.188371, 0.188371, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0o40"]
+albedo_color = Color(0.123473, 0.123473, 0.123473, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_h1bjm"]
-material = SubResource("StandardMaterial3D_uyfww")
 size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckyo8"]
@@ -27,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9734, -0.0183067, 41.9788
 
 [node name="Floor" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
+material_override = SubResource("StandardMaterial3D_j0o40")
 mesh = SubResource("BoxMesh_h1bjm")
 skeleton = NodePath("../..")
 
