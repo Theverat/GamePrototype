@@ -185,8 +185,9 @@ transform = Transform3D(-1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, 8, 7, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6939, 10.4877, 22.1696)
 
 [node name="SpawnerComponent" parent="Portal" instance=ExtResource("12_tt815")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, -4, 0)
-unit_scene = ExtResource("2_i3w0s")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 0)
+unit_scene = ExtResource("13_5wio8")
+spawn_interval = 2.0
 
 [node name="monster_root" parent="." instance=ExtResource("13_5wio8")]
 transform = Transform3D(6.27, 0, 0, 0, 6.27, 0, 0, 0, 6.27, 0, 1, -220)
