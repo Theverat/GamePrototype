@@ -6,18 +6,8 @@ extends Node3D # Oder Node, wenn die Hauptszene kein 3D-Objekt sein muss
 # falls sie nicht direkt unter diesem Node liegen.
 # @export var buildings_container_path: NodePath = "Buildings"
 
-# Container-Node, in dem alle gespawnten Units abgelegt werden sollen.
-# Erstelle einen Node3D namens "Units" in deiner test_environment Szene
-# und weise ihn hier zu (oder passe den Pfad an).
-@onready var unit_container: Node3D = $testUnit
-
 # === Initialisierung ===
 func _ready() -> void:
-	# Prüfen, ob der Unit-Container vorhanden ist
-	if not is_instance_valid(unit_container):
-		printerr("FEHLER in test_environment.gd: Node 'Units' nicht gefunden oder ungültig. Bitte erstelle einen Node3D namens 'Units' als Kind dieses Nodes.")
-		return
-
 	print("Test Environment bereit. Suche nach Spawnern...")
 	# Verbinde die Signale aller Spawner in der Szene.
 	# Annahme: Gebäude (mit Spawnern) sind z.B. unter einem Node "Buildings"
@@ -54,20 +44,13 @@ func _on_any_unit_spawned(unit_instance: Node3D, spawn_transform: Transform3D) -
 		printerr("Empfangene Unit-Instanz von Spawner ist ungültig.")
 		return
 
-	if not is_instance_valid(unit_container):
-		printerr("FEHLER: Unit Container ist ungültig. Unit ", unit_instance.name, " kann nicht hinzugefügt werden.")
-		unit_instance.queue_free() # Verhindere 'memory leak'
-		return
-
 	# Setze die globale Transformation der Unit
 	unit_instance.global_transform = spawn_transform
 
 	# Füge die Unit zum Unit-Container hinzu
-	unit_container.add_child(unit_instance)
+	add_child(unit_instance)
 	# Optional: Setze den Owner, damit die Unit mit der Szene gespeichert wird, falls nötig
 	# unit_instance.owner = self # Oder get_tree().edited_scene_root im Editor
-
-	print("Unit '", unit_instance.name, "' zur Szene unter '", unit_container.name, "' hinzugefügt.")
 
 	# --------------------------------------------------------------------------
 	## HIER: Unit Logik nach dem Spawnen initialisieren
