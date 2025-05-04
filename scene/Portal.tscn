@@ -10,11 +10,11 @@ shader = ExtResource("1_ktdcm")
 material = SubResource("ShaderMaterial_uyfww")
 radius = 10.0
 height = 20.0
-radial_segments = 128
-rings = 64
+radial_segments = 256
+rings = 128
 
 [node name="Portal" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0123, 0)
+transform = Transform3D(1, 0, 0, 0, 0.0186041, 0.999827, 0, -0.999827, 0.0186041, 0, 5.0123, 0)
 mesh = SubResource("SphereMesh_kdtv5")

@@ -41,11 +41,11 @@ transform = Transform3D(0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, 
 transform = Transform3D(0.978147, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978147, 16.1363, -0.0143814, 6.61624)
 
 [node name="testUnit2" parent="testUnit2/testUnit2" instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.978147, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978147, 15.482, -0.0143814, 4.48629)
+transform = Transform3D(0.978147, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978147, 16.2332, -0.0143814, 6.17359)
 
 [node name="camera_base" parent="." instance=ExtResource("4_ualwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15557, 13.8804, 64.6897)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.471566, -0.643627, 0.602801, 0, 0.68358, 0.729876, -0.881831, 0.344185, -0.322353, 0, 38.8362, 0)
+transform = Transform3D(-0.471566, -0.643627, 0.602802, -0.0485951, 0.701508, 0.711003, -0.880491, 0.305992, -0.362084, 0, 38.8362, 0)
 shadow_enabled = true
