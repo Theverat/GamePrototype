@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfm44h8ceskrv"]
+
+[ext_resource type="Script" uid="uid://rjyg4rjmvwmf" path="res://spawner_component.gd" id="1_7lret"]
+
+[node name="SpawnerComponent" type="Node3D"]
+script = ExtResource("1_7lret")
+spawn_point_node = NodePath("Marker3D")
+spawn_interval = 1.0
+spawn_automatically = true
+
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="."]

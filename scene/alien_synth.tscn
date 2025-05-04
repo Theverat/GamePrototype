@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=4 uid="uid://d0jg7i2blxfsu"]
 
-[ext_resource type="Script" uid="uid://dbg5fbkec1aot" path="res://scene/testunit.gd" id="1_6oa5r"]
+[ext_resource type="Script" uid="uid://dbg5fbkec1aot" path="res://script/testunit.gd" id="1_6oa5r"]
 [ext_resource type="Texture2D" uid="uid://b7u8sxnbjhngj" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1002_Diffuse.png" id="2_gnsng"]
 [ext_resource type="Texture2D" uid="uid://2sq4hbf6ums8" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1002_Emissive.png" id="3_6ry2s"]
 [ext_resource type="Texture2D" uid="uid://cp1puh2kyif7i" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1002_Glossiness.png" id="4_fxwqg"]

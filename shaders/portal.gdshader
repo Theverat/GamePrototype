@@ -3,9 +3,11 @@ shader_type spatial;
 #include "simplex_noise.gdshaderinc"
 
 vec3 displace(vec3 point, vec3 normal) {
-	float noiseScale = 0.2;
-	float timeScale = 0.4;
+	float noiseScale = 0.8;
+	float timeScale = 0.2;
 	float noise = snoise(point * noiseScale + TIME * timeScale);
+	noise = abs(noise*1.2);
+	noise = pow(noise,15);
 	return point + normal * noise;
 }
 
@@ -35,6 +37,7 @@ void fragment() {
 	SPECULAR = 1.0;
 	METALLIC = 1.0;
 	ROUGHNESS = 0.0;
+	EMISSION = vec3(0.1, 0, 0);
 }
 
 //void light() {
