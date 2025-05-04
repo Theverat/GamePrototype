@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://lnucfn67od1o"]
+[gd_scene load_steps=25 format=4 uid="uid://lnucfn67od1o"]
 
 [ext_resource type="Script" uid="uid://dbg5fbkec1aot" path="res://script/testunit.gd" id="1_7tvtk"]
 [ext_resource type="Texture2D" uid="uid://b7u8sxnbjhngj" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1002_Diffuse.png" id="2_hho5e"]
@@ -13,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://8mre0iskalys" path="res://shaders/testunit.gdshader" id="10_ooiku"]
 [ext_resource type="Animation" uid="uid://7i3dxuklkva2" path="res://assets/animation/Kneel.res" id="10_s423r"]
 [ext_resource type="ArrayMesh" uid="uid://c0178sc0n6quv" path="res://scene/sub_scenes/testunit_mesh_highres.mesh" id="12_5evm4"]
+[ext_resource type="Shader" uid="uid://bbytehvyv3awu" path="res://scene/unit_death.gdshader" id="14_ung1p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhqt3"]
 resource_name = "Ch50_body1"
@@ -1041,6 +1042,31 @@ bind/48/name = &"mixamorig1_RightToe_End"
 bind/48/bone = -1
 bind/48/pose = Transform3D(-99.7431, -6.7167, -2.49055, -2.34155, -2.28807, 99.9464, -6.77008, 99.7479, 2.12492, -9.10366, -25.6161, -1.25345)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3v8u"]
+shader = ExtResource("14_ung1p")
+shader_parameter/spread = 180.0
+shader_parameter/inherit_emitter_velocity_ratio = 0.0
+shader_parameter/initial_linear_velocity_min = 100.0
+shader_parameter/initial_linear_velocity_max = 100.0
+shader_parameter/orbit_velocity_min = 0.0
+shader_parameter/orbit_velocity_max = 0.0
+shader_parameter/radial_velocity_min = 0.0
+shader_parameter/radial_velocity_max = 0.0
+shader_parameter/linear_accel_min = 0.0
+shader_parameter/linear_accel_max = 0.0
+shader_parameter/radial_accel_min = 0.0
+shader_parameter/radial_accel_max = 0.0
+shader_parameter/tangent_accel_min = 0.0
+shader_parameter/tangent_accel_max = 0.0
+shader_parameter/damping_min = 0.0
+shader_parameter/damping_max = 0.0
+shader_parameter/scale_min = 1.0
+shader_parameter/scale_max = 1.0
+shader_parameter/lifetime_randomness = 0.0
+shader_parameter/emission_shape_offset = Vector3(0, 0, 0)
+shader_parameter/emission_shape_scale = Vector3(1, 1, 1)
+shader_parameter/emission_box_extents = Vector3(100, 100, 0)
+
 [node name="testUnit" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_7tvtk")
 
@@ -1787,3 +1813,7 @@ transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 3.57628e-07, 5.400
 mesh = ExtResource("12_5evm4")
 skin = SubResource("Skin_5evm4")
 skeleton = NodePath("")
+
+[node name="Death" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.578918, 0)
+process_material = SubResource("ShaderMaterial_l3v8u")
