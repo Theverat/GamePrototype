@@ -1,13 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://6druwv3j8l2c"]
+[gd_scene load_steps=9 format=3 uid="uid://6druwv3j8l2c"]
 
 [ext_resource type="Script" uid="uid://d10fy3poq38au" path="res://script/turret.gd" id="1_03h8t"]
 [ext_resource type="PackedScene" uid="uid://dtxqa2qjgllub" path="res://assets/buildings/Turrets/TurretBase_01.blend" id="2_0krec"]
 [ext_resource type="PackedScene" uid="uid://dn24dmhkv7wxe" path="res://assets/buildings/Turrets/GatlingTurretSimon_CenterPillar.blend" id="3_iips0"]
 [ext_resource type="PackedScene" uid="uid://dwex1rfsdhpaw" path="res://assets/buildings/Turrets/GatlingTurretSimon_GunBarrel.blend" id="4_qucgh"]
+[ext_resource type="Shader" uid="uid://0y2n451uqihe" path="res://shaders/gatling_bullets.gdshader" id="5_0krec"]
+[ext_resource type="Texture2D" uid="uid://batj6e8mfrnkg" path="res://assets/image/textures/GatlingShots.png" id="6_iips0"]
 
-[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar") groups=["ally"]]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iips0"]
+render_priority = 0
+shader = ExtResource("5_0krec")
+shader_parameter/tex = ExtResource("6_iips0")
+shader_parameter/lengthY = 12.3
+shader_parameter/brightness = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_qucgh"]
+material = SubResource("ShaderMaterial_iips0")
+size = Vector2(0.52, 1)
+center_offset = Vector3(0, 0.5, 0)
+
+[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets") groups=["ally"]]
 script = ExtResource("1_03h8t")
 center_pillar = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar")
+gun_barrel = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel")
+hitscan_bullets = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/Bullets")
 
 [node name="TurretBase_01" parent="." instance=ExtResource("2_0krec")]
 
@@ -15,3 +31,8 @@ center_pillar = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar")
 
 [node name="GatlingTurretSimon_GunBarrel" parent="TurretBase_01/GatlingTurretSimon_CenterPillar" instance=ExtResource("4_qucgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.77856, 0)
+
+[node name="Bullets" type="MeshInstance3D" parent="TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel"]
+transform = Transform3D(1, 0, 0, 0, -5.39399e-07, 1, 0, -12.34, -4.37114e-08, 0, 0.176932, -4.35532)
+visible = false
+mesh = SubResource("QuadMesh_qucgh")

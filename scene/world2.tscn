@@ -45,16 +45,16 @@ transform = Transform3D(-0.471566, -0.643627, 0.602802, -0.0485951, 0.701508, 0.
 shadow_enabled = true
 
 [node name="testUnit3" parent="." instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.913546, 0, -0.406737, 0, 1, 0, 0.406737, 0, 0.913546, -18.1346, -0.112003, 19.596)
+transform = Transform3D(0.913546, 0, -0.406737, 0, 1, 0, 0.406737, 0, 0.913546, -18.1346, 11.2991, 30.1793)
 
 [node name="testUnit4" parent="." instance=ExtResource("3_ckyo8")]
 transform = Transform3D(0.809017, 0, -0.587786, 0, 1, 0, 0.587786, 0, 0.809017, -18.5107, -0.112003, 12.2673)
 
 [node name="testUnit5" parent="." instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.669129, 0, -0.743145, 0, 1, 0, 0.743145, 0, 0.669129, -1.71636, -0.112003, 37.8901)
+transform = Transform3D(0.669129, 0, -0.743145, 0, 1, 0, 0.743145, 0, 0.669129, -22.0342, -0.112003, 58.7319)
 
 [node name="testUnit7" parent="." instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.309015, 0, -0.951056, 0, 1, 0, 0.951056, 0, 0.309015, -28.8303, -0.112005, 32.4376)
+transform = Transform3D(0.309015, 0, -0.951056, 0, 1, 0, 0.951056, 0, 0.309015, -34.1004, -0.112005, 17.8772)
 
 [node name="testUnit8" parent="." instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.104526, 0, -0.994521, 0, 1, 0, 0.994521, 0, 0.104526, -20.369, -0.112003, 24.994)
+transform = Transform3D(0.104526, 0, -0.994521, 0, 1, 0, 0.994521, 0, 0.104526, -14.1041, 15.0561, 25.5315)
