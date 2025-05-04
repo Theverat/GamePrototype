@@ -3,8 +3,10 @@ shader_type spatial;
 #include "simplex_noise.gdshaderinc"
 #include "utils.gdshaderinc"
 
-const float noiseScale = 0.2;
-const float timeScale = 0.9;
+uniform float noiseScale = 0.2;
+uniform float speed = 0.9;
+uniform float spikeBrightness = 3.0;
+uniform float spikeMin : hint_range(0, 0.99) = 0.7;
 
 // Original vertex position in model space
 // (varying is used to pass it from vertex shader to fragment shader)
@@ -19,7 +21,7 @@ float make_spiky(float value) {
 
 float tex1(vec3 point) {
 	// snoise() returns a value between -1..1, so we bring it into 0..1 range
-	return snoise(point * noiseScale + TIME * timeScale) * 0.5 + 0.5;
+	return snoise(point * noiseScale + TIME * speed) * 0.5 + 0.5;
 }
 
 vec3 displace(vec3 point, vec3 normal) {	
@@ -62,11 +64,9 @@ void fragment() {
 	METALLIC = 1.0;
 	ROUGHNESS = 0.0;
 	
-	float brightness = 3.0;
-	float spikeMin = 0.7;
 	float onlySpikes = clamp(noise, spikeMin, 1.);
 	onlySpikes = remap(onlySpikes, spikeMin, 1., 0., 1.);
-	EMISSION = vec3(0., 0.3, 1.) * onlySpikes * brightness;
+	EMISSION = vec3(0., 0.3, 1.) * onlySpikes * spikeBrightness;
 }
 
 //void light() {
