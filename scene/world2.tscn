@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c57qsoaaqqnsw"]
+[gd_scene load_steps=10 format=3 uid="uid://c57qsoaaqqnsw"]
 
 [ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/Portal.tscn" id="1_h1bjm"]
 [ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/GatlingTurret.tscn" id="2_lksu8"]
+[ext_resource type="PackedScene" uid="uid://c4bbudl3m8jk1" path="res://scene/sub_scenes/Components/spawner2_component.tscn" id="2_n4g1v"]
 [ext_resource type="PackedScene" uid="uid://lnucfn67od1o" path="res://scene/testunit.tscn" id="3_ckyo8"]
 [ext_resource type="PackedScene" uid="uid://bcqgnmsnee6hj" path="res://scene/rts_camera.tscn" id="4_ualwm"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_n4g1v"]
+vertices = PackedVector3Array(-49.5, 0.49017, -49.5, -49.5, 0.49017, 49.5, 49.5, 0.49017, 49.5, 49.5, 0.49017, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0o40"]
 albedo_color = Color(0.123473, 0.123473, 0.123473, 1)
@@ -19,23 +24,12 @@ size = Vector3(100, 1, 100)
 [node name="Portal" parent="." instance=ExtResource("1_h1bjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 0, -0.294641)
 
+[node name="Spawner2Component" parent="Portal" instance=ExtResource("2_n4g1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31674, 0, 11.9035)
+unit_to_spawn = ExtResource("3_ckyo8")
+
 [node name="GatlingTurret" parent="." instance=ExtResource("2_lksu8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9734, -0.0183067, 41.9788)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="Floor" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
-material_override = SubResource("StandardMaterial3D_j0o40")
-mesh = SubResource("BoxMesh_h1bjm")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
-shape = SubResource("BoxShape3D_ckyo8")
-
-[node name="testUnit2" parent="." instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, -32.5427, -0.112003, 9.76942)
 
 [node name="camera_base" parent="." instance=ExtResource("4_ualwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15557, 13.8804, 64.6897)
@@ -44,17 +38,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15557, 13.8804, 64.6897)
 transform = Transform3D(-0.471566, -0.643627, 0.602802, -0.0485951, 0.701508, 0.711003, -0.880491, 0.305992, -0.362084, 0, 38.8362, 0)
 shadow_enabled = true
 
+[node name="testUnit2" parent="." instance=ExtResource("3_ckyo8")]
+transform = Transform3D(0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, -32.5427, -0.112003, 9.76942)
+
 [node name="testUnit3" parent="." instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.913546, 0, -0.406737, 0, 1, 0, 0.406737, 0, 0.913546, -18.1346, 11.2991, 30.1793)
+transform = Transform3D(0.913546, 0, -0.406737, 0, 1, 0, 0.406737, 0, 0.913546, -18.1346, -0.112003, 30.1793)
 
 [node name="testUnit4" parent="." instance=ExtResource("3_ckyo8")]
 transform = Transform3D(0.809017, 0, -0.587786, 0, 1, 0, 0.587786, 0, 0.809017, -18.5107, -0.112003, 12.2673)
 
 [node name="testUnit5" parent="." instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.669129, 0, -0.743145, 0, 1, 0, 0.743145, 0, 0.669129, -22.0342, -0.112003, 58.7319)
+transform = Transform3D(0.669129, 0, -0.743145, 0, 1, 0, 0.743145, 0, 0.669129, -9.89267, -0.112003, 40.1445)
 
 [node name="testUnit7" parent="." instance=ExtResource("3_ckyo8")]
 transform = Transform3D(0.309015, 0, -0.951056, 0, 1, 0, 0.951056, 0, 0.309015, -34.1004, -0.112005, 17.8772)
 
 [node name="testUnit8" parent="." instance=ExtResource("3_ckyo8")]
-transform = Transform3D(0.104526, 0, -0.994521, 0, 1, 0, 0.994521, 0, 0.104526, -14.1041, 15.0561, 25.5315)
+transform = Transform3D(0.104526, 0, -0.994521, 0, 1, 0, 0.994521, 0, 0.104526, -14.1041, -0.112003, 25.5315)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_n4g1v")
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
+material_override = SubResource("StandardMaterial3D_j0o40")
+mesh = SubResource("BoxMesh_h1bjm")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
+shape = SubResource("BoxShape3D_ckyo8")
