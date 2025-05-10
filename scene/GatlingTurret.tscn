@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6druwv3j8l2c"]
+[gd_scene load_steps=10 format=3 uid="uid://6druwv3j8l2c"]
 
 [ext_resource type="Script" uid="uid://d10fy3poq38au" path="res://script/turret.gd" id="1_03h8t"]
 [ext_resource type="PackedScene" uid="uid://dtxqa2qjgllub" path="res://assets/buildings/Turrets/TurretBase_01.blend" id="2_0krec"]
@@ -19,7 +19,10 @@ material = SubResource("ShaderMaterial_iips0")
 size = Vector2(0.52, 1)
 center_offset = Vector3(0, 0.5, 0)
 
-[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets") groups=["ally"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_iips0"]
+size = Vector3(4, 6.845, 4)
+
+[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets") groups=["faction: human"]]
 script = ExtResource("1_03h8t")
 center_pillar = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar")
 gun_barrel = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel")
@@ -36,3 +39,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.77856, 0)
 transform = Transform3D(1, 0, 0, 0, -5.39399e-07, 1, 0, -12.34, -4.37114e-08, 0, 0.176932, -4.35532)
 visible = false
 mesh = SubResource("QuadMesh_qucgh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.37999, 0)
+shape = SubResource("BoxShape3D_iips0")

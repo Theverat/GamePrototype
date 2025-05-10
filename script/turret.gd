@@ -28,7 +28,7 @@ func choose_target() -> void:
 	if not is_instance_valid(target_enemy):
 		# Target enemy dead, choose a new one
 		target_enemy = null
-		var enemies: Array[Node] = get_tree().get_nodes_in_group("enemy")
+		var enemies: Array[Node] = get_tree().get_nodes_in_group("faction: nanite")
 		
 		var min_dist_sqr: float = 99999999.0
 		for enemy_node: Node in enemies:

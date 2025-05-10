@@ -1067,7 +1067,7 @@ shader_parameter/emission_shape_offset = Vector3(0, 0, 0)
 shader_parameter/emission_shape_scale = Vector3(1, 1, 1)
 shader_parameter/emission_box_extents = Vector3(100, 100, 0)
 
-[node name="testUnit" type="CharacterBody3D" groups=["enemy"]]
+[node name="testUnit" type="CharacterBody3D" groups=["faction: nanite"]]
 script = ExtResource("1_7tvtk")
 
 [node name="Synth_v_0_1" type="Node3D" parent="."]

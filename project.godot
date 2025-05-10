@@ -35,8 +35,8 @@ enabled=PackedStringArray("res://addons/ImportCleaner/plugin.cfg", "res://addons
 
 [global_group]
 
-enemy="All enemy units"
-ally="All allied units"
+"faction: human"="All allied units"
+"faction: nanite"="All enemy units"
 
 [input]
 

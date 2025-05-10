@@ -1,10 +1,16 @@
 shader_type spatial;
+render_mode world_vertex_coords;
 
 #include "simplex_noise.gdshaderinc"
 #include "utils.gdshaderinc"
 
-uniform float noiseScale = 0.2;
-uniform float displaceStrength = 1.0;
+// Low Frequency
+uniform float lfNoiseScale = 0.2;
+uniform float lfDisplaceStrength = 1.0;
+// High Frequency
+uniform float hfNoiseScale = 0.2;
+uniform float hfDisplaceStrength = 1.0;
+
 uniform float speed = 0.9;
 uniform float spikeBrightness = 3.0;
 uniform float spikeMin : hint_range(0, 0.99) = 0.7;
@@ -21,15 +27,24 @@ float make_spiky(float value) {
 	return pow(spiky, 8);
 }
 
-float tex1(vec3 point) {
+float high_freq_noise(vec3 point) {
+	float scaledTime = TIME * speed;
 	// snoise() returns a value between -1..1, so we bring it into 0..1 range
-	return snoise(point * noiseScale + TIME * speed) * 0.5 + 0.5;
+	float fine_noise = snoise((point + scaledTime) * hfNoiseScale) * 0.5 + 0.5;
+	fine_noise += make_spiky(fine_noise);
+	return fine_noise;
+}
+
+float low_freq_noise(vec3 point) {
+	float scaledTime = TIME * speed;
+	vec3 offset = vec3(0.5, 0.3, 0.8) + scaledTime * 4.0;
+	return snoise((point + offset) * lfNoiseScale * 0.3);
 }
 
 vec3 displace(vec3 point, vec3 normal) {
-	float noise = tex1(point);
-	noise += make_spiky(noise);
-	return point + normal * noise * displaceStrength;
+	float disp = high_freq_noise(point) * hfDisplaceStrength 
+				 + low_freq_noise(point) * lfDisplaceStrength;
+	return point + normal * disp;
 }
 
 void vertex() {
@@ -57,11 +72,11 @@ void vertex() {
 }
 
 void fragment() {
-	float noise = tex1(origVertexPos);
-	noise += make_spiky(noise);
+	float noise = high_freq_noise(origVertexPos);
 
+	//ALBEDO = vec3(noise);
 	ALBEDO = vec3(0.03, 0, 0);
-	//ALBEDO = vec3(noise < 0.1 ? 1.0 : 0.0);
+	//ALBEDO = vec3(noise > 1. ? 1.0 : 0.0);
 	SPECULAR = 1.0;
 	METALLIC = 1.0;
 	ROUGHNESS = 0.0;
