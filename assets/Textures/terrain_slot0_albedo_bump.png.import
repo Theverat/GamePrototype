@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c32or8xmudf5n"
-path.s3tc="res://.godot/imported/terrain_slot0_normal_roughness.png-a846806e48c976d290b7b453adcbf09b.s3tc.ctex"
+uid="uid://c5hth1a0olvus"
+path.s3tc="res://.godot/imported/terrain_slot0_albedo_bump.png-7e3bdf3d920d0242577c888da1350b49.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scene/terrain_slot0_normal_roughness.png"
-dest_files=["res://.godot/imported/terrain_slot0_normal_roughness.png-a846806e48c976d290b7b453adcbf09b.s3tc.ctex"]
+source_file="res://assets/Textures/terrain_slot0_albedo_bump.png"
+dest_files=["res://.godot/imported/terrain_slot0_albedo_bump.png-7e3bdf3d920d0242577c888da1350b49.s3tc.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://lnucfn67od1o"]
+[gd_scene load_steps=27 format=4 uid="uid://lnucfn67od1o"]
 
 [ext_resource type="Script" uid="uid://dbg5fbkec1aot" path="res://script/testunit.gd" id="1_7tvtk"]
 [ext_resource type="Texture2D" uid="uid://b7u8sxnbjhngj" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1002_Diffuse.png" id="2_hho5e"]
@@ -1067,6 +1067,10 @@ shader_parameter/emission_shape_offset = Vector3(0, 0, 0)
 shader_parameter/emission_shape_scale = Vector3(1, 1, 1)
 shader_parameter/emission_box_extents = Vector3(100, 100, 0)
 
+[sub_resource type="BoxMesh" id="BoxMesh_ung1p"]
+
+[sub_resource type="Skin" id="Skin_ung1p"]
+
 [node name="testUnit" type="CharacterBody3D" groups=["faction: nanite"]]
 script = ExtResource("1_7tvtk")
 
@@ -1816,4 +1820,8 @@ skeleton = NodePath("")
 
 [node name="Death" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.578918, 0)
+sub_emitter = NodePath(".")
+speed_scale = 8.07
 process_material = SubResource("ShaderMaterial_l3v8u")
+draw_pass_1 = SubResource("BoxMesh_ung1p")
+draw_skin = SubResource("Skin_ung1p")
