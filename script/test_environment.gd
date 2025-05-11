@@ -20,7 +20,7 @@ func _connect_all_spawner_signals(node: Node) -> void:
 	# Prüfe, ob der aktuelle Node ein SpawnerComponent ist
 	# Wichtig: Prüfe, ob es sich um das Skript handelt, nicht nur um den Klassennamen,
 	# da der Szenen-Root-Name auch SpawnerComponent sein könnte.
-	if node.get_script() == preload("res://spawner_component.gd"): # Passe den Pfad an, falls nötig
+	if node.get_script() == preload("res://script/spawner_component.gd"): # Passe den Pfad an, falls nötig""
 		var spawner = node as Node3D # Sicherstellen, dass es der richtige Typ ist
 		if spawner and spawner.has_signal("unit_spawned"):
 			# Verbinde das Signal mit unserer Handler-Funktion
