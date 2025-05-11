@@ -12,7 +12,7 @@
 render_priority = 0
 shader = ExtResource("5_0krec")
 shader_parameter/tex = ExtResource("6_iips0")
-shader_parameter/lengthY = 12.3
+shader_parameter/lengthY = 26.1636
 shader_parameter/brightness = 5.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_qucgh"]
@@ -32,6 +32,7 @@ hitscan_bullets = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/Gatlin
 [node name="TurretBase_01" parent="." instance=ExtResource("2_0krec")]
 
 [node name="GatlingTurretSimon_CenterPillar" parent="TurretBase_01" instance=ExtResource("3_iips0")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
 
 [node name="GatlingTurretSimon_GunBarrel" parent="TurretBase_01/GatlingTurretSimon_CenterPillar" instance=ExtResource("4_qucgh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.77856, 0)

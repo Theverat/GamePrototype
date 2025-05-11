@@ -79,8 +79,11 @@ func rotate_center_pillar_to_target(delta: float) -> void:
 func rotate_gun_barrel(delta: float) -> void:
 	assert(gun_barrel)
 	var pos: Vector3 = gun_barrel.global_position
-	var to_target: Vector3 = target - pos
-	gun_barrel.rotation.x = atan2(to_target.y, -to_target.z)
+	var to_target: Vector3 = target - pos	
+	var a: float = target.y - pos.y
+	var c: float = to_target.length()
+	var alpha: float = asin(a / c)
+	gun_barrel.rotation.x = alpha
 	
 func fire_hitscan(delta: float) -> void:
 	assert(hitscan_bullets)
@@ -108,15 +111,16 @@ func fire_hitscan(delta: float) -> void:
 			var mat: ShaderMaterial = hitscan_bullets.mesh.surface_get_material(0) as ShaderMaterial
 			mat.set_shader_parameter("lengthY", target_dist)
 			
-			# Do damage
-			var collider: Object = hit.collider
-			var colliderNode: Node3D = collider as Node3D
-			if colliderNode:
-				var health: Health = get_health_module(colliderNode)
-				
-				# TODO damage tick interval
-				if health:
-					health.deal_damage(damage_per_tick)
+			if not Engine.is_editor_hint():
+				# Do damage
+				var collider: Object = hit.collider
+				var colliderNode: Node3D = collider as Node3D
+				if colliderNode:
+					var health: Health = get_health_module(colliderNode)
+					
+					# TODO damage tick interval
+					if health:
+						health.deal_damage(damage_per_tick)
 
 static func get_health_module(node: Node3D) -> Health:
 	# TODO use get_node()?

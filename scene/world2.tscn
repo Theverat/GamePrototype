@@ -75,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26859, 3.85331, 0)
 shape = SubResource("BoxShape3D_6pic0")
 
 [node name="NaniteUnitDebug" parent="." instance=ExtResource("6_j0o40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.2942, -0.00447226, 19.516)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1464, -0.0457491, -2.05827)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.752564, 0.658519, 0, -0.658519, 0.752564, -26.5262, 21.796, 60.6465)
@@ -85,4 +85,4 @@ spot_range = 103.129
 spot_angle = 21.0938
 
 [node name="GatlingTurret2" parent="." instance=ExtResource("2_lksu8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.2692, -0.00983, -38.7251)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.6977, 0.0326791, -33.862)
