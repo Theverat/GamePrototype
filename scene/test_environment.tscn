@@ -168,10 +168,6 @@ material = ExtResource("3_l5g2p")
 
 [node name="testUnit" parent="." instance=ExtResource("2_i3w0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.397787, -77)
-squad_width = 5
-squad_height = 5
-unit_scene = ExtResource("2_i3w0s")
-waypoint_path = NodePath("../Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -90)

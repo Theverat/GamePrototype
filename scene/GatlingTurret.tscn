@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6druwv3j8l2c"]
+[gd_scene load_steps=12 format=3 uid="uid://6druwv3j8l2c"]
 
 [ext_resource type="Script" uid="uid://d10fy3poq38au" path="res://script/turret.gd" id="1_03h8t"]
 [ext_resource type="PackedScene" uid="uid://dtxqa2qjgllub" path="res://assets/buildings/Turrets/TurretBase_01.blend" id="2_0krec"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://0y2n451uqihe" path="res://shaders/gatling_bullets.gdshader" id="5_0krec"]
 [ext_resource type="Texture2D" uid="uid://batj6e8mfrnkg" path="res://assets/image/textures/GatlingShots.png" id="6_iips0"]
 [ext_resource type="PackedScene" uid="uid://q8q8egwilcqd" path="res://scene/sub_scenes/Components/health.tscn" id="7_qucgh"]
+[ext_resource type="AudioStream" uid="uid://birvr3gn8c3eu" path="res://assets/sound/sfx/GattlingTurre/gattling_fire.wav" id="8_wi84o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iips0"]
 render_priority = 0
@@ -54,3 +55,9 @@ shape = SubResource("BoxShape3D_iips0")
 
 [node name="Health" parent="." instance=ExtResource("7_qucgh")]
 max_hp = 1000.0
+
+[node name="SFX shoot" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.11163, 0)
+stream = ExtResource("8_wi84o")
+volume_db = 9.949
+unit_size = 5.34

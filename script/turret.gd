@@ -10,12 +10,14 @@ extends Node3D
 @export var damage_tick_interval_sec: float = 1.0 / 30.0
 @export var damage_per_tick: float = 1.0
 @export var rotation_speed: float = 5.0
+@onready var gattling_fire_sound: AudioStreamPlayer3D = $"SFX shoot"
 
 var target: Vector3 = Vector3.ZERO
 var target_enemy: Node3D = null
 
 func _ready() -> void:
-	pass 
+	assert(gattling_fire_sound != null, "SFX nicht gefunden")
+	 
 
 func _process(delta: float) -> void:
 	choose_target()
@@ -89,6 +91,9 @@ func fire_hitscan(delta: float) -> void:
 	var firing: bool = target_enemy != null
 	hitscan_bullets.visible = firing
 	
+	var sound_playing = false
+	
+	
 	if firing:
 		var pos: Vector3 = hitscan_bullets.global_position
 		var to_target = target - pos
@@ -98,7 +103,10 @@ func fire_hitscan(delta: float) -> void:
 				
 		#var exclude: Array[RID] = []
 		#var hit: UnitUtils.HitResult = UnitUtils.raycast(self, from, to, exclude)
-				#
+		gattling_fire_sound.play()
+
+		sound_playing = true
+				
 		#if hit:
 		var collider: Object = null
 		if raycaster.is_colliding():
@@ -135,3 +143,6 @@ func fire_hitscan(delta: float) -> void:
 		else:
 			pass
 			#print("no hit, from: ", from, " to: ", to)
+	else:
+		if sound_playing == false:
+			gattling_fire_sound.stop()
