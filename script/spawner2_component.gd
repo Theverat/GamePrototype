@@ -35,5 +35,5 @@ func _process(delta: float) -> void:
 		var rand_angle: float = randf_range(-PI, PI)
 		var offset: Vector3 = Vector3(cos(rand_angle), 0, sin(rand_angle)) * rand_radius
 		
-		instance.global_position = pos + offset
 		get_tree().root.add_child(instance)
+		instance.global_position = pos + offset

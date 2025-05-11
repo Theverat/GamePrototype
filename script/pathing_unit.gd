@@ -3,9 +3,15 @@ class_name PathingUnit
 
 @export var nav_agent: NavigationAgent3D
 @export var turn_speed: float = 4
+var frame = 0
 
 # A target node we are trying to follow
-var follow_target: Node3D = null
+var target: Node3D = null
+# Max allowed squared distance between target's current position and
+# nav_agent.target_position before a new path has to be computed.
+# This is used to improve perfomrance by minimizing path updates (if the unit 
+# we are following has barely moved, we don't need to find a new path)
+var new_path_distsqr_thresh: float = Utils.sqr(3)
 
 func _ready() -> void:
 	pass
@@ -14,16 +20,25 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	if follow_target:
-		set_movement_target(follow_target.global_position)
+	if target:
+		# Check if the target has moved so far from its original position
+		# that we need to recompute the path
+		var target_pos: Vector3 = target.global_position
+		var target_pos_diff: float = target_pos.distance_squared_to(nav_agent.target_position)
+		if target_pos_diff > new_path_distsqr_thresh:
+			set_movement_target(target_pos)
 		
 	move(delta)
 	
 func set_movement_target(point: Vector3) -> void:
+	print("Expensive: nav_agent.set_target_position()")
 	nav_agent.set_target_position(point)
 	
-func follow(target: Node3D) -> void:
-	follow_target = target
+func set_target(new_target: Node3D) -> void:
+	target = new_target
+	
+func get_target() -> Node3D:
+	return target
 	
 func move(delta: float) -> void:
 	if nav_agent.is_navigation_finished():
@@ -44,3 +59,9 @@ func rotate_to(dir: Vector3, delta: float) -> void:
 	var pos_2D: Vector2 = Vector2(-transform.basis.z.x, -transform.basis.z.z)
 	var goal_2D: Vector2 = Vector2(dir.x, dir.z)
 	rotation.y -= pos_2D.angle_to(goal_2D) * delta * turn_speed
+
+func distance_to(node: Node3D) -> float:
+	return global_position.distance_to(node.global_position)
+	
+func distance_sqr_to(node: Node3D) -> float:
+	return global_position.distance_squared_to(node.global_position)

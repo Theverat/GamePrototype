@@ -28,7 +28,7 @@ func choose_target() -> void:
 	var target_valid: bool = is_instance_valid(target_enemy)
 	
 	if target_valid:
-		var target_health: Health = get_health_module(target_enemy)
+		var target_health: Health = UnitUtils.get_health_module(target_enemy)
 		if target_health:
 			if target_health.is_dead():
 				target_valid = false
@@ -105,7 +105,7 @@ func fire_hitscan(delta: float) -> void:
 			collider = raycaster.get_collider()
 			
 		if collider:
-			print("hit: ", collider.name, " (hit target: ", collider == target_enemy, ")")
+			#print("hit: ", collider.name, " (hit target: ", collider == target_enemy, ")")
 			
 			var hitPos: Vector3 = raycaster.get_collision_point()
 			
@@ -120,19 +120,18 @@ func fire_hitscan(delta: float) -> void:
 			# Do damage
 			var colliderNode: Node3D = collider as Node3D
 			if colliderNode:
-				var health: Health = get_health_module(colliderNode)
+				var health: Health = UnitUtils.get_health_module(colliderNode)
 				
 				# TODO damage tick interval
 				if health:
 					health.deal_damage(damage_per_tick)
-					print("Dealt ", damage_per_tick, " damage to", colliderNode.name)
+					#print("Dealt ", damage_per_tick, " damage to", colliderNode.name)
 				else:
-					print("Collider has no health: ", collider.name)
+					pass
+					#print("Collider has no health: ", collider.name)
 			else:
-				print("Collider is not Node3D: ", collider.name)
+				pass
+				#print("Collider is not Node3D: ", collider.name)
 		else:
-			print("no hit, from: ", from, " to: ", to)
-
-static func get_health_module(node: Node3D) -> Health:
-	# TODO use get_node()?
-	return node.find_child("Health", false) as Health
+			pass
+			#print("no hit, from: ", from, " to: ", to)
