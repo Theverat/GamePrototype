@@ -12,9 +12,9 @@ uniform float hfNoiseScale = 0.2;
 uniform float hfDisplaceStrength = 1.0;
 
 uniform float speed = 0.9;
-uniform float spikeBrightness = 3.0;
+instance uniform float spikeBrightness = 3.0;
 uniform float spikeMin : hint_range(0, 0.99) = 0.7;
-uniform vec3 spikeColor : source_color = vec3(0., 0.3, 1.);
+instance uniform vec3 spikeColor : source_color = vec3(0., 0.3, 1.);
 
 // Original vertex position in model space
 // (varying is used to pass it from vertex shader to fragment shader)

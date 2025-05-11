@@ -3,11 +3,10 @@ extends PathingUnit
 #static func sqr(value: float) -> float:
 	#return value * value
 
-#@onready var mesh: MeshInstance3D = $MeshInstance3D
-#@onready var mat: ShaderMaterial = mesh.mesh.surface_get_material(0) as ShaderMaterial
-#var defaultColor: Color = Color(0.0, 0.3, 1.0)
-#var attackColor: Color = Color(1.0, 0.2, 0.0)
-#var attackDistSqr: float = sqr(10.0)
+@onready var mesh: MeshInstance3D = $Nanite_MeshInstance3D
+@onready var mat: ShaderMaterial = mesh.mesh.surface_get_material(0) as ShaderMaterial
+var defaultColor: Color = Color(0.0, 0.3, 1.0)
+var attackColor: Color = Color(1.0, 0.2, 0.0)
 
 @export var target_search_interval_ms: int = 1000
 var last_target_search_ms: int = 0
@@ -24,18 +23,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	super(delta)
 	
-	# This works
-	#mat.set_shader_parameter("spikeColor", attackColor)
-	#mat.set_shader_parameter("spikeBrightness", 16.0)
-	
-	#if follow_target:
-		## TODO for some reason this does not work
-		#var dist_sqr: float = global_position.distance_squared_to(follow_target.global_position)
-		#var attack_fac = clamp(attackDistSqr - dist_sqr, 0.0, attackDistSqr) / attackDistSqr;
-		#var color: Color = defaultColor.lerp(attackColor, attack_fac)
-		#mat.set_shader_parameter("spikeColor", color)
-		#var brightness: float = attack_fac * 20.0;
-		#mat.set_shader_parameter("spikeBrightness", brightness)
+	var elapsed = Time.get_ticks_msec()
+	if elapsed - last_damage_ms < damage_interval_ms:
+		# Has attacked
+		mesh.set_instance_shader_parameter("spikeColor", attackColor)
+		mesh.set_instance_shader_parameter("spikeBrightness", 20.0)
+	else:
+		# Not attacking
+		mesh.set_instance_shader_parameter("spikeColor", defaultColor)
+		mesh.set_instance_shader_parameter("spikeBrightness", 0.1)
 		
 
 func _physics_process(delta: float) -> void:
@@ -57,7 +53,7 @@ func _physics_process(delta: float) -> void:
 			if health:
 				if elapsed - last_damage_ms > damage_interval_ms:
 					last_damage_ms = elapsed
-					health.deal_damage(damage)
+					health.deal_damage(damage)					
 					
 					if health.is_dead():
 						# TODO the unit with health should probably delete itself 
