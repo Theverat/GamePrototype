@@ -96,12 +96,12 @@ func fire_hitscan(delta: float) -> void:
 		var to_target = target - pos
 		
 		var from: Vector3 = gun_barrel.global_position
-		var to: Vector3 = to_target * 1000
+		var to: Vector3 = to_target
 		var exclude: Array[RID] = []
 		var hit: UnitUtils.HitResult = UnitUtils.raycast(self, from, to, exclude)
 		
 		if hit:
-			print("hit: ", hit.collider.name, "(hit target: ", hit.collider == target_enemy, ")")
+			#print("hit: ", hit.collider.name, "(hit target: ", hit.collider == target_enemy, ")")
 			
 			# Show bullets
 			var target_dist: float = (hit.position - pos).length()
@@ -111,16 +111,22 @@ func fire_hitscan(delta: float) -> void:
 			var mat: ShaderMaterial = hitscan_bullets.mesh.surface_get_material(0) as ShaderMaterial
 			mat.set_shader_parameter("lengthY", target_dist)
 			
-			if not Engine.is_editor_hint():
-				# Do damage
-				var collider: Object = hit.collider
-				var colliderNode: Node3D = collider as Node3D
-				if colliderNode:
-					var health: Health = get_health_module(colliderNode)
-					
-					# TODO damage tick interval
-					if health:
-						health.deal_damage(damage_per_tick)
+			# Do damage
+			var collider: Object = hit.collider
+			var colliderNode: Node3D = collider as Node3D
+			if colliderNode:
+				var health: Health = get_health_module(colliderNode)
+				
+				# TODO damage tick interval
+				if health:
+					health.deal_damage(damage_per_tick)
+					print("Dealt ", damage_per_tick, " damage to", colliderNode.name)
+				else:
+					print("Collider has no health: ", collider.name)
+			else:
+				print("Collider is not Node3D: ", collider.name)
+		else:
+			print("no hit, from: ", from, " to: ", to)
 
 static func get_health_module(node: Node3D) -> Health:
 	# TODO use get_node()?

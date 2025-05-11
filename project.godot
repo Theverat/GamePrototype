@@ -23,7 +23,11 @@ GameEvents="*res://Autoload/GameEvents.gd"
 
 window/size/viewport_width=2005
 window/size/viewport_height=1610
-window/size/mode=2
+window/size/initial_position_type=0
+window/size/initial_position=Vector2i(20, 20)
+window/size/window_width_override=2000
+window/size/window_height_override=1000
+window/vsync/vsync_mode=0
 
 [dotnet]
 

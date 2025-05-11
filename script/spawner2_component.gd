@@ -1,6 +1,8 @@
 extends Node3D
 
 @export
+var enabled: bool = true
+@export
 var unit_to_spawn: PackedScene = null
 @export
 var interval_sec: float = 2.0
@@ -19,6 +21,10 @@ func _process(delta: float) -> void:
 	assert(unit_to_spawn)
 	assert(interval_sec > 0)
 	assert(radius > 0)
+	
+	if not enabled:
+		return
+	
 	var now: float = Time.get_ticks_msec() / 1000.0
 	if now - last_spawn_time > interval_sec:
 		last_spawn_time = now
