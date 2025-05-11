@@ -1,19 +1,16 @@
 #@tool
 extends Node3D
 
-@export
-var center_pillar: Node3D = null
-@export
-var gun_barrel: Node3D = null
+@export var center_pillar: Node3D = null
+@export var gun_barrel: Node3D = null
 # Bullets for hitscan turrets (e.g. gatling, railgun)
 # Can be null for turrets without hitscan (e.g. rocket)
-@export
-var hitscan_bullets: MeshInstance3D = null
-@export
-var damage_tick_interval_sec: float = 1.0 / 30.0
-var damage_per_tick: float = 1.0
+@export var hitscan_bullets: MeshInstance3D = null
+@export var raycaster: RayCast3D = null
+@export var damage_tick_interval_sec: float = 1.0 / 30.0
+@export var damage_per_tick: float = 1.0
+@export var rotation_speed: float = 5.0
 
-var rotation_speed: float = 5.0
 var target: Vector3 = Vector3.ZERO
 var target_enemy: Node3D = null
 
@@ -88,6 +85,7 @@ func rotate_gun_barrel(delta: float) -> void:
 func fire_hitscan(delta: float) -> void:
 	assert(hitscan_bullets)
 	assert(gun_barrel)
+	assert(raycaster)
 	var firing: bool = target_enemy != null
 	hitscan_bullets.visible = firing
 	
@@ -97,14 +95,22 @@ func fire_hitscan(delta: float) -> void:
 		
 		var from: Vector3 = gun_barrel.global_position
 		var to: Vector3 = to_target
-		var exclude: Array[RID] = []
-		var hit: UnitUtils.HitResult = UnitUtils.raycast(self, from, to, exclude)
-		
-		if hit:
-			#print("hit: ", hit.collider.name, "(hit target: ", hit.collider == target_enemy, ")")
+				
+		#var exclude: Array[RID] = []
+		#var hit: UnitUtils.HitResult = UnitUtils.raycast(self, from, to, exclude)
+				#
+		#if hit:
+		var collider: Object = null
+		if raycaster.is_colliding():
+			collider = raycaster.get_collider()
+			
+		if collider:
+			print("hit: ", collider.name, " (hit target: ", collider == target_enemy, ")")
+			
+			var hitPos: Vector3 = raycaster.get_collision_point()
 			
 			# Show bullets
-			var target_dist: float = (hit.position - pos).length()
+			var target_dist: float = (hitPos - pos).length()
 			# Scale to stretch the bullet trail from gun to target
 			hitscan_bullets.scale = Vector3(1, target_dist, 1)
 			# Pass distance to shader, so it can avoid stretching the texture
@@ -112,7 +118,6 @@ func fire_hitscan(delta: float) -> void:
 			mat.set_shader_parameter("lengthY", target_dist)
 			
 			# Do damage
-			var collider: Object = hit.collider
 			var colliderNode: Node3D = collider as Node3D
 			if colliderNode:
 				var health: Health = get_health_module(colliderNode)
