@@ -84,9 +84,7 @@ func fire_hitscan(delta: float) -> void:
 	assert(gun_barrel)
 	assert(raycaster)
 	var firing: bool = target_enemy != null
-	hitscan_bullets.visible = firing
-	
-	var sound_playing = false
+	hitscan_bullets.visible = firing	
 	
 	if firing:
 		var pos: Vector3 = hitscan_bullets.global_position
@@ -95,8 +93,10 @@ func fire_hitscan(delta: float) -> void:
 		var from: Vector3 = gun_barrel.global_position
 		var to: Vector3 = to_target
 
-		gatling_fire_sound.play()
-		sound_playing = true
+		#if not gatling_fire_sound.playing:
+		if (not gatling_fire_sound.playing 
+				or gatling_fire_sound.get_playback_position() > 0.035):
+			gatling_fire_sound.play()
 
 		var collider: Object = null
 		if raycaster.is_colliding():
@@ -122,5 +122,5 @@ func fire_hitscan(delta: float) -> void:
 				if health:
 					health.deal_damage(damage_per_tick)
 	else:  # Not firing
-		if sound_playing == false:
+		if gatling_fire_sound.playing:
 			gatling_fire_sound.stop()
