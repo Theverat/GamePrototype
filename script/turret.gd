@@ -10,14 +10,13 @@ extends Node3D
 @export var damage_tick_interval_sec: float = 1.0 / 30.0
 @export var damage_per_tick: float = 1.0
 @export var rotation_speed: float = 5.0
-@onready var gattling_fire_sound: AudioStreamPlayer3D = $"SFX shoot"
+@onready var gatling_fire_sound: AudioStreamPlayer3D = $"SFX shoot"
 
 var target: Vector3 = Vector3.ZERO
 var target_enemy: Node3D = null
 
 func _ready() -> void:
-	assert(gattling_fire_sound != null, "SFX nicht gefunden")
-	 
+	assert(gatling_fire_sound)
 
 func _process(delta: float) -> void:
 	choose_target()
@@ -55,9 +54,6 @@ func choose_target() -> void:
 				if dist_sqr < min_dist_sqr:
 					min_dist_sqr = dist_sqr
 					target_enemy = enemy
-		
-		#if target_enemy:
-			#print("Picked new enemy:", target_enemy.name)
 	
 	if target_enemy:
 		# Target enemy still alive, track it
@@ -65,7 +61,6 @@ func choose_target() -> void:
 
 func rotate_center_pillar_to_target(delta: float) -> void:
 	assert(center_pillar)
-		
 	var dir = target - center_pillar.global_position
 	var dir2d = -Vector2(dir.x, dir.z).normalized()
 	var target_angle = atan2(dir2d.x, dir2d.y)
@@ -93,28 +88,21 @@ func fire_hitscan(delta: float) -> void:
 	
 	var sound_playing = false
 	
-	
 	if firing:
 		var pos: Vector3 = hitscan_bullets.global_position
 		var to_target = target - pos
 		
 		var from: Vector3 = gun_barrel.global_position
 		var to: Vector3 = to_target
-				
-		#var exclude: Array[RID] = []
-		#var hit: UnitUtils.HitResult = UnitUtils.raycast(self, from, to, exclude)
-		gattling_fire_sound.play()
 
+		gatling_fire_sound.play()
 		sound_playing = true
-				
-		#if hit:
+
 		var collider: Object = null
 		if raycaster.is_colliding():
 			collider = raycaster.get_collider()
 			
 		if collider:
-			#print("hit: ", collider.name, " (hit target: ", collider == target_enemy, ")")
-			
 			var hitPos: Vector3 = raycaster.get_collision_point()
 			
 			# Show bullets
@@ -133,16 +121,6 @@ func fire_hitscan(delta: float) -> void:
 				# TODO damage tick interval
 				if health:
 					health.deal_damage(damage_per_tick)
-					#print("Dealt ", damage_per_tick, " damage to", colliderNode.name)
-				else:
-					pass
-					#print("Collider has no health: ", collider.name)
-			else:
-				pass
-				#print("Collider is not Node3D: ", collider.name)
-		else:
-			pass
-			#print("no hit, from: ", from, " to: ", to)
-	else:
+	else:  # Not firing
 		if sound_playing == false:
-			gattling_fire_sound.stop()
+			gatling_fire_sound.stop()
