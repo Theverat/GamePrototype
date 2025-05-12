@@ -45,6 +45,7 @@ visible = false
 mesh = SubResource("QuadMesh_qucgh")
 
 [node name="RayCast3D" type="RayCast3D" parent="TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel"]
+enabled = false
 target_position = Vector3(0, 0, -500)
 
 [node name="GatlingTurret_StaticBody3D" type="StaticBody3D" parent="."]

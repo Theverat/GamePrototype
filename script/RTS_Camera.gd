@@ -1,4 +1,5 @@
 extends Node3D
+class_name TopDownCamera
 
 #camera move
 @export_range(0,100,1) var camera_move_speed:float=20.0
@@ -9,7 +10,6 @@ var camera_rotation_dir: int = 0
 @export_range(0,20,1)	var camera_base_rotation_speed: float = 10
 @export_range(0,10,1)	var camera_socket_rotation_x_min:float = -1.2
 @export_range(0,10,1)	var camera_socket_rotation_x_max:float = -0.2
-
 
 #camera_pan
 @export_range(0,32,4) var camera_auto_pan_margin:int = 16
@@ -36,8 +36,9 @@ var camera_is_rotating_mouse:bool = false
 var mouse_last_position:Vector2 = Vector2.ZERO
 
 #Nodes
-@onready var camera_socket:Node3D = $camera_socket
-@onready var camera:Camera3D = $camera_socket/Camera3D
+@onready var camera_socket: Node3D = $camera_socket
+@onready var camera: Camera3D = $camera_socket/Camera3D
+@onready var raycaster: RayCast3D = $camera_socket/Camera3D/RayCast3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

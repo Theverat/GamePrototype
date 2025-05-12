@@ -11,3 +11,8 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="Camera3D" type="Camera3D" parent="camera_socket"]
 current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="camera_socket/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.077, 0)
+enabled = false
+target_position = Vector3(0, 0, -1000)

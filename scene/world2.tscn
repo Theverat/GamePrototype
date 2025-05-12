@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c57qsoaaqqnsw"]
+[gd_scene load_steps=14 format=3 uid="uid://c57qsoaaqqnsw"]
 
+[ext_resource type="Script" uid="uid://c2y1vt78mbu2t" path="res://script/world_2.gd" id="1_7tot7"]
 [ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/Portal.tscn" id="1_h1bjm"]
 [ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/GatlingTurret.tscn" id="2_lksu8"]
 [ext_resource type="PackedScene" uid="uid://c4bbudl3m8jk1" path="res://scene/sub_scenes/Components/spawner2_component.tscn" id="2_n4g1v"]
@@ -26,7 +27,10 @@ size = Vector3(5.95, 7.83, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6pic0"]
 size = Vector3(5.945, 7.825, 1)
 
-[node name="World2" type="Node3D"]
+[node name="World2" type="Node" node_paths=PackedStringArray("top_down_cam")]
+script = ExtResource("1_7tot7")
+gatling_turret_scene = ExtResource("2_lksu8")
+top_down_cam = NodePath("TopDownCamera")
 
 [node name="NaniteUnitDebug2" parent="." instance=ExtResource("6_j0o40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0852, -0.045749, -12.166)
@@ -48,7 +52,7 @@ unit_to_spawn = ExtResource("4_6hdam")
 interval_sec = 0.5
 radius = 10.24
 
-[node name="camera_base" parent="." instance=ExtResource("4_ualwm")]
+[node name="TopDownCamera" parent="." instance=ExtResource("4_ualwm")]
 transform = Transform3D(0.999999, 0, 0.00188535, 0, 1, 0, -0.00188535, 0, 0.999999, -15.0269, 18.3955, 49.5794)
 camera_zoom_speed = 76.0
 camera_zoom_min = 0.0
@@ -150,3 +154,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.4402, -0.045749, -27.3146
 
 [node name="NaniteUnitDebug7" parent="." instance=ExtResource("6_j0o40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.8993, -0.045749, -18.4109)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 597.0
+offset_right = 463.0
+offset_bottom = 971.0
+color = Color(0, 0, 0, 0.203922)
+
+[node name="AddGatlingTurret" type="Button" parent="UI"]
+z_index = 1
+layout_mode = 0
+offset_left = 55.0
+offset_top = 655.0
+offset_right = 167.0
+offset_bottom = 749.0
+text = "Gatling
+Turret"
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 608.0
+offset_right = 331.0
+offset_bottom = 650.0
+text = "Add Units"
+horizontal_alignment = 1

@@ -85,6 +85,7 @@ func fire_hitscan(delta: float) -> void:
 	assert(raycaster)
 	var firing: bool = target_enemy != null
 	hitscan_bullets.visible = firing	
+	raycaster.enabled = firing
 	
 	if firing:
 		var pos: Vector3 = hitscan_bullets.global_position

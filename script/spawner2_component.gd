@@ -1,22 +1,16 @@
 extends Node3D
 
-@export
-var enabled: bool = true
-@export
-var unit_to_spawn: PackedScene = null
-@export
-var interval_sec: float = 2.0
-@export
-var radius: float = 1.0
+@export var enabled: bool = true
+@export var unit_to_spawn: PackedScene = null
+@export var interval_sec: float = 2.0
+@export var radius: float = 1.0
 
 var last_spawn_time: float = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if not enabled and unit_to_spawn:
+		print("Info: Spawner disabled (Unit: ", unit_to_spawn.get_path(), ")")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	assert(unit_to_spawn)
 	assert(interval_sec > 0)

@@ -38,7 +38,7 @@ class HitResult:
 	var shape: int  # TODO correct type?
 
 static func raycast(node: Node3D, from: Vector3, to: Vector3, 
-					exclude: Array[RID]):
+					exclude: Array[RID]) -> HitResult:
 	var space_state = node.get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	query.exclude = exclude
