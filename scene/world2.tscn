@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c57qsoaaqqnsw"]
+[gd_scene load_steps=15 format=3 uid="uid://c57qsoaaqqnsw"]
 
 [ext_resource type="Script" uid="uid://c2y1vt78mbu2t" path="res://script/world_2.gd" id="1_7tot7"]
 [ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/Portal.tscn" id="1_h1bjm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bcqgnmsnee6hj" path="res://scene/rts_camera.tscn" id="4_ualwm"]
 [ext_resource type="Material" uid="uid://c13bsdv2dmnhd" path="res://materials/concrete.tres" id="6_6hdam"]
 [ext_resource type="PackedScene" uid="uid://dj5c1tse3ki4q" path="res://scene/nanite_unit.tscn" id="6_j0o40"]
+[ext_resource type="Theme" uid="uid://4qfdob6bbi7y" path="res://themes/default_theme.tres" id="9_6pic0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_n4g1v"]
 vertices = PackedVector3Array(-20.75, 0.49017, 25.75, -20, 0.49017, 26.5, -15.5, 0.49017, 26.5, -0.5, 0.49017, 24.5, -14.5, 0.49017, 27.5, -1.5, 0.49017, 27, -1.25, 0.49017, 25, 1, 0.49017, 24.5, 0.75, 0.49017, -48.75, -27.5, 0.49017, 25.75, -48.75, 0.49017, -48.75, -48.75, 0.49017, 27.5, -28.5, 0.49017, 27.5, -28.25, 0.49017, 26.25, 4.75, 0.49017, 24.5, 5, 0.49017, -48.75, 6.25, 0.49017, 24.5, 7.25, 0.49017, 25.75, 48.75, 0.49017, 25.75, 48.75, 0.49017, -48.75, 6.75, 0.49017, 28, 4.25, 0.49017, 28.25, 4.25, 0.49017, 48.75, 7.25, 0.49017, 27.25, 48.75, 0.49017, 48.75, -14.5, 0.49017, 29.25, -15, 0.49017, 30, -0.5, 0.49017, 28.25, -17.5, 0.49017, 30.25, -17.5, 0.49017, 48.75, 1.5, 0.49017, 28.25, 1.5, 0.49017, 48.75, -26.25, 0.49017, 48.75, -26, 0.49017, 29.5, -28, 0.49017, 29.25, -48.75, 0.49017, 48.75, -22, 0.49017, 30.25, -22.75, 0.49017, 29.5, -20, 0.49017, 48.75, -20, 0.49017, 30.25)
@@ -27,13 +28,11 @@ size = Vector3(5.95, 7.83, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6pic0"]
 size = Vector3(5.945, 7.825, 1)
 
-[node name="World2" type="Node" node_paths=PackedStringArray("top_down_cam")]
+[node name="World2" type="Node" node_paths=PackedStringArray("top_down_cam", "portal")]
 script = ExtResource("1_7tot7")
 gatling_turret_scene = ExtResource("2_lksu8")
 top_down_cam = NodePath("TopDownCamera")
-
-[node name="NaniteUnitDebug2" parent="." instance=ExtResource("6_j0o40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0852, -0.045749, -12.166)
+portal = NodePath("Portal")
 
 [node name="Portal" parent="." instance=ExtResource("1_h1bjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 0, -0.294641)
@@ -140,50 +139,103 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56416, -0.00983, 20.9537)
 
 [node name="testUnit" parent="." instance=ExtResource("4_6hdam")]
 
-[node name="NaniteUnitDebug3" parent="." instance=ExtResource("6_j0o40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3974, -0.045749, -38.2637)
-
-[node name="NaniteUnitDebug4" parent="." instance=ExtResource("6_j0o40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7097, -0.045749, -22.8767)
-
-[node name="NaniteUnitDebug5" parent="." instance=ExtResource("6_j0o40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.022, -0.045749, -36.2182)
-
-[node name="NaniteUnitDebug6" parent="." instance=ExtResource("6_j0o40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.4402, -0.045749, -27.3146)
-
-[node name="NaniteUnitDebug7" parent="." instance=ExtResource("6_j0o40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.8993, -0.045749, -18.4109)
-
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 597.0
-offset_right = 463.0
-offset_bottom = 971.0
+[node name="UnitPanel" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -374.0
+offset_right = 427.0
+grow_vertical = 0
+theme = ExtResource("9_6pic0")
 color = Color(0, 0, 0, 0.203922)
 
-[node name="AddGatlingTurret" type="Button" parent="UI"]
+[node name="Label" type="Label" parent="UI/UnitPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.5
+offset_right = 81.5
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "Add Units"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonGrid" type="Control" parent="UI/UnitPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -325.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AddGatlingTurret" type="Button" parent="UI/UnitPanel/ButtonGrid"]
 z_index = 1
-layout_mode = 0
-offset_left = 55.0
-offset_top = 655.0
-offset_right = 167.0
-offset_bottom = 749.0
+layout_mode = 1
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 134.0
+offset_bottom = 108.0
 text = "Gatling
 Turret"
 
-[node name="Label" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 168.0
-offset_top = 608.0
-offset_right = 331.0
-offset_bottom = 650.0
-text = "Add Units"
+[node name="RoundPanel" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -282.5
+offset_right = 282.5
+offset_bottom = 172.0
+grow_horizontal = 2
+theme = ExtResource("9_6pic0")
+color = Color(0, 0, 0, 0.203922)
+
+[node name="RoundLabel" type="Label" parent="UI/RoundPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.5
+offset_right = 153.5
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "Round 1"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndBuildPhaseButton" type="Button" parent="UI/RoundPanel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 41.0
+offset_right = 482.0
+offset_bottom = 126.0
+text = "End Unit Placement"
+
+[node name="TimerLabel" type="Label" parent="UI/RoundPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -40.0
+offset_right = 153.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "120"
+horizontal_alignment = 1
+vertical_alignment = 1

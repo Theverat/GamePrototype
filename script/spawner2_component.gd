@@ -1,4 +1,5 @@
 extends Node3D
+class_name Spawner2Component
 
 @export var enabled: bool = true
 @export var unit_to_spawn: PackedScene = null

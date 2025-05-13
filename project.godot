@@ -42,6 +42,10 @@ enabled=PackedStringArray("res://addons/ImportCleaner/plugin.cfg", "res://addons
 "faction: human"="All allied units"
 "faction: nanite"="All enemy units"
 
+[gui]
+
+theme/custom="uid://4qfdob6bbi7y"
+
 [input]
 
 camera_forward={
