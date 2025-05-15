@@ -59,6 +59,7 @@ max_hp = 1000.0
 
 [node name="SFX shoot" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.11163, 0)
+visible = false
 stream = ExtResource("8_wi84o")
 volume_db = 1.379
 unit_size = 5.34

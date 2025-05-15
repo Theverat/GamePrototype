@@ -37,11 +37,14 @@ class HitResult:
 	#shape: The shape index of the colliding shape.
 	var shape: int  # TODO correct type?
 
+# exclude can contain Objects or RIDs
 static func raycast(node: Node3D, from: Vector3, to: Vector3, 
-					exclude: Array[RID]) -> HitResult:
+					collide_with_bodies: bool = true,
+					collision_mask: int = 0xFFFFFFFF, 
+					exclude = []) -> HitResult:
 	var space_state = node.get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(from, to)
-	query.exclude = exclude
+	var query = PhysicsRayQueryParameters3D.create(from, to, collision_mask, exclude)
+	query.collide_with_bodies = collide_with_bodies
 	var result: Dictionary = space_state.intersect_ray(query)
 	
 	if result.is_empty():

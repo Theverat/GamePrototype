@@ -73,48 +73,7 @@ func _process(delta: float) -> void:
 		timerLabel.text = str(ceil(remaining))
 		
 		if scene_to_place:
-			if instance == null:
-				start_placement()
-			
-			var pos: Vector3 = Vector3(30, 0, 30)
-			# Cast ray into scene and find hitpoint
-			var mouse_pos: Vector2 = get_viewport().get_mouse_position()		
-			var camera: Camera3D = top_down_cam.camera
-			var raycaster: RayCast3D = top_down_cam.raycaster
-			var ray_length: float = 100
-					
-			var from = camera.project_ray_origin(mouse_pos)
-			var to = from + camera.project_ray_normal(mouse_pos) * ray_length
-			pos = to
-			
-			#raycaster.global_position = from
-			#raycaster.target_position = raycaster.to_local(to)
-			#
-			##raycaster.target_position = camera.project_local_ray_normal(mouse_pos) * ray_length
-			##print(raycaster.target_position)
-			#
-			##var from = camera.project_ray_origin(mouse_pos)
-			##var to = from + camera.project_ray_normal(mouse_pos) * ray_length
-			#raycaster.enabled = true
-			#if raycaster.is_colliding():
-				#print("colliding")
-				#pos = raycaster.get_collision_point()
-			#raycaster.enabled = false
-			
-			# TODO still does not work
-			var exclude: Array[RID] = []
-			for child: Node in instance.find_children("*", "CollisionShape3D"):
-				var as_coll = child as CollisionShape3D
-				var name = child.name  # TODO remove
-				if as_coll:
-					exclude.push_back(as_coll.shape.get_rid())
-			
-			var hit: UnitUtils.HitResult = UnitUtils.raycast(instance, from, to, exclude)
-			
-			if hit:
-				pos = hit.position
-			
-			instance.global_position = pos
+			place_instance()
 			
 			if Input.is_action_pressed("accept"):
 				# Finalize placement
@@ -123,10 +82,43 @@ func _process(delta: float) -> void:
 				# Cancel placement
 				instance.queue_free()
 				end_placement()
+				
+func place_instance():
+	if instance == null:
+		instance = scene_to_place.instantiate() as Node3D
+		add_child(instance)
 			
-func start_placement():
-	instance = scene_to_place.instantiate() as Node3D
-	add_child(instance)
+	var pos: Vector3 = Vector3(30, 0, 30)
+	# Cast ray into scene and find hitpoint
+	var mouse_pos: Vector2 = get_viewport().get_mouse_position()		
+	var camera: Camera3D = top_down_cam.camera
+	var raycaster: RayCast3D = top_down_cam.raycaster
+	var ray_length: float = 100
+			
+	var from = camera.project_ray_origin(mouse_pos)
+	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
+	pos = to
+	
+	# TODO Maybe use a collision mask to only allow buildable floor sections
+	# as collision objects
+	var exclude: = []
+	for child: Node in instance.find_children("*"):
+		var as_coll = child as CollisionShape3D
+		if as_coll:
+			exclude.push_back(as_coll.shape.get_rid())
+		elif child.is_class("StaticBody3D"):
+			exclude.push_back(child as Object)
+	
+	var collision_mask: int = 0xFFFFFFFF
+	var collide_with_bodies: bool = true
+	var hit: UnitUtils.HitResult = UnitUtils.raycast(instance, from, to, 
+													collide_with_bodies,
+													collision_mask, exclude)
+	
+	if hit: 
+		pos = hit.position
+	
+	instance.global_position = pos
 	
 func end_placement():
 	scene_to_place = null
