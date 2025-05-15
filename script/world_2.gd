@@ -20,6 +20,30 @@ var buildPhaseDurationSec: float = 120
 var buildPhaseStartTimeSec: float = 0
 var buildPhaseEndedByPlayer: bool = false
 
+func _ready():
+	gatlingButton.pressed.connect(_add_gatling_turret_pressed)
+	endBuildPhaseButton.pressed.connect(_endBuildPhaseButton_pressed)
+	buildPhaseStartTimeSec = Utils.elapsedSec()
+	
+func _process(delta: float) -> void:
+	var elapsed: float = Utils.elapsedSec()
+	maybeChangePhase(elapsed)
+	
+	if roundPhase == RoundPhase.BUILD:
+		var remaining: float = buildPhaseDurationSec - (elapsed - buildPhaseStartTimeSec)
+		timerLabel.text = str(ceil(remaining))
+		
+		if scene_to_place:
+			place_instance()
+			
+			if Input.is_action_pressed("accept"):
+				# Finalize placement
+				end_placement()
+			elif Input.is_action_pressed("cancel"):
+				# Cancel placement
+				instance.queue_free()
+				end_placement()
+
 func _endBuildPhaseButton_pressed():
 	buildPhaseEndedByPlayer = true
 
@@ -58,30 +82,6 @@ func maybeChangePhase(elapsed: float):
 		
 		if isBuild:
 			buildPhaseStartTimeSec = elapsed		
-
-func _ready():
-	gatlingButton.pressed.connect(_add_gatling_turret_pressed)
-	endBuildPhaseButton.pressed.connect(_endBuildPhaseButton_pressed)
-	buildPhaseStartTimeSec = Utils.elapsedSec()
-	
-func _process(delta: float) -> void:
-	var elapsed: float = Utils.elapsedSec()
-	maybeChangePhase(elapsed)
-	
-	if roundPhase == RoundPhase.BUILD:
-		var remaining: float = buildPhaseDurationSec - (elapsed - buildPhaseStartTimeSec)
-		timerLabel.text = str(ceil(remaining))
-		
-		if scene_to_place:
-			place_instance()
-			
-			if Input.is_action_pressed("accept"):
-				# Finalize placement
-				end_placement()
-			elif Input.is_action_pressed("cancel"):
-				# Cancel placement
-				instance.queue_free()
-				end_placement()
 				
 func place_instance():
 	if instance == null:
