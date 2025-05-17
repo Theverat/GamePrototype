@@ -2,7 +2,6 @@ extends Node
 
 @export var gatling_turret_scene: PackedScene = null
 @export var top_down_cam: TopDownCamera = null
-@export var portal: Node3D = null
 
 # UI
 @onready var unitPanel: Control = $UI/UnitPanel
@@ -77,8 +76,9 @@ func maybeChangePhase(elapsed: float):
 		unitPanel.visible = isBuild
 		timerLabel.visible = isBuild
 		
-		for spawner in portal.find_children("*", "Spawner2Component"):
-			(spawner as Spawner2Component).enabled = isFight
+		for portal in find_children("Portal*"):
+			for spawner in portal.find_children("*", "Spawner2Component"):
+				(spawner as Spawner2Component).enabled = isFight
 		
 		if isBuild:
 			buildPhaseStartTimeSec = elapsed		

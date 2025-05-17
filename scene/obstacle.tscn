@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ber54hwbk8h05"]
+
+[ext_resource type="Material" uid="uid://c13bsdv2dmnhd" path="res://materials/concrete.tres" id="1_p1pd2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nyukl"]
+size = Vector3(5.95, 7.83, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_25435"]
+size = Vector3(5.945, 7.825, 1)
+
+[node name="Obstacle_StaticBody3D3" type="StaticBody3D"]
+
+[node name="Obstacle_MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0675297, 3.85331, 0)
+material_override = ExtResource("1_p1pd2")
+mesh = SubResource("BoxMesh_nyukl")
+skeleton = NodePath("../../..")
+
+[node name="Obstacle_CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0675297, 3.85331, 0)
+shape = SubResource("BoxShape3D_25435")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Obstacle_CollisionShape3D"]
+size = Vector3(5.945, 7.825, 1)

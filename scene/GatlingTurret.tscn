@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://6druwv3j8l2c"]
+[gd_scene load_steps=18 format=3 uid="uid://6druwv3j8l2c"]
 
 [ext_resource type="Script" uid="uid://d10fy3poq38au" path="res://script/turret.gd" id="1_03h8t"]
 [ext_resource type="PackedScene" uid="uid://dtxqa2qjgllub" path="res://assets/buildings/Turrets/TurretBase_01.blend" id="2_0krec"]
@@ -24,28 +24,48 @@ center_offset = Vector3(0, 0.5, 0)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wi84o"]
 inherit_velocity_ratio = 1.0
 spread = 0.425
-initial_velocity_min = 838.16
-initial_velocity_max = 838.16
+initial_velocity_min = 180.0
+initial_velocity_max = 180.0
+collision_mode = 2
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cm6sr"]
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
-emission = Color(0.955729, 0.903152, 0.696886, 1)
-emission_energy_multiplier = 11.32
+emission = Color(1, 0.804077, 0.721354, 1)
+emission_energy_multiplier = 15.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtvge"]
 material = SubResource("StandardMaterial3D_cm6sr")
-size = Vector3(1.72, 0.025, 0.025)
+size = Vector3(0.54, 0.025, 0.025)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iips0"]
 size = Vector3(4, 6.845, 4)
 
-[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets", "particle_bullets", "raycaster") groups=["faction: human"]]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cm6sr"]
+inherit_velocity_ratio = 1.0
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 12.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtvge"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.519531, 0.25, 1)
+emission_energy_multiplier = 8.35
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ttef"]
+material = SubResource("StandardMaterial3D_mtvge")
+size = Vector3(0.03, 0.03, 0.03)
+
+[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets", "particle_bullets", "particle_hitpoint", "raycaster") groups=["faction: human"]]
 script = ExtResource("1_03h8t")
 center_pillar = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar")
 gun_barrel = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel")
 hitscan_bullets = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/Bullets")
 particle_bullets = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/GPUParticles3D")
+particle_hitpoint = NodePath("Hitpoint_GPUParticles3D")
 raycaster = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/RayCast3D")
 
 [node name="TurretBase_01" parent="." instance=ExtResource("2_0krec")]
@@ -67,9 +87,14 @@ target_position = Vector3(0, 0, -500)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.178046, -4.39941)
+visible = false
 amount = 638
-lifetime = 0.52
-visibility_aabb = AABB(-8.265, -11.17, -14.835, 37.345, 30.315, 28.915)
+sub_emitter = NodePath("../../../../Hitpoint_GPUParticles3D")
+lifetime = 0.76
+fixed_fps = 120
+interpolate = false
+collision_base_size = 0.5
+visibility_aabb = AABB(-100, -500, -500, 1000, 1000, 1000)
 process_material = SubResource("ParticleProcessMaterial_wi84o")
 draw_pass_1 = SubResource("BoxMesh_mtvge")
 
@@ -88,3 +113,12 @@ visible = false
 stream = ExtResource("8_wi84o")
 volume_db = 1.379
 unit_size = 5.34
+
+[node name="Hitpoint_GPUParticles3D" type="GPUParticles3D" parent="."]
+visible = false
+emitting = false
+amount = 93
+lifetime = 0.15
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_cm6sr")
+draw_pass_1 = SubResource("BoxMesh_8ttef")

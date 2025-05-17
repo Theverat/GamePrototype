@@ -7,10 +7,11 @@ extends Node3D
 # Can be null for turrets without hitscan (e.g. rocket)
 @export var hitscan_bullets: MeshInstance3D = null
 @export var particle_bullets: GPUParticles3D = null
+@export var particle_hitpoint: GPUParticles3D = null
 @export var raycaster: RayCast3D = null
 @export var damage_tick_interval_sec: float = 1.0 / 30.0
 @export var damage_per_tick: float = 1.0
-@export var rotation_speed: float = 5.0
+@export var rotation_speed: float = 7.0
 @onready var gatling_fire_sound: AudioStreamPlayer3D = $"SFX shoot"
 
 var target: Vector3 = Vector3.ZERO
@@ -86,8 +87,12 @@ func fire_hitscan(delta: float) -> void:
 	assert(raycaster)
 	var firing: bool = target_enemy != null
 	hitscan_bullets.visible = false # firing	
-	particle_bullets.visible = firing
 	raycaster.enabled = firing
+	
+	particle_bullets.visible = true
+	particle_hitpoint.visible = true
+	#particle_bullets.emitting = firing
+	particle_bullets.amount_ratio = 1 if firing else 0
 	
 	if firing:
 		var pos: Vector3 = hitscan_bullets.global_position
