@@ -34,6 +34,15 @@ gatling_turret_scene = ExtResource("2_lksu8")
 top_down_cam = NodePath("TopDownCamera")
 portal = NodePath("Portal")
 
+[node name="Portal2" parent="." instance=ExtResource("1_h1bjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5964, 0, -0.294641)
+
+[node name="Spawner2Component" parent="Portal2" instance=ExtResource("2_n4g1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31674, 0.892777, -0.599144)
+unit_to_spawn = ExtResource("6_j0o40")
+interval_sec = 1.92
+radius = 10.24
+
 [node name="Portal" parent="." instance=ExtResource("1_h1bjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 0, -0.294641)
 
@@ -41,14 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 0, -0.294641)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31674, 0.892777, -0.599144)
 enabled = false
 unit_to_spawn = ExtResource("6_j0o40")
-interval_sec = 0.5
-radius = 10.24
-
-[node name="Spawner2Component2" parent="Portal" instance=ExtResource("2_n4g1v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31674, 0.892777, -0.599144)
-enabled = false
-unit_to_spawn = ExtResource("4_6hdam")
-interval_sec = 0.5
+interval_sec = 1.7
 radius = 10.24
 
 [node name="TopDownCamera" parent="." instance=ExtResource("4_ualwm")]

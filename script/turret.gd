@@ -6,6 +6,7 @@ extends Node3D
 # Bullets for hitscan turrets (e.g. gatling, railgun)
 # Can be null for turrets without hitscan (e.g. rocket)
 @export var hitscan_bullets: MeshInstance3D = null
+@export var particle_bullets: GPUParticles3D = null
 @export var raycaster: RayCast3D = null
 @export var damage_tick_interval_sec: float = 1.0 / 30.0
 @export var damage_per_tick: float = 1.0
@@ -84,7 +85,8 @@ func fire_hitscan(delta: float) -> void:
 	assert(gun_barrel)
 	assert(raycaster)
 	var firing: bool = target_enemy != null
-	hitscan_bullets.visible = firing	
+	hitscan_bullets.visible = false # firing	
+	particle_bullets.visible = firing
 	raycaster.enabled = firing
 	
 	if firing:
