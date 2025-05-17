@@ -61,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.287229, 0)
 radius = 0.86
 
 [node name="Health" parent="." instance=ExtResource("3_61uvr")]
-max_hp = 300.0
+max_hp = 1000.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)

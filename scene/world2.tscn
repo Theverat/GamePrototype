@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c57qsoaaqqnsw"]
+[gd_scene load_steps=14 format=3 uid="uid://c57qsoaaqqnsw"]
 
 [ext_resource type="Script" uid="uid://c2y1vt78mbu2t" path="res://script/world_2.gd" id="1_7tot7"]
 [ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/Portal.tscn" id="1_h1bjm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bcqgnmsnee6hj" path="res://scene/rts_camera.tscn" id="4_ualwm"]
 [ext_resource type="Material" uid="uid://c13bsdv2dmnhd" path="res://materials/concrete.tres" id="6_6hdam"]
 [ext_resource type="PackedScene" uid="uid://dj5c1tse3ki4q" path="res://scene/nanite_unit.tscn" id="6_j0o40"]
+[ext_resource type="PackedScene" uid="uid://chphoqxlnb04t" path="res://scene/nanite_monster.tscn" id="6_u3832"]
 [ext_resource type="PackedScene" uid="uid://ber54hwbk8h05" path="res://scene/obstacle.tscn" id="8_6pic0"]
 [ext_resource type="Theme" uid="uid://4qfdob6bbi7y" path="res://themes/default_theme.tres" id="9_6pic0"]
 
@@ -34,8 +35,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5964, 0, -0.294641)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31674, 0.892777, -0.599144)
 enabled = false
 unit_to_spawn = ExtResource("6_j0o40")
-interval_sec = 1.92
+interval_sec = 5.135
 radius = 10.24
+
+[node name="NaniteUnit" parent="Portal2" instance=ExtResource("6_u3832")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.4336, 0.84898, -10.0158)
 
 [node name="Portal" parent="." instance=ExtResource("1_h1bjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 0, -0.294641)
@@ -43,8 +47,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 0, -0.294641)
 [node name="Spawner2Component" parent="Portal" instance=ExtResource("2_n4g1v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31674, 0.892777, -0.599144)
 enabled = false
-unit_to_spawn = ExtResource("6_j0o40")
-interval_sec = 1.7
+unit_to_spawn = ExtResource("6_u3832")
+interval_sec = 1.01
 radius = 10.24
 
 [node name="TopDownCamera" parent="." instance=ExtResource("4_ualwm")]
@@ -88,7 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.214226, 0.0518599, 28.4318)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.9374, 0.0518599, 27.835)
 
 [node name="NaniteUnitDebug" parent="." instance=ExtResource("6_j0o40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.7729, -0.0457491, 6.63366)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.7729, -0.0457491, -31.1618)
 
 [node name="GatlingTurret2" parent="." instance=ExtResource("2_lksu8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6983, -0.00983, 43.9603)

@@ -59,13 +59,14 @@ emission_energy_multiplier = 8.35
 material = SubResource("StandardMaterial3D_mtvge")
 size = Vector3(0.03, 0.03, 0.03)
 
-[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets", "particle_bullets", "particle_hitpoint", "raycaster") groups=["faction: human"]]
+[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets", "particle_bullets", "particle_hitpoint", "muzzleflash_light", "raycaster") groups=["faction: human"]]
 script = ExtResource("1_03h8t")
 center_pillar = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar")
 gun_barrel = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel")
 hitscan_bullets = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/Bullets")
 particle_bullets = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/GPUParticles3D")
 particle_hitpoint = NodePath("Hitpoint_GPUParticles3D")
+muzzleflash_light = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/MuzzleFlashLight")
 raycaster = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/RayCast3D")
 
 [node name="TurretBase_01" parent="." instance=ExtResource("2_0krec")]
@@ -97,6 +98,13 @@ collision_base_size = 0.5
 visibility_aabb = AABB(-100, -500, -500, 1000, 1000, 1000)
 process_material = SubResource("ParticleProcessMaterial_wi84o")
 draw_pass_1 = SubResource("BoxMesh_mtvge")
+
+[node name="MuzzleFlashLight" type="OmniLight3D" parent="TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0132377, 0.036695, -4.63144)
+light_color = Color(1, 0.871094, 0.770833, 1)
+light_energy = 4.209
+light_bake_mode = 0
+omni_range = 12.27
 
 [node name="GatlingTurret_StaticBody3D" type="StaticBody3D" parent="."]
 

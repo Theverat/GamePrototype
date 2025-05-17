@@ -8,6 +8,7 @@ extends Node3D
 @export var hitscan_bullets: MeshInstance3D = null
 @export var particle_bullets: GPUParticles3D = null
 @export var particle_hitpoint: GPUParticles3D = null
+@export var muzzleflash_light: OmniLight3D = null
 @export var raycaster: RayCast3D = null
 @export var damage_tick_interval_sec: float = 1.0 / 30.0
 @export var damage_per_tick: float = 1.0
@@ -89,22 +90,20 @@ func fire_hitscan(delta: float) -> void:
 	hitscan_bullets.visible = false # firing	
 	raycaster.enabled = firing
 	
+	# Light
+	var flash_on: bool = sin(Utils.elapsedSec() * 2000) > 0
+	muzzleflash_light.visible = firing and flash_on
+	
 	particle_bullets.visible = true
 	particle_hitpoint.visible = true
 	#particle_bullets.emitting = firing
 	particle_bullets.amount_ratio = 1 if firing else 0
 	
 	if firing:
-		var pos: Vector3 = hitscan_bullets.global_position
-		var to_target = target - pos
-		
-		var from: Vector3 = gun_barrel.global_position
-		var to: Vector3 = to_target
-
-		#if not gatling_fire_sound.playing:
+		# Sound
 		if (not gatling_fire_sound.playing 
 				or gatling_fire_sound.get_playback_position() > 0.035):
-			gatling_fire_sound.play()
+			gatling_fire_sound.play()			
 
 		var collider: Object = null
 		if raycaster.is_colliding():
@@ -114,6 +113,7 @@ func fire_hitscan(delta: float) -> void:
 			var hitPos: Vector3 = raycaster.get_collision_point()
 			
 			# Show bullets
+			var pos: Vector3 = hitscan_bullets.global_position
 			var target_dist: float = (hitPos - pos).length()
 			# Scale to stretch the bullet trail from gun to target
 			hitscan_bullets.scale = Vector3(1, target_dist, 1)
