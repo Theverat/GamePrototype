@@ -93,7 +93,7 @@ func place_instance():
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()		
 	var camera: Camera3D = top_down_cam.camera
 	var raycaster: RayCast3D = top_down_cam.raycaster
-	var ray_length: float = 100
+	var ray_length: float = 300
 			
 	var from = camera.project_ray_origin(mouse_pos)
 	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
