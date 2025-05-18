@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdnjilgpuexd3"]
+
+[ext_resource type="PackedScene" uid="uid://dbhtq2e58u5ny" path="res://assets/Environment/GameMap_02.glb" id="1_4fq4s"]
+[ext_resource type="Material" uid="uid://c3jwsj6563map" path="res://materials/spaceship.tres" id="2_wdnhf"]
+
+[node name="GameMap_02" instance=ExtResource("1_4fq4s")]
+
+[node name="MainShip" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Cube_001" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Cube_002" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels" parent="Panels_001" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels2" parent="Panels_002" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels3" parent="Panels_003" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels4" parent="Panels_004" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels5" parent="Panels_005" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels6" parent="Panels_006" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels7" parent="Panels_007" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels8" parent="Panels_008" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels9" parent="Panels_009" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels10" parent="Panels_010" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Panels11" parent="Panels_011" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels" parent="Big_Panel1" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels2" parent="Big_Panel1_001" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_001" parent="Big_Panel2" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_0012" parent="Big_Panel2_001" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_0013" parent="Big_Panel2_002" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_002" parent="Big_Panel3" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_0022" parent="Big_Panel3_001" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_0023" parent="Big_Panel3_002" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_0014" parent="Big_Panel2_003" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels3" parent="Big_Panel1_002" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_0024" parent="Big_Panel3_003" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_0015" parent="Big_Panel2_004" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels_0016" parent="Big_Panel2_005" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")
+
+[node name="Big_Panels4" parent="Big_Panel1_003" index="0"]
+surface_material_override/0 = ExtResource("2_wdnhf")

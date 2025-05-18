@@ -118,4 +118,5 @@ cancel={
 
 [rendering]
 
-anti_aliasing/quality/msaa_3d=3
+lights_and_shadows/directional_shadow/size=8192
+anti_aliasing/quality/msaa_3d=2
