@@ -1,4 +1,5 @@
 extends Node
+class_name Level
 
 @export var gatling_turret_scene: PackedScene = null
 @export var top_down_cam: TopDownCamera = null
@@ -8,31 +9,64 @@ extends Node
 @onready var gatlingButton: Button = $UI/UnitPanel/ButtonGrid/AddGatlingTurret
 @onready var endBuildPhaseButton: Button = $UI/RoundPanel/EndBuildPhaseButton
 @onready var timerLabel: Label = $UI/RoundPanel/TimerLabel
+@onready var metalAmountLabel: Label = $UI/UnitPanel/MetalNameLabel/MetalAmountLabel
 
-var scene_to_place: PackedScene = null
+class BuildableUnit:
+	var cost_metal: int
+	var button: Button
+	var scene: PackedScene
+
+var buildable_units: Array[BuildableUnit] = []
+var buildable_gatling: BuildableUnit = null
+
+var unit_to_place: BuildableUnit = null
 var instance: Node3D = null
 
 enum	 RoundPhase {BUILD, FIGHT}
 var round: int = 1
 var roundPhase: RoundPhase = RoundPhase.BUILD
+var phaseStartTimeSec: float = 0
 var buildPhaseDurationSec: float = 120
-var buildPhaseStartTimeSec: float = 0
 var buildPhaseEndedByPlayer: bool = false
+var fightPhaseDurationSec: float = 240
+
+# Resources
+var base_metal_per_round = 200
+var metal: int = base_metal_per_round
 
 func _ready():
+	# Add buildable units
+	buildable_gatling = BuildableUnit.new()
+	buildable_gatling.cost_metal = 100
+	buildable_gatling.button = gatlingButton
+	buildable_gatling.scene = gatling_turret_scene
+	buildable_units.push_back(buildable_gatling)
+	
 	gatlingButton.pressed.connect(_add_gatling_turret_pressed)
 	endBuildPhaseButton.pressed.connect(_endBuildPhaseButton_pressed)
-	buildPhaseStartTimeSec = Utils.elapsedSec()
+	phaseStartTimeSec = Utils.elapsedSec()
 	
 func _process(delta: float) -> void:
 	var elapsed: float = Utils.elapsedSec()
 	maybeChangePhase(elapsed)
 	
-	if roundPhase == RoundPhase.BUILD:
-		var remaining: float = buildPhaseDurationSec - (elapsed - buildPhaseStartTimeSec)
-		timerLabel.text = str(ceil(remaining))
+	var phaseDurationSec: float = 0
+	match roundPhase:
+		RoundPhase.BUILD: phaseDurationSec = buildPhaseDurationSec
+		RoundPhase.FIGHT: phaseDurationSec = fightPhaseDurationSec
+		_: assert(false, "Unknown RoundPhase")
 		
-		if scene_to_place:
+	var remaining: float = phaseDurationSec - (elapsed - phaseStartTimeSec)
+	timerLabel.text = str(ceil(remaining))
+	
+	metalAmountLabel.text = str(metal)	
+	
+	if roundPhase == RoundPhase.BUILD:
+		# Enable/disable buttons depending on amount of resources
+		for buildable_unit in buildable_units:
+			buildable_unit.button.disabled = metal < buildable_unit.cost_metal
+		
+		if unit_to_place:
 			place_instance()
 			
 			if Input.is_action_pressed("accept"):
@@ -54,15 +88,18 @@ func nextRoundPhase(phase: RoundPhase):
 			return RoundPhase.BUILD
 			
 func maybeChangePhase(elapsed: float):
+	var elapsedInPhase = elapsed - phaseStartTimeSec
 	var changePhase: bool = false
-	if roundPhase == RoundPhase.BUILD:
-		if (elapsed - buildPhaseStartTimeSec > buildPhaseDurationSec
-				or buildPhaseEndedByPlayer):
-			changePhase = true
-	elif roundPhase == RoundPhase.FIGHT:
-		pass  # TODO end fight phase
-	else:
-		assert(false, "Unknown RoundPhase")
+	match roundPhase:
+		RoundPhase.BUILD:
+			if (elapsedInPhase > buildPhaseDurationSec
+					or buildPhaseEndedByPlayer):
+				changePhase = true
+		RoundPhase.FIGHT:
+			if (elapsedInPhase > fightPhaseDurationSec):
+				changePhase = true
+		_:
+			assert(false, "Unknown RoundPhase")
 	
 	if changePhase:
 		roundPhase = nextRoundPhase(roundPhase)
@@ -74,18 +111,22 @@ func maybeChangePhase(elapsed: float):
 		
 		endBuildPhaseButton.visible = isBuild
 		unitPanel.visible = isBuild
-		timerLabel.visible = isBuild
+		timerLabel.visible = isBuild or isFight
 		
+		# Enable/disable spawners
 		for portal in find_children("Portal*"):
 			for spawner in portal.find_children("*", "Spawner2Component"):
 				(spawner as Spawner2Component).enabled = isFight
-		
+				
+		# Give resources to the player
 		if isBuild:
-			buildPhaseStartTimeSec = elapsed		
+			metal += base_metal_per_round
+		
+		phaseStartTimeSec = elapsed		
 				
 func place_instance():
 	if instance == null:
-		instance = scene_to_place.instantiate() as Node3D
+		instance = unit_to_place.scene.instantiate() as Node3D
 		add_child(instance)
 			
 	var pos: Vector3 = Vector3(30, 0, 30)
@@ -121,9 +162,10 @@ func place_instance():
 	instance.global_position = pos
 	
 func end_placement():
-	scene_to_place = null
+	metal -= unit_to_place.cost_metal
+	unit_to_place = null
 	instance = null
 
 func _add_gatling_turret_pressed():
-	assert(gatling_turret_scene)
-	scene_to_place = gatling_turret_scene
+	assert(buildable_gatling)
+	unit_to_place = buildable_gatling

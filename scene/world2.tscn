@@ -168,6 +168,21 @@ offset_bottom = 108.0
 text = "Gatling
 Turret"
 
+[node name="MetalNameLabel" type="Label" parent="UI/UnitPanel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = -39.0
+offset_right = 66.0
+offset_bottom = -16.0
+text = "Metal:"
+
+[node name="MetalAmountLabel" type="Label" parent="UI/UnitPanel/MetalNameLabel"]
+layout_mode = 0
+offset_left = 55.0
+offset_right = 95.0
+offset_bottom = 23.0
+text = "0"
+
 [node name="RoundPanel" type="ColorRect" parent="UI"]
 layout_mode = 1
 anchors_preset = 5
