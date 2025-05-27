@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj5c1tse3ki4q"]
+[gd_scene load_steps=10 format=3 uid="uid://c3e62c1o6esti"]
 
 [ext_resource type="Shader" uid="uid://rorafnnhtv1f" path="res://shaders/nanite.gdshader" id="1_x8mj2"]
 [ext_resource type="Script" uid="uid://dxcmvjaibhkku" path="res://script/nanite_unit.gd" id="1_yimgi"]
