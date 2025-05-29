@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://b2dswkx3aa1dl" path="res://assets/units/TestSimpleUnit/SimpleUnitTorso.obj" id="1_yjkyc"]
 [ext_resource type="Script" uid="uid://cr1smddxuyjic" path="res://script/TestMultiMesh.cs" id="2_766nq"]
-[ext_resource type="PackedScene" uid="uid://dyl7wnvfepkeo" path="res://scene/RTSCam.tscn" id="3_766nq"]
+[ext_resource type="PackedScene" uid="uid://dyl7wnvfepkeo" path="res://scene/unused/RTSCam.tscn" id="3_766nq"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_ywn1n"]
 transform_format = 1

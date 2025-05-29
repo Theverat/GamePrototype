@@ -13,7 +13,7 @@
 [ext_resource type="Shader" uid="uid://8mre0iskalys" path="res://shaders/testunit.gdshader" id="10_ooiku"]
 [ext_resource type="Animation" uid="uid://7i3dxuklkva2" path="res://assets/animation/Kneel.res" id="10_s423r"]
 [ext_resource type="ArrayMesh" uid="uid://c0178sc0n6quv" path="res://scene/sub_scenes/testunit_mesh_highres.mesh" id="12_5evm4"]
-[ext_resource type="Shader" uid="uid://bbytehvyv3awu" path="res://scene/unit_death.gdshader" id="14_ung1p"]
+[ext_resource type="Shader" uid="uid://bbytehvyv3awu" path="res://shaders/unit_death.gdshader" id="14_ung1p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhqt3"]
 resource_name = "Ch50_body1"

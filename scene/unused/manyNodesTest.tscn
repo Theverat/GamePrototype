@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d154rq74q36th"]
 
-[ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/GatlingTurret.tscn" id="1_wdvc2"]
+[ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/units/faction_human/GatlingTurret.tscn" id="1_wdvc2"]
 
 [sub_resource type="Animation" id="Animation_fthlr"]
 resource_name = "move"

@@ -1,21 +1,21 @@
 [gd_scene load_steps=21 format=3 uid="uid://c57qsoaaqqnsw"]
 
-[ext_resource type="Script" uid="uid://c2y1vt78mbu2t" path="res://script/world_2.gd" id="1_7tot7"]
-[ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/Portal.tscn" id="1_h1bjm"]
-[ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/GatlingTurret.tscn" id="2_lksu8"]
-[ext_resource type="PackedScene" uid="uid://c4bbudl3m8jk1" path="res://scene/sub_scenes/Components/spawner2_component.tscn" id="2_n4g1v"]
-[ext_resource type="PackedScene" uid="uid://bcqgnmsnee6hj" path="res://scene/rts_camera.tscn" id="4_ualwm"]
-[ext_resource type="Material" uid="uid://c13bsdv2dmnhd" path="res://materials/concrete.tres" id="6_6hdam"]
-[ext_resource type="PackedScene" uid="uid://c3e62c1o6esti" path="res://scene/nanite_unit.tscn" id="6_j0o40"]
-[ext_resource type="PackedScene" uid="uid://chphoqxlnb04t" path="res://scene/nanite_monster.tscn" id="6_u3832"]
-[ext_resource type="PackedScene" uid="uid://ber54hwbk8h05" path="res://scene/obstacle.tscn" id="8_6pic0"]
-[ext_resource type="Texture2D" uid="uid://4yo4fn7if7w" path="res://assets/Textures/artificial_planet.jpg" id="8_kuecm"]
-[ext_resource type="Theme" uid="uid://4qfdob6bbi7y" path="res://themes/default_theme.tres" id="9_6pic0"]
-[ext_resource type="PackedScene" uid="uid://dksxb3l0cv26c" path="res://assets/units/TestSoldier/Synth_v.0.1.glb" id="11_mgduq"]
-[ext_resource type="PackedScene" uid="uid://cdnjilgpuexd3" path="res://scene/game_map_02_with_mat.tscn" id="12_hth2p"]
+[ext_resource type="Script" uid="uid://c2y1vt78mbu2t" path="res://script/world_2.gd" id="1_2njfi"]
+[ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/units/faction_human/GatlingTurret.tscn" id="2_4nwk4"]
+[ext_resource type="PackedScene" uid="uid://b8puxrmoyx3tn" path="res://scene/units/faction_nanite/Portal.tscn" id="3_rq2m5"]
+[ext_resource type="PackedScene" uid="uid://c4bbudl3m8jk1" path="res://scene/sub_scenes/Components/spawner2_component.tscn" id="4_4ux7g"]
+[ext_resource type="PackedScene" uid="uid://chphoqxlnb04t" path="res://scene/units/faction_nanite/nanite_monster.tscn" id="5_flwjh"]
+[ext_resource type="PackedScene" uid="uid://bcqgnmsnee6hj" path="res://scene/level/rts_camera.tscn" id="6_vyfri"]
+[ext_resource type="Texture2D" uid="uid://4yo4fn7if7w" path="res://assets/Textures/artificial_planet.jpg" id="7_62n2c"]
+[ext_resource type="Material" uid="uid://c13bsdv2dmnhd" path="res://materials/concrete.tres" id="8_hku41"]
+[ext_resource type="PackedScene" uid="uid://ber54hwbk8h05" path="res://scene/level/obstacle.tscn" id="9_2l0uf"]
+[ext_resource type="PackedScene" uid="uid://c3e62c1o6esti" path="res://scene/units/faction_nanite/nanite_unit.tscn" id="10_duuqf"]
+[ext_resource type="Theme" uid="uid://4qfdob6bbi7y" path="res://themes/default_theme.tres" id="11_grv0o"]
+[ext_resource type="PackedScene" uid="uid://dksxb3l0cv26c" path="res://assets/units/TestSoldier/Synth_v.0.1.glb" id="12_f6qw8"]
+[ext_resource type="PackedScene" uid="uid://cdnjilgpuexd3" path="res://scene/level/game_map_02_with_mat.tscn" id="13_xqmey"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ap15n"]
-panorama = ExtResource("8_kuecm")
+panorama = ExtResource("7_62n2c")
 
 [sub_resource type="Sky" id="Sky_r71w8"]
 sky_material = SubResource("PanoramaSkyMaterial_ap15n")
@@ -33,7 +33,7 @@ cell_height = 0.5
 agent_radius = 3.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_h1bjm"]
-material = ExtResource("6_6hdam")
+material = ExtResource("8_hku41")
 size = Vector3(200, 1, 200)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckyo8"]
@@ -44,25 +44,25 @@ radius = 17.51
 height = 36.4
 
 [node name="World2" type="Node" node_paths=PackedStringArray("top_down_cam")]
-script = ExtResource("1_7tot7")
-gatling_turret_scene = ExtResource("2_lksu8")
+script = ExtResource("1_2njfi")
+gatling_turret_scene = ExtResource("2_4nwk4")
 top_down_cam = NodePath("TopDownCamera")
 
-[node name="Portal" parent="." instance=ExtResource("1_h1bjm")]
+[node name="Portal" parent="." instance=ExtResource("3_rq2m5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 6.50144, -372.267)
 
-[node name="Spawner2Component" parent="Portal" instance=ExtResource("2_n4g1v")]
+[node name="Spawner2Component" parent="Portal" instance=ExtResource("4_4ux7g")]
 enabled = false
-unit_to_spawn = ExtResource("6_u3832")
+unit_to_spawn = ExtResource("5_flwjh")
 interval_sec = 1.01
 radius = 10.24
 
-[node name="Spawner2Component2" parent="Portal" instance=ExtResource("2_n4g1v")]
+[node name="Spawner2Component2" parent="Portal" instance=ExtResource("4_4ux7g")]
 enabled = false
 interval_sec = 5.135
 radius = 10.24
 
-[node name="TopDownCamera" parent="." instance=ExtResource("4_ualwm")]
+[node name="TopDownCamera" parent="." instance=ExtResource("6_vyfri")]
 transform = Transform3D(0.997288, 0.00489749, -0.0734405, -0.00470176, 0.999985, 0.0028379, 0.0734534, -0.0024849, 0.997296, -15.0269, 11.0758, 85.5606)
 camera_move_speed = 40.0
 camera_rotation_speed = 0.8
@@ -88,7 +88,7 @@ navigation_mesh = SubResource("NavigationMesh_n4g1v")
 [node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -0.50983, 0)
 visible = false
-material_override = ExtResource("6_6hdam")
+material_override = ExtResource("8_hku41")
 mesh = SubResource("BoxMesh_h1bjm")
 skeleton = NodePath("../../..")
 
@@ -99,37 +99,37 @@ shape = SubResource("BoxShape3D_ckyo8")
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="NavigationRegion3D/Floor/Floor_CollisionShape3D"]
 size = Vector3(1600, 1, 1600)
 
-[node name="Obstacle_StaticBody3D7" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+[node name="Obstacle_StaticBody3D7" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4727, 0.0640026, -140.07)
 
-[node name="Obstacle_StaticBody3D8" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+[node name="Obstacle_StaticBody3D8" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9763, 0.10372, -106.594)
 
-[node name="Obstacle_StaticBody3D9" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+[node name="Obstacle_StaticBody3D9" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.57104, 0.10372, -151.076)
 
-[node name="Obstacle_StaticBody3D10" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+[node name="Obstacle_StaticBody3D10" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.3201, 0.10372, -125.973)
 
-[node name="Obstacle_StaticBody3D3" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+[node name="Obstacle_StaticBody3D3" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1086, 0.0121427, 28.6111)
 
-[node name="Obstacle_StaticBody3D4" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+[node name="Obstacle_StaticBody3D4" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5933, 0.0518599, 28.4234)
 
-[node name="Obstacle_StaticBody3D5" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+[node name="Obstacle_StaticBody3D5" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.214226, 0.0518599, 28.4318)
 
-[node name="Obstacle_StaticBody3D6" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+[node name="Obstacle_StaticBody3D6" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7865, 0.0518599, 27.835)
 
-[node name="NaniteUnitDebug" parent="." instance=ExtResource("6_j0o40")]
+[node name="NaniteUnitDebug" parent="." instance=ExtResource("10_duuqf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.6318, -0.0457491, -179.623)
 
-[node name="NaniteMonster" parent="." instance=ExtResource("6_u3832")]
+[node name="NaniteMonster" parent="." instance=ExtResource("5_flwjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.8483, -0.0457489, -146.401)
 
-[node name="GatlingTurret2" parent="." instance=ExtResource("2_lksu8")]
+[node name="GatlingTurret2" parent="." instance=ExtResource("2_4nwk4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6983, -0.00983, 43.9603)
 
 [node name="UI" type="Control" parent="."]
@@ -149,7 +149,7 @@ anchor_bottom = 1.0
 offset_top = -374.0
 offset_right = 427.0
 grow_vertical = 0
-theme = ExtResource("9_6pic0")
+theme = ExtResource("11_grv0o")
 color = Color(0, 0, 0, 0.203922)
 
 [node name="Label" type="Label" parent="UI/UnitPanel"]
@@ -209,7 +209,7 @@ offset_left = -282.5
 offset_right = 282.5
 offset_bottom = 172.0
 grow_horizontal = 2
-theme = ExtResource("9_6pic0")
+theme = ExtResource("11_grv0o")
 color = Color(0, 0, 0, 0.203922)
 
 [node name="RoundLabel" type="Label" parent="UI/RoundPanel"]
@@ -249,10 +249,10 @@ text = "120"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Synth_v_0_1" parent="." instance=ExtResource("11_mgduq")]
+[node name="Synth_v_0_1" parent="." instance=ExtResource("12_f6qw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.2471, -0.149525, 45.621)
 
-[node name="GameMap_02" parent="." instance=ExtResource("12_hth2p")]
+[node name="GameMap_02" parent="." instance=ExtResource("13_xqmey")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="GameMap_02"]
