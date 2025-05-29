@@ -37,7 +37,7 @@ material = ExtResource("6_6hdam")
 size = Vector3(200, 1, 200)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckyo8"]
-size = Vector3(200, 1, 200)
+size = Vector3(1600, 1, 1600)
 
 [sub_resource type="SphereMesh" id="SphereMesh_bjrfv"]
 radius = 17.51
@@ -66,7 +66,7 @@ interval_sec = 5.135
 radius = 10.24
 
 [node name="TopDownCamera" parent="." instance=ExtResource("4_ualwm")]
-transform = Transform3D(-0.999999, 0, -0.00188526, 0, 1, 0, 0.00188526, 0, -0.999999, -15.0269, 11.0758, 85.5606)
+transform = Transform3D(0.997288, 0.00489749, -0.0734405, -0.00470176, 0.999985, 0.0028379, 0.0734534, -0.0024849, 0.997296, -15.0269, 11.0758, 85.5606)
 camera_move_speed = 40.0
 camera_rotation_speed = 0.8
 camera_base_rotation_speed = 15.0
@@ -96,11 +96,11 @@ mesh = SubResource("BoxMesh_h1bjm")
 skeleton = NodePath("../../..")
 
 [node name="Floor_CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -0.50983, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
 shape = SubResource("BoxShape3D_ckyo8")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="NavigationRegion3D/Floor/Floor_CollisionShape3D"]
-size = Vector3(200, 1, 200)
+size = Vector3(1600, 1, 1600)
 
 [node name="Obstacle_StaticBody3D3" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1086, 0.0121427, 28.6111)
@@ -131,7 +131,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.6318, -0.0457491, -31.161
 
 [node name="GatlingTurret2" parent="." instance=ExtResource("2_lksu8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6983, -0.00983, 43.9603)
-attack_range = 500.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

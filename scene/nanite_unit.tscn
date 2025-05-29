@@ -20,7 +20,7 @@ shader_parameter/spikeMin = 0.7
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yimgi"]
 height = 8.2525
-radius = 4.0
+radius = 3.235
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vapsy"]
 render_priority = 0
@@ -58,7 +58,7 @@ shape = SubResource("CylinderShape3D_yimgi")
 
 [node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="Nanite_CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.287229, 0)
-radius = 0.86
+radius = 4.0
 
 [node name="Health" parent="." instance=ExtResource("3_61uvr")]
 max_hp = 1000.0
