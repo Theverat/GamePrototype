@@ -16,10 +16,6 @@ static func find_closest_unit(node: Node3D, group: String) -> Node3D:
 				closest_unit = unit
 	return closest_unit
 	
-static func get_health_module(node: Node3D) -> Health:
-	# TODO use get_node()?
-	return node.find_child("Health", false) as Health
-	
 class HitResult:
 	# collider: The colliding object.
 	var collider: Object

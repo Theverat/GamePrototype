@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://lnucfn67od1o"]
+[gd_scene load_steps=27 format=4 uid="uid://lnucfn67od1o"]
 
 [ext_resource type="Script" uid="uid://dbg5fbkec1aot" path="res://script/testunit.gd" id="1_7tvtk"]
 [ext_resource type="Texture2D" uid="uid://b7u8sxnbjhngj" path="res://assets/units/TestSoldier/Synth_v.0_Ch50_1002_Diffuse.png" id="2_hho5e"]
@@ -14,7 +14,6 @@
 [ext_resource type="Animation" uid="uid://7i3dxuklkva2" path="res://assets/animation/Kneel.res" id="10_s423r"]
 [ext_resource type="ArrayMesh" uid="uid://c0178sc0n6quv" path="res://scene/sub_scenes/testunit_mesh_highres.mesh" id="12_5evm4"]
 [ext_resource type="Shader" uid="uid://bbytehvyv3awu" path="res://scene/unit_death.gdshader" id="14_ung1p"]
-[ext_resource type="PackedScene" uid="uid://q8q8egwilcqd" path="res://scene/sub_scenes/Components/health.tscn" id="15_l3v8u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhqt3"]
 resource_name = "Ch50_body1"
@@ -1825,5 +1824,3 @@ speed_scale = 8.07
 process_material = SubResource("ShaderMaterial_l3v8u")
 draw_pass_1 = SubResource("BoxMesh_ung1p")
 draw_skin = SubResource("Skin_ung1p")
-
-[node name="Health" parent="." instance=ExtResource("15_l3v8u")]

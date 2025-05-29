@@ -49,14 +49,15 @@ func _physics_process(delta: float) -> void:
 		var dist_sqr: float = distance_sqr_to(target)
 		
 		if dist_sqr < attack_dist_sqr:
-			var health: Health = UnitUtils.get_health_module(target)
-			if health:
-				if elapsed - last_damage_ms > damage_interval_ms:
-					last_damage_ms = elapsed
-					health.deal_damage(damage)					
-					
-					if health.is_dead():
-						# TODO the unit with health should probably delete itself 
-						# when hp go to 0 (maybe do it in Health?)
-						target.queue_free()
-						set_target(null)
+			pass
+			#var health: Health = UnitUtils.get_health_module(target)
+			#if health:
+				#if elapsed - last_damage_ms > damage_interval_ms:
+					#last_damage_ms = elapsed
+					#health.deal_damage(damage)					
+					#
+					#if health.is_dead():
+						## TODO the unit with health should probably delete itself 
+						## when hp go to 0 (maybe do it in Health?)
+						#target.queue_free()
+						#set_target(null)

@@ -1,7 +1,5 @@
 extends PathingUnit
-
-#static func sqr(value: float) -> float:
-	#return value * value
+class_name NaniteUnit
 
 @onready var mesh: MeshInstance3D = $Nanite_MeshInstance3D
 @onready var mat: ShaderMaterial = mesh.mesh.surface_get_material(0) as ShaderMaterial
@@ -36,27 +34,28 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	var elapsed = Time.get_ticks_msec()
+	var elapsed_ms: int = Time.get_ticks_msec()
 	
-	if (target == null
-			or (elapsed - last_target_search_ms) > target_search_interval_ms):
+	if (not target
+			or (elapsed_ms - last_target_search_ms) > target_search_interval_ms):
 		var closest_enemy: Node3D = UnitUtils.find_closest_unit(self, "faction: human")
 		set_target(closest_enemy)
-		last_target_search_ms = elapsed
-		
-	if target:
-		# Check if we are in attack range
-		var dist_sqr: float = distance_sqr_to(target)
-		
-		if dist_sqr < attack_dist_sqr:
-			var health: Health = UnitUtils.get_health_module(target)
-			if health:
-				if elapsed - last_damage_ms > damage_interval_ms:
-					last_damage_ms = elapsed
-					health.deal_damage(damage)					
-					
-					if health.is_dead():
-						# TODO the unit with health should probably delete itself 
-						# when hp go to 0 (maybe do it in Health?)
-						target.queue_free()
-						set_target(null)
+		last_target_search_ms = elapsed_ms
+	
+	maybe_deal_damage(elapsed_ms)
+
+# Deal damage if possible (enemy has health and attack cooldown has passed)
+func maybe_deal_damage(elapsed_ms: int) -> void:
+	if not target:
+		return
+	if elapsed_ms - last_damage_ms < damage_interval_ms:
+		# Attack still on cooldown
+		return
+	if not attack_area.overlaps_body(target):
+		# Out of range
+		return
+	
+	var unit: Unit = target as Unit
+	if unit:
+		unit.health.apply_damage(damage)
+		last_damage_ms = elapsed_ms

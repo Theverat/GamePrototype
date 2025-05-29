@@ -52,14 +52,12 @@ top_down_cam = NodePath("TopDownCamera")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 6.50144, -372.267)
 
 [node name="Spawner2Component" parent="Portal" instance=ExtResource("2_n4g1v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.19955, 0)
 enabled = false
 unit_to_spawn = ExtResource("6_u3832")
 interval_sec = 1.01
 radius = 10.24
 
 [node name="Spawner2Component2" parent="Portal" instance=ExtResource("2_n4g1v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.19955, 0)
 enabled = false
 unit_to_spawn = ExtResource("6_j0o40")
 interval_sec = 5.135
@@ -78,7 +76,7 @@ camera_zoom_max = 90.0
 transform = Transform3D(-0.951649, 0.0593002, -0.30141, -0.0723938, 0.910261, 0.407657, 0.298536, 0.409767, -0.861955, 0, 38.8362, -222.431)
 light_bake_mode = 1
 shadow_enabled = true
-directional_shadow_max_distance = 500.0
+directional_shadow_max_distance = 1000.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xemro")
@@ -128,6 +126,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.4482, 0.0518599, 140.708)
 
 [node name="NaniteUnitDebug" parent="." instance=ExtResource("6_j0o40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.6318, -0.0457491, -31.1618)
+
+[node name="NaniteMonster" parent="." instance=ExtResource("6_u3832")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.8483, -0.0457489, -2.72466)
 
 [node name="GatlingTurret2" parent="." instance=ExtResource("2_lksu8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6983, -0.00983, 43.9603)
@@ -248,9 +249,6 @@ grow_vertical = 0
 text = "120"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="NaniteUnit" parent="." instance=ExtResource("6_u3832")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8372, 0.84898, -10.3104)
 
 [node name="Synth_v_0_1" parent="." instance=ExtResource("11_mgduq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.2471, -0.149525, 45.621)

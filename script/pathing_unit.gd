@@ -1,6 +1,7 @@
-extends CharacterBody3D
+extends Unit
 class_name PathingUnit
 
+@export var body: CharacterBody3D
 @export var nav_agent: NavigationAgent3D
 @export var turn_speed: float = 4
 var frame = 0
@@ -14,12 +15,15 @@ var target: Node3D = null
 var new_path_distsqr_thresh: float = Utils.sqr(3)
 
 func _ready() -> void:
-	pass
+	super()
+	assert(body)
+	assert(nav_agent)
 
 func _process(delta: float) -> void:
-	pass
+	super(delta)
 
 func _physics_process(delta: float) -> void:
+	super(delta)
 	if target:
 		# Check if the target has moved so far from its original position
 		# that we need to recompute the path
@@ -48,12 +52,12 @@ func move(delta: float) -> void:
 	var direction: Vector3 = global_position.direction_to(next_position)
 	rotate_to(direction, delta)
 	
-	velocity = direction * nav_agent.max_speed
+	body.velocity = direction * nav_agent.max_speed
 	
 	var pos: Vector3 = global_position
 	#global_position += velocity * delta
-	nav_agent.set_velocity(velocity)
-	move_and_slide()
+	nav_agent.set_velocity(body.velocity)
+	body.move_and_slide()
 
 func rotate_to(dir: Vector3, delta: float) -> void:
 	var pos_2D: Vector2 = Vector2(-transform.basis.z.x, -transform.basis.z.z)

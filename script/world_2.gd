@@ -133,7 +133,6 @@ func place_instance():
 	# Cast ray into scene and find hitpoint
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()		
 	var camera: Camera3D = top_down_cam.camera
-	var raycaster: RayCast3D = top_down_cam.raycaster
 	var ray_length: float = 300
 			
 	var from = camera.project_ray_origin(mouse_pos)
@@ -142,14 +141,7 @@ func place_instance():
 	
 	# TODO Maybe use a collision mask to only allow buildable floor sections
 	# as collision objects
-	var exclude: = []
-	for child: Node in instance.find_children("*"):
-		var as_coll = child as CollisionShape3D
-		if as_coll:
-			exclude.push_back(as_coll.shape.get_rid())
-		elif child.is_class("StaticBody3D"):
-			exclude.push_back(child as Object)
-	
+	var exclude: = [instance as StaticBody3D]
 	var collision_mask: int = 0xFFFFFFFF
 	var collide_with_bodies: bool = true
 	var hit: UnitUtils.HitResult = UnitUtils.raycast(instance, from, to, 

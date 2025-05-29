@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dwex1rfsdhpaw" path="res://assets/buildings/Turrets/GatlingTurretSimon_GunBarrel.blend" id="4_qucgh"]
 [ext_resource type="Shader" uid="uid://0y2n451uqihe" path="res://shaders/gatling_bullets.gdshader" id="5_0krec"]
 [ext_resource type="Texture2D" uid="uid://batj6e8mfrnkg" path="res://assets/image/textures/GatlingShots.png" id="6_iips0"]
-[ext_resource type="PackedScene" uid="uid://q8q8egwilcqd" path="res://scene/sub_scenes/Components/health.tscn" id="7_qucgh"]
 [ext_resource type="AudioStream" uid="uid://birvr3gn8c3eu" path="res://assets/sound/sfx/GattlingTurre/gattling_fire.wav" id="8_wi84o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iips0"]
+size = Vector3(4, 6.845, 4)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iips0"]
 render_priority = 0
@@ -40,9 +42,6 @@ emission_energy_multiplier = 15.1
 material = SubResource("StandardMaterial3D_cm6sr")
 size = Vector3(0.54, 0.025, 0.025)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_iips0"]
-size = Vector3(4, 6.845, 4)
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cm6sr"]
 inherit_velocity_ratio = 1.0
 direction = Vector3(0, 0, 1)
@@ -60,7 +59,10 @@ emission_energy_multiplier = 8.35
 material = SubResource("StandardMaterial3D_mtvge")
 size = Vector3(0.03, 0.03, 0.03)
 
-[node name="GatlingTurret" type="Node3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets", "particle_bullets", "particle_hitpoint", "muzzleflash_light", "raycaster") groups=["faction: human"]]
+[sub_resource type="SphereShape3D" id="SphereShape3D_wi84o"]
+radius = 300.0
+
+[node name="GatlingTurret" type="StaticBody3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets", "particle_bullets", "particle_hitpoint", "muzzleflash_light", "raycaster", "collision_shape", "attack_area") groups=["faction: human"]]
 script = ExtResource("1_03h8t")
 center_pillar = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar")
 gun_barrel = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel")
@@ -69,6 +71,13 @@ particle_bullets = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/Gatli
 particle_hitpoint = NodePath("Hitpoint_GPUParticles3D")
 muzzleflash_light = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/MuzzleFlashLight")
 raycaster = NodePath("TurretBase_01/GatlingTurretSimon_CenterPillar/GatlingTurretSimon_GunBarrel/RayCast3D")
+collision_shape = NodePath("CollisionShape3D")
+attack_area = NodePath("AttackArea")
+init_hp = 1000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.37999, 0)
+shape = SubResource("BoxShape3D_iips0")
 
 [node name="TurretBase_01" parent="." instance=ExtResource("2_0krec")]
 
@@ -107,14 +116,6 @@ light_energy = 4.209
 light_bake_mode = 0
 omni_range = 12.27
 
-[node name="GatlingTurret_StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="GatlingTurret_CollisionShape3D" type="CollisionShape3D" parent="GatlingTurret_StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.37999, 0)
-shape = SubResource("BoxShape3D_iips0")
-
-[node name="Health" parent="." instance=ExtResource("7_qucgh")]
-
 [node name="SFX shoot" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.11163, 0)
 visible = false
@@ -131,3 +132,8 @@ one_shot = true
 visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 process_material = SubResource("ParticleProcessMaterial_cm6sr")
 draw_pass_1 = SubResource("BoxMesh_8ttef")
+
+[node name="AttackArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("SphereShape3D_wi84o")
