@@ -60,7 +60,7 @@ material = SubResource("StandardMaterial3D_mtvge")
 size = Vector3(0.03, 0.03, 0.03)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wi84o"]
-radius = 300.0
+radius = 150.0
 
 [node name="GatlingTurret" type="StaticBody3D" node_paths=PackedStringArray("center_pillar", "gun_barrel", "hitscan_bullets", "particle_bullets", "particle_hitpoint", "muzzleflash_light", "raycaster", "collision_shape", "attack_area") groups=["faction: human"]]
 script = ExtResource("1_03h8t")
@@ -137,3 +137,4 @@ draw_pass_1 = SubResource("BoxMesh_8ttef")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
 shape = SubResource("SphereShape3D_wi84o")
+debug_color = Color(0.701961, 0, 0, 0.839216)

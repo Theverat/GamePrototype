@@ -13,11 +13,10 @@ func _ready() -> void:
 		print("Info: Spawner disabled (Unit: ", unit_to_spawn.get_path(), ")")
 
 func _process(delta: float) -> void:
-	assert(unit_to_spawn)
 	assert(interval_sec > 0)
 	assert(radius > 0)
 	
-	if not enabled:
+	if not enabled or not unit_to_spawn:
 		return
 	
 	var now: float = Time.get_ticks_msec() / 1000.0

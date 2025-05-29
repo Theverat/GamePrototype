@@ -77,3 +77,4 @@ surface_material_override/0 = SubResource("ShaderMaterial_vapsy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.85024, 0)
 shape = SubResource("CylinderShape3D_irg3u")
+debug_color = Color(0.7, 0, 0, 0.42)

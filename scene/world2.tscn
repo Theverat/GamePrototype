@@ -59,7 +59,6 @@ radius = 10.24
 
 [node name="Spawner2Component2" parent="Portal" instance=ExtResource("2_n4g1v")]
 enabled = false
-unit_to_spawn = ExtResource("6_j0o40")
 interval_sec = 5.135
 radius = 10.24
 
@@ -100,6 +99,18 @@ shape = SubResource("BoxShape3D_ckyo8")
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="NavigationRegion3D/Floor/Floor_CollisionShape3D"]
 size = Vector3(1600, 1, 1600)
 
+[node name="Obstacle_StaticBody3D7" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4727, 0.0640026, -140.07)
+
+[node name="Obstacle_StaticBody3D8" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9763, 0.10372, -106.594)
+
+[node name="Obstacle_StaticBody3D9" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.57104, 0.10372, -151.076)
+
+[node name="Obstacle_StaticBody3D10" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.3201, 0.10372, -125.973)
+
 [node name="Obstacle_StaticBody3D3" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1086, 0.0121427, 28.6111)
 
@@ -110,25 +121,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5933, 0.0518599, 28.4234)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.214226, 0.0518599, 28.4318)
 
 [node name="Obstacle_StaticBody3D6" parent="NavigationRegion3D" instance=ExtResource("8_6pic0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.9374, 0.0518599, 27.835)
-
-[node name="Obstacle_StaticBody3D3" parent="NavigationRegion3D/Obstacle_StaticBody3D6" instance=ExtResource("8_6pic0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.277, 0.0121427, 141.484)
-
-[node name="Obstacle_StaticBody3D4" parent="NavigationRegion3D/Obstacle_StaticBody3D6" instance=ExtResource("8_6pic0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.792, 0.0518599, 141.297)
-
-[node name="Obstacle_StaticBody3D5" parent="NavigationRegion3D/Obstacle_StaticBody3D6" instance=ExtResource("8_6pic0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.6, 0.0518599, 141.305)
-
-[node name="Obstacle_StaticBody3D6" parent="NavigationRegion3D/Obstacle_StaticBody3D6" instance=ExtResource("8_6pic0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.4482, 0.0518599, 140.708)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7865, 0.0518599, 27.835)
 
 [node name="NaniteUnitDebug" parent="." instance=ExtResource("6_j0o40")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.6318, -0.0457491, -31.1618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.6318, -0.0457491, -179.623)
 
 [node name="NaniteMonster" parent="." instance=ExtResource("6_u3832")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.8483, -0.0457489, -2.72466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.8483, -0.0457489, -146.401)
 
 [node name="GatlingTurret2" parent="." instance=ExtResource("2_lksu8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6983, -0.00983, 43.9603)
