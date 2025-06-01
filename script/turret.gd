@@ -106,11 +106,6 @@ func fire_hitscan(delta: float) -> void:
 			var unit: Unit = collider as Unit
 			if unit:
 				unit.health.apply_damage(damage_per_tick)
-				var a = 0
-				a = 1
-				a = 1
-				a = 1
-				a = 1
 			
 	else:  # Not firing
 		if gatling_fire_sound.playing:

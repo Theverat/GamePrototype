@@ -5,6 +5,7 @@ class_name Spawner2Component
 @export var unit_to_spawn: PackedScene = null
 @export var interval_sec: float = 2.0
 @export var radius: float = 1.0
+@export var default_target: Node3D = null
 
 var last_spawn_time: float = 0
 
@@ -24,6 +25,10 @@ func _process(delta: float) -> void:
 		last_spawn_time = now
 		var instance: Node3D = unit_to_spawn.instantiate() as Node3D
 		var pos: Vector3 = global_position
+		
+		var as_unit: PathingUnit = instance as PathingUnit
+		if as_unit:
+			as_unit.set_default_target(default_target)
 		
 		var rand_radius: float = randf_range(0, radius)
 		var rand_angle: float = randf_range(-PI, PI)

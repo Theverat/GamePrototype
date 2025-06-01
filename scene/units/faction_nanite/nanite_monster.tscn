@@ -48,7 +48,6 @@ mesh = SubResource("BoxMesh_yimgi")
 path_desired_distance = 3.95
 path_max_distance = 10.21
 radius = 1.3
-debug_enabled = true
 
 [node name="Nanite_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.288419, 0)

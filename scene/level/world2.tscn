@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c57qsoaaqqnsw"]
+[gd_scene load_steps=24 format=3 uid="uid://c57qsoaaqqnsw"]
 
 [ext_resource type="Script" uid="uid://c2y1vt78mbu2t" path="res://script/world_2.gd" id="1_2njfi"]
 [ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/units/faction_human/GatlingTurret.tscn" id="2_4nwk4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://4qfdob6bbi7y" path="res://themes/default_theme.tres" id="11_grv0o"]
 [ext_resource type="PackedScene" uid="uid://dksxb3l0cv26c" path="res://assets/units/TestSoldier/Synth_v.0.1.glb" id="12_f6qw8"]
 [ext_resource type="PackedScene" uid="uid://cdnjilgpuexd3" path="res://scene/level/game_map_02_with_mat.tscn" id="13_xqmey"]
+[ext_resource type="Script" uid="uid://cc7nc4wt2ywgd" path="res://script/unit.gd" id="14_4nwk4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ap15n"]
 panorama = ExtResource("7_62n2c")
@@ -43,6 +44,13 @@ size = Vector3(1600, 1, 1600)
 radius = 17.51
 height = 36.4
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_2njfi"]
+top_radius = 3.41
+bottom_radius = 18.311
+height = 37.293
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4nwk4"]
+
 [node name="World2" type="Node" node_paths=PackedStringArray("top_down_cam")]
 script = ExtResource("1_2njfi")
 gatling_turret_scene = ExtResource("2_4nwk4")
@@ -51,16 +59,19 @@ top_down_cam = NodePath("TopDownCamera")
 [node name="Portal" parent="." instance=ExtResource("3_rq2m5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 6.50144, -372.267)
 
-[node name="Spawner2Component" parent="Portal" instance=ExtResource("4_4ux7g")]
+[node name="Spawner2Component" parent="Portal" node_paths=PackedStringArray("default_target") instance=ExtResource("4_4ux7g")]
 enabled = false
 unit_to_spawn = ExtResource("5_flwjh")
-interval_sec = 1.01
+interval_sec = 0.655
 radius = 10.24
+default_target = NodePath("../../DefaultTarget")
 
-[node name="Spawner2Component2" parent="Portal" instance=ExtResource("4_4ux7g")]
+[node name="Spawner2Component2" parent="Portal" node_paths=PackedStringArray("default_target") instance=ExtResource("4_4ux7g")]
 enabled = false
-interval_sec = 5.135
+unit_to_spawn = ExtResource("10_duuqf")
+interval_sec = 8.225
 radius = 10.24
+default_target = NodePath("../../DefaultTarget")
 
 [node name="TopDownCamera" parent="." instance=ExtResource("6_vyfri")]
 transform = Transform3D(0.997288, 0.00489749, -0.0734405, -0.00470176, 0.999985, 0.0028379, 0.0734534, -0.0024849, 0.997296, -15.0269, 11.0758, 85.5606)
@@ -327,3 +338,17 @@ light_color = Color(1, 0.289063, 0.289063, 1)
 light_energy = 94.805
 shadow_enabled = true
 spot_range = 81.5806
+
+[node name="DefaultTarget" type="StaticBody3D" parent="." node_paths=PackedStringArray("collision_shape")]
+script = ExtResource("14_4nwk4")
+collision_shape = NodePath("CollisionShape3D")
+init_hp = 1000.0
+target_priority = 1
+
+[node name="DefaultTargetMesh" type="MeshInstance3D" parent="DefaultTarget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -248.735, 0, -234.279)
+mesh = SubResource("CylinderMesh_2njfi")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultTarget"]
+shape = SubResource("SphereShape3D_4nwk4")
