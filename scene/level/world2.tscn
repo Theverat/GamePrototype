@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c57qsoaaqqnsw"]
+[gd_scene load_steps=25 format=3 uid="uid://c57qsoaaqqnsw"]
 
 [ext_resource type="Script" uid="uid://c2y1vt78mbu2t" path="res://script/world_2.gd" id="1_2njfi"]
 [ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/units/faction_human/GatlingTurret.tscn" id="2_4nwk4"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dksxb3l0cv26c" path="res://assets/units/TestSoldier/Synth_v.0.1.glb" id="12_f6qw8"]
 [ext_resource type="PackedScene" uid="uid://cdnjilgpuexd3" path="res://scene/level/game_map_02_with_mat.tscn" id="13_xqmey"]
 [ext_resource type="Script" uid="uid://cc7nc4wt2ywgd" path="res://script/unit.gd" id="14_4nwk4"]
+[ext_resource type="PackedScene" uid="uid://blh4pikheqpc" path="res://scene/units/faction_human/MobileReactor.tscn" id="15_rq2m5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ap15n"]
 panorama = ExtResource("7_62n2c")
@@ -352,3 +353,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultTarget"]
 shape = SubResource("SphereShape3D_4nwk4")
+
+[node name="MobileReactor" parent="." instance=ExtResource("15_rq2m5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.071, 1.48219, 138.896)

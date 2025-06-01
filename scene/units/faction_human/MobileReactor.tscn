@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=4 uid="uid://blh4pikheqpc"]
+[gd_scene load_steps=23 format=4 uid="uid://blh4pikheqpc"]
 
-[ext_resource type="Texture2D" uid="uid://b237ll6dn2kts" path="res://assets/vfx/smoke/T_smoke_flipbook.png" id="1_jwyoj"]
+[ext_resource type="Texture2D" uid="uid://b237ll6dn2kts" path="res://assets/vfx/smoke/T_smoke_flipbook.png" id="1_bvp2f"]
+[ext_resource type="Script" uid="uid://datk0uihsgff4" path="res://script/MobileReactor.gd" id="1_qfvpq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8683r"]
 resource_name = "Reactor"
@@ -209,30 +210,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4npta")
 
-[sub_resource type="Animation" id="Animation_vq2b1"]
-resource_name = "new_animation"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ReactorVent_Low")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0, -2.48653, 0, 4, 1, 0, -1.82067, 0, 5, 1, 0, -2.45092, 0)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GPUParticles3D:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 4.03333, 5.26667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
 [sub_resource type="Animation" id="Animation_p1i8v"]
 length = 0.001
 tracks/0/type = "position_3d"
@@ -255,10 +232,34 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_vq2b1"]
+resource_name = "Vent"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReactorVent_Low")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0, -2.48653, 0, 4, 1, 0, -1.82067, 0, 5, 1, 0, -2.45092, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 4.03333, 5.26667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4lr33"]
 _data = {
 &"RESET": SubResource("Animation_p1i8v"),
-&"new_animation": SubResource("Animation_vq2b1")
+&"Vent": SubResource("Animation_vq2b1")
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0h0r6"]
@@ -280,8 +281,14 @@ turbulence_noise_speed_random = 4.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gamen"]
 transparency = 1
-blend_mode = 1
-albedo_texture = ExtResource("1_jwyoj")
+specular_mode = 1
+albedo_texture = ExtResource("1_bvp2f")
+emission = Color(0, 0.360634, 0.38041, 1)
+emission_energy_multiplier = 16.0
+emission_operator = 1
+rim_enabled = true
+rim = 0.25
+backlight = Color(0.805758, 0.677467, 0.618464, 1)
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 8
@@ -291,9 +298,14 @@ proximity_fade_enabled = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_0quit"]
 material = SubResource("StandardMaterial3D_gamen")
+custom_aabb = AABB(0, 0, 0, 10, 10, 0)
 size = Vector2(2, 2)
 
-[node name="MobileReactor" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qfvpq"]
+size = Vector3(7.80933, 7.38821, 7.22302)
+
+[node name="MobileReactor" type="CharacterBody3D"]
+script = ExtResource("1_qfvpq")
 
 [node name="mesh" type="Node3D" parent="."]
 
@@ -328,7 +340,7 @@ libraries = {
 }
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.52867, -0.0538239)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00735092, 5.51211, -0.0696034)
 emitting = false
 amount = 400
 lifetime = 4.0
@@ -338,9 +350,15 @@ process_material = SubResource("ParticleProcessMaterial_0h0r6")
 draw_pass_1 = SubResource("QuadMesh_0quit")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="mesh"]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 3.32796, 1.42282)
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 3.32796, 0.972079)
 light_color = Color(0, 0.827766, 0.827766, 1)
-light_energy = 4.22
-light_volumetric_fog_energy = 4.522
-light_size = 0.057
+light_energy = 16.0
+light_indirect_energy = 7.099
+light_volumetric_fog_energy = 3.108
 shadow_enabled = true
+spot_range = 29.2226
+spot_angle = 83.293
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0194092, 2.28453, -0.0484009)
+shape = SubResource("BoxShape3D_qfvpq")
