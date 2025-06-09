@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://8gpou6dogw00"]
+[gd_scene load_steps=4 format=3 uid="uid://shwo5gahrs2p"]
 
-[node name="Healthbar" type="Sprite3D"]
+[ext_resource type="Shader" uid="uid://bdebh574h4fqd" path="res://shaders/healthbar.gdshader" id="1_y7h1c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xm28g"]
+render_priority = 0
+shader = ExtResource("1_y7h1c")
+shader_parameter/percentage = 0.645
+shader_parameter/healthy = Color(0, 1, 0, 1)
+shader_parameter/damaged = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_30prg"]
+material = SubResource("ShaderMaterial_xm28g")
+size = Vector2(9.005, 1)
+
+[node name="Healthbar" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_30prg")

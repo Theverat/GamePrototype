@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://blh4pikheqpc"]
+[gd_scene load_steps=25 format=4 uid="uid://blh4pikheqpc"]
 
 [ext_resource type="Texture2D" uid="uid://b237ll6dn2kts" path="res://assets/vfx/smoke/T_smoke_flipbook.png" id="1_bvp2f"]
 [ext_resource type="Script" uid="uid://datk0uihsgff4" path="res://script/MobileReactor.gd" id="1_qfvpq"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://caqfo4f8k4crr" path="res://assets/units/Human/MobileReactor/Parts/Sphere_001.res" id="3_lw8s1"]
 [ext_resource type="ArrayMesh" uid="uid://07l1860m4xud" path="res://assets/units/Human/MobileReactor/Parts/Sphere_003.res" id="4_xm28g"]
 [ext_resource type="ArrayMesh" uid="uid://8ip0loyulhjh" path="res://assets/units/Human/MobileReactor/Parts/Cube_006.res" id="5_30prg"]
+[ext_resource type="PackedScene" uid="uid://shwo5gahrs2p" path="res://scene/units/healthbar.tscn" id="7_lw8s1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4x7p"]
 
@@ -368,3 +369,6 @@ shape = SubResource("BoxShape3D_qfvpq")
 path_desired_distance = 2.0
 path_max_distance = 10.21
 radius = 4.35
+
+[node name="Healthbar" parent="." instance=ExtResource("7_lw8s1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.3386, 0)
