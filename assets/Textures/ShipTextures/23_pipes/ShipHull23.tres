@@ -1,0 +1,26 @@
+[gd_resource type="StandardMaterial3D" load_steps=8 format=3 uid="uid://6xoqnnhd73v3"]
+
+[ext_resource type="Texture2D" uid="uid://cx0tgvkwrdqju" path="res://Textures/Ship23/JRO_ShipHulls_23_basecolor.png" id="1_kd7ph"]
+[ext_resource type="Texture2D" uid="uid://1k4wa71eei17" path="res://Textures/Ship23/JRO_ShipHulls_23_ao.png" id="2_63dtt"]
+[ext_resource type="Texture2D" uid="uid://ckgmdyk18m6ti" path="res://Textures/Ship23/JRO_ShipHulls_23_emissive.png" id="3_h7hne"]
+[ext_resource type="Texture2D" uid="uid://cmthcvhn6u4lf" path="res://Textures/Ship23/JRO_ShipHulls_23_height.png" id="4_eekyp"]
+[ext_resource type="Texture2D" uid="uid://c2rcf7w52cis6" path="res://Textures/Ship23/JRO_ShipHulls_23_metallic.png" id="5_hlx62"]
+[ext_resource type="Texture2D" uid="uid://cblrk33yqa6cl" path="res://Textures/Ship23/JRO_ShipHulls_23_normal.png" id="6_ncdos"]
+[ext_resource type="Texture2D" uid="uid://com03tuytf7bn" path="res://Textures/Ship23/JRO_ShipHulls_23_roughness.png" id="7_5kidu"]
+
+[resource]
+albedo_texture = ExtResource("1_kd7ph")
+metallic = 1.0
+metallic_texture = ExtResource("5_hlx62")
+roughness_texture = ExtResource("7_5kidu")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+emission_texture = ExtResource("3_h7hne")
+normal_enabled = true
+normal_scale = -16.0
+normal_texture = ExtResource("6_ncdos")
+ao_enabled = true
+ao_texture = ExtResource("2_63dtt")
+heightmap_enabled = true
+heightmap_scale = -16.0
+heightmap_texture = ExtResource("4_eekyp")
