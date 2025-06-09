@@ -31,7 +31,7 @@ var buildPhaseEndedByPlayer: bool = false
 var fightPhaseDurationSec: float = 60
 
 # Resources
-var base_metal_per_round = 200
+var base_metal_per_round = 400
 var metal: int = base_metal_per_round
 
 func _ready():

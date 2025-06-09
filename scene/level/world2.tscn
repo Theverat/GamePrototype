@@ -181,10 +181,10 @@ enabled = false
 unit_to_spawn = ExtResource("10_duuqf")
 interval_sec = 8.225
 radius = 10.24
-default_target = NodePath("../../ReactorWaypoint")
+default_target = NodePath("../../MobileReactor")
 
 [node name="TopDownCamera" parent="." instance=ExtResource("6_vyfri")]
-transform = Transform3D(0.997288, 0.00489749, -0.0734405, -0.00470176, 0.999985, 0.0028379, 0.0734534, -0.0024849, 0.997296, -59.7664, 11.0758, 31.116)
+transform = Transform3D(0.997288, 0.00489749, -0.0734405, -0.00470176, 0.999985, 0.0028379, 0.0734534, -0.0024849, 0.997296, -7.11626, 80.3873, 286.325)
 camera_move_speed = 40.0
 camera_rotation_speed = 0.8
 camera_base_rotation_speed = 15.0
@@ -196,7 +196,7 @@ camera_zoom_max = 90.0
 transform = Transform3D(-0.879375, 0.135588, -0.456417, -0.0716202, 0.91002, 0.40833, 0.470714, 0.391764, -0.790537, 0, 38.8362, -222.431)
 light_bake_mode = 1
 shadow_enabled = true
-directional_shadow_max_distance = 2000.0
+directional_shadow_max_distance = 6000.0
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -235,8 +235,8 @@ transform = Transform3D(7.42, 0, 0, 0, 7.42, 0, 0, 0, 7.42, 858.72, 129.457, 2.8
 mesh = SubResource("SphereMesh_bjrfv")
 
 [node name="MobileReactor" parent="." node_paths=PackedStringArray("reactor_waypoint") instance=ExtResource("15_rq2m5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85709, -0.0615381, 271.074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85709, -0.0615381, 320.783)
 reactor_waypoint = NodePath("../ReactorWaypoint")
 
 [node name="ReactorWaypoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.14, -0.204668, 253.479)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.783585, -0.204668, 247.558)

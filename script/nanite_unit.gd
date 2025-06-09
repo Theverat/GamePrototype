@@ -40,7 +40,8 @@ func _physics_process(delta: float) -> void:
 			or (elapsed_ms - last_target_search_ms) > target_search_interval_ms):
 		#var closest_enemy: Node3D = UnitUtils.find_closest_unit(self, "faction: human")
 		#set_target(closest_enemy)
-		set_target(get_unit_as_target("faction: human", default_target))
+		var t: Unit = default_target if default_target else null
+		set_target(get_unit_as_target("faction: human", t))
 		last_target_search_ms = elapsed_ms
 	
 	maybe_deal_damage(elapsed_ms)

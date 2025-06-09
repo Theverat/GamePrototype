@@ -247,7 +247,8 @@ angle_min = -180.0
 angle_max = 180.0
 spread = 180.0
 flatness = 1.0
-initial_velocity_max = 6.0
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
 gravity = Vector3(0, -3, 0)
 damping_min = 2.041
 damping_max = 6.122
@@ -277,12 +278,12 @@ proximity_fade_enabled = true
 [sub_resource type="QuadMesh" id="QuadMesh_0quit"]
 material = SubResource("StandardMaterial3D_gamen")
 custom_aabb = AABB(0, 0, 0, 10, 10, 0)
-size = Vector2(2, 2)
+size = Vector2(6, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qfvpq"]
 size = Vector3(20.6192, 16.3488, 15.0166)
 
-[node name="MobileReactor" type="CharacterBody3D" node_paths=PackedStringArray("body", "nav_agent", "collision_shape")]
+[node name="MobileReactor" type="CharacterBody3D" node_paths=PackedStringArray("body", "nav_agent", "collision_shape") groups=["faction: human"]]
 script = ExtResource("1_qfvpq")
 body = NodePath(".")
 nav_agent = NodePath("NavigationAgent3D")
@@ -337,10 +338,10 @@ libraries = {
 [node name="GPUParticles3D" type="GPUParticles3D" parent="mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00735092, 5.51211, -0.0696034)
 emitting = false
-amount = 400
-lifetime = 4.0
+amount = 195
+lifetime = 2.62
 one_shot = true
-explosiveness = 0.77
+explosiveness = 0.49
 process_material = SubResource("ParticleProcessMaterial_0h0r6")
 draw_pass_1 = SubResource("QuadMesh_0quit")
 
