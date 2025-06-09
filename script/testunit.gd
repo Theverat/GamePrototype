@@ -40,8 +40,9 @@ func _physics_process(delta: float) -> void:
 	
 	if (target == null
 			or (elapsed - last_target_search_ms) > target_search_interval_ms):
-		var closest_enemy: Node3D = UnitUtils.find_closest_unit(self, "faction: human")
-		set_target(closest_enemy)
+		assert(false, "TODO do we still need this script?")
+		#var closest_enemy: Node3D = UnitUtils.find_closest_unit(self, "faction: human")
+		#set_target(closest_enemy)
 		last_target_search_ms = elapsed
 		
 	if target:
