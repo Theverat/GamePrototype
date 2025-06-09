@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c57qsoaaqqnsw"]
+[gd_scene load_steps=22 format=3 uid="uid://c57qsoaaqqnsw"]
 
 [ext_resource type="Script" uid="uid://c2y1vt78mbu2t" path="res://script/world_2.gd" id="1_2njfi"]
 [ext_resource type="PackedScene" uid="uid://6druwv3j8l2c" path="res://scene/units/faction_human/GatlingTurret.tscn" id="2_4nwk4"]
@@ -13,7 +13,6 @@
 [ext_resource type="Theme" uid="uid://4qfdob6bbi7y" path="res://themes/default_theme.tres" id="11_grv0o"]
 [ext_resource type="PackedScene" uid="uid://dksxb3l0cv26c" path="res://assets/units/TestSoldier/Synth_v.0.1.glb" id="12_f6qw8"]
 [ext_resource type="PackedScene" uid="uid://cdnjilgpuexd3" path="res://scene/level/game_map_02_with_mat.tscn" id="13_xqmey"]
-[ext_resource type="Script" uid="uid://cc7nc4wt2ywgd" path="res://script/unit.gd" id="14_4nwk4"]
 [ext_resource type="PackedScene" uid="uid://blh4pikheqpc" path="res://scene/units/faction_human/MobileReactor.tscn" id="15_rq2m5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ap15n"]
@@ -25,7 +24,7 @@ sky_material = SubResource("PanoramaSkyMaterial_ap15n")
 [sub_resource type="Environment" id="Environment_xemro"]
 background_mode = 2
 sky = SubResource("Sky_r71w8")
-sky_rotation = Vector3(-5.85558, 2.05774, 0.392699)
+sky_rotation = Vector3(-6.19592, 2.14501, 0.392699)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_n4g1v"]
 vertices = PackedVector3Array(-796.5, 4.49017, 27.5, -46.5, 4.49017, 27.5, -44.5, 4.49017, 24, -40, 4.49017, 23.5, -40, 4.49017, -796.5, -796.5, 4.49017, -796.5, -33.5, 4.49017, 26.5, -33.5, 4.49017, 28.5, -33, 4.49017, 28.5, -32.5, 4.49017, 26.5, -35.5, 4.49017, 24, -29.5, 4.49017, 24.5, -29.5, 4.49017, -796.5, -22.5, 4.49017, 24.5, -21, 4.49017, 26, -18.5, 4.49017, 24, -10, 4.49017, -796.5, -10.5, 4.49017, 24.5, -8.5, 4.49017, 26, -8, 4.49017, 28, -6.5, 4.49017, 28, -4.5, 4.49017, 24.5, -0.5, 4.49017, 24, -1, 4.49017, -796.5, 1, 4.49017, 24, 1.5, 4.49017, -796.5, 72, 4.49017, 167, 72.5, 4.49017, 169, 74, 4.49017, 169, 74.5, 4.49017, 167, 34.5, 4.49017, 57.5, 84.5, 4.49017, 165, 87, 4.49017, 167, 796.5, 4.49017, 169, 58, 4.49017, 165, 59.5, 4.49017, 166.5, 62, 4.49017, 165, 69.5, 4.49017, 165, 77, 4.49017, 165, 4, 4.49017, 24, 6.5, 4.49017, 26, 6.5, 4.49017, 30, 51, 4.49017, 165, 87.5, 4.49017, 169, 796.5, 4.49017, -796.5, -32.5, 4.49017, 31, -36.5, 4.49017, 32, -18.5, 4.49017, 32.5, -20.5, 4.49017, 31, -22.5, 4.49017, 33, -46, 4.49017, 30, -30, 4.49017, 33, -11.5, 4.49017, 32.5, 6, 4.49017, 139.5, -43.5, 4.49017, 32, 33.5, 4.49017, 170, 34, 4.49017, 167, 35.5, 4.49017, 172.5, 35.5, 4.49017, 796.5, -796.5, 4.49017, 796.5, -6, 4.49017, 30.5, -8.5, 4.49017, 30.5, 4.5, 4.49017, 32, -3.5, 4.49017, 32.5, 36, 4.49017, 165, 47, 4.49017, 169, 47.5, 4.49017, 169, 48, 4.49017, 167, 46.5, 4.49017, 166.5, 44, 4.49017, 164.5, 46.5, 4.49017, 171, 48, 4.49017, 171.5, 51, 4.49017, 173.5, 44, 4.49017, 173, 51, 4.49017, 796.5, 74, 4.49017, 170.5, 72, 4.49017, 171.5, 81, 4.49017, 173.5, 76, 4.49017, 173, 69, 4.49017, 173.5, 69, 4.49017, 796.5, 81, 4.49017, 796.5, 85.5, 4.49017, 173, 87, 4.49017, 171.5, 796.5, 4.49017, 796.5, 62, 4.49017, 173.5, 59.5, 4.49017, 172, 58, 4.49017, 173.5)
@@ -45,104 +44,10 @@ size = Vector3(1600, 1, 1600)
 radius = 17.51
 height = 36.4
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_2njfi"]
-top_radius = 3.41
-bottom_radius = 18.311
-height = 37.293
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_4nwk4"]
-
 [node name="World2" type="Node" node_paths=PackedStringArray("top_down_cam")]
 script = ExtResource("1_2njfi")
 gatling_turret_scene = ExtResource("2_4nwk4")
 top_down_cam = NodePath("TopDownCamera")
-
-[node name="Portal" parent="." instance=ExtResource("3_rq2m5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 6.50144, -372.267)
-
-[node name="Spawner2Component" parent="Portal" node_paths=PackedStringArray("default_target") instance=ExtResource("4_4ux7g")]
-enabled = false
-unit_to_spawn = ExtResource("5_flwjh")
-interval_sec = 0.655
-radius = 10.24
-default_target = NodePath("../../DefaultTarget")
-
-[node name="Spawner2Component2" parent="Portal" node_paths=PackedStringArray("default_target") instance=ExtResource("4_4ux7g")]
-enabled = false
-unit_to_spawn = ExtResource("10_duuqf")
-interval_sec = 8.225
-radius = 10.24
-default_target = NodePath("../../DefaultTarget")
-
-[node name="TopDownCamera" parent="." instance=ExtResource("6_vyfri")]
-transform = Transform3D(0.997288, 0.00489749, -0.0734405, -0.00470176, 0.999985, 0.0028379, 0.0734534, -0.0024849, 0.997296, -59.7664, 11.0758, 31.116)
-camera_move_speed = 40.0
-camera_rotation_speed = 0.8
-camera_base_rotation_speed = 15.0
-camera_zoom_speed = 100.0
-camera_zoom_min = 0.0
-camera_zoom_max = 90.0
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.951649, 0.0593002, -0.30141, -0.0723938, 0.910261, 0.407657, 0.298536, 0.409767, -0.861955, 0, 38.8362, -222.431)
-light_bake_mode = 1
-shadow_enabled = true
-directional_shadow_max_distance = 1000.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_xemro")
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_n4g1v")
-
-[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
-
-[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -0.50983, 0)
-visible = false
-material_override = ExtResource("8_hku41")
-mesh = SubResource("BoxMesh_h1bjm")
-skeleton = NodePath("../../..")
-
-[node name="Floor_CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
-shape = SubResource("BoxShape3D_ckyo8")
-
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="NavigationRegion3D/Floor/Floor_CollisionShape3D"]
-size = Vector3(1600, 1, 1600)
-
-[node name="Obstacle_StaticBody3D7" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4727, 0.0640026, -140.07)
-
-[node name="Obstacle_StaticBody3D8" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9763, 0.10372, -106.594)
-
-[node name="Obstacle_StaticBody3D9" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.57104, 0.10372, -151.076)
-
-[node name="Obstacle_StaticBody3D10" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.3201, 0.10372, -125.973)
-
-[node name="Obstacle_StaticBody3D3" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1086, 0.0121427, 28.6111)
-
-[node name="Obstacle_StaticBody3D4" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5933, 0.0518599, 28.4234)
-
-[node name="Obstacle_StaticBody3D5" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.214226, 0.0518599, 28.4318)
-
-[node name="Obstacle_StaticBody3D6" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7865, 0.0518599, 27.835)
-
-[node name="NaniteUnitDebug" parent="." instance=ExtResource("10_duuqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.6318, -0.0457491, -179.623)
-
-[node name="NaniteMonster" parent="." instance=ExtResource("5_flwjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.8483, -0.0457489, -146.401)
-
-[node name="GatlingTurret2" parent="." instance=ExtResource("2_4nwk4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6983, -0.00983, 43.9603)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -261,102 +166,77 @@ text = "120"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Synth_v_0_1" parent="." instance=ExtResource("12_f6qw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.2471, -0.149525, 45.621)
+[node name="Portal" parent="." instance=ExtResource("3_rq2m5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.288331, 6.50144, -0.759094)
+
+[node name="Spawner2Component" parent="Portal" node_paths=PackedStringArray("default_target") instance=ExtResource("4_4ux7g")]
+enabled = false
+unit_to_spawn = ExtResource("5_flwjh")
+interval_sec = 0.4
+radius = 10.24
+default_target = NodePath("../../MobileReactor")
+
+[node name="Spawner2Component2" parent="Portal" node_paths=PackedStringArray("default_target") instance=ExtResource("4_4ux7g")]
+enabled = false
+unit_to_spawn = ExtResource("10_duuqf")
+interval_sec = 8.225
+radius = 10.24
+default_target = NodePath("../../ReactorWaypoint")
+
+[node name="TopDownCamera" parent="." instance=ExtResource("6_vyfri")]
+transform = Transform3D(0.997288, 0.00489749, -0.0734405, -0.00470176, 0.999985, 0.0028379, 0.0734534, -0.0024849, 0.997296, -59.7664, 11.0758, 31.116)
+camera_move_speed = 40.0
+camera_rotation_speed = 0.8
+camera_base_rotation_speed = 15.0
+camera_zoom_speed = 100.0
+camera_zoom_min = 0.0
+camera_zoom_max = 90.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.879375, 0.135588, -0.456417, -0.0716202, 0.91002, 0.40833, 0.470714, 0.391764, -0.790537, 0, 38.8362, -222.431)
+light_bake_mode = 1
+shadow_enabled = true
+directional_shadow_max_distance = 2000.0
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xemro")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_n4g1v")
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -0.50983, 0)
+visible = false
+material_override = ExtResource("8_hku41")
+mesh = SubResource("BoxMesh_h1bjm")
+skeleton = NodePath("../../..")
+
+[node name="Floor_CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.50983, 0)
+shape = SubResource("BoxShape3D_ckyo8")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="NavigationRegion3D/Floor/Floor_CollisionShape3D"]
+size = Vector3(1600, 1, 1600)
+
+[node name="Obstacle_StaticBody3D6" parent="NavigationRegion3D" instance=ExtResource("9_2l0uf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7865, 0.0518599, 756.279)
+
+[node name="human_dummy" parent="." instance=ExtResource("12_f6qw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668964, -0.149525, 755.178)
 
 [node name="GameMap_02" parent="." instance=ExtResource("13_xqmey")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="GameMap_02"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.202, 257.43, -50.3067)
-size = Vector3(250, 250, 250)
-box_projection = true
-enable_shadows = true
-
-[node name="ReflectionProbe2" type="ReflectionProbe" parent="GameMap_02"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.357, 257.43, -50.3067)
-size = Vector3(250, 250, 250)
-box_projection = true
-enable_shadows = true
-
-[node name="ReflectionProbe3" type="ReflectionProbe" parent="GameMap_02"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.559, 66.6787, -50.3067)
-size = Vector3(250, 250, 250)
-box_projection = true
-enable_shadows = true
-
-[node name="ReflectionProbe4" type="ReflectionProbe" parent="GameMap_02"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.806, 66.6787, -50.3067)
-size = Vector3(250, 250, 250)
-box_projection = true
-enable_shadows = true
-
-[node name="ReflectionProbe5" type="ReflectionProbe" parent="GameMap_02"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.202, 257.43, 183.889)
-size = Vector3(250, 250, 250)
-box_projection = true
-enable_shadows = true
-
-[node name="ReflectionProbe6" type="ReflectionProbe" parent="GameMap_02"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.357, 257.43, 183.889)
-size = Vector3(250, 250, 250)
-box_projection = true
-enable_shadows = true
-
-[node name="ReflectionProbe7" type="ReflectionProbe" parent="GameMap_02"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.559, 66.6787, 183.889)
-size = Vector3(250, 250, 250)
-box_projection = true
-enable_shadows = true
-
-[node name="ReflectionProbe8" type="ReflectionProbe" parent="GameMap_02"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.806, 66.6787, 183.889)
-size = Vector3(250, 250, 250)
-box_projection = true
-enable_shadows = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.462, 17.3102, -0.745331)
+[node name="LightingTestSphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.42, 0, 0, 0, 7.42, 0, 0, 0, 7.42, 858.72, 129.457, 2.81952)
 mesh = SubResource("SphereMesh_bjrfv")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.952311, 0.0144374, -0.304788, 0.304924, -0.00832154, 0.95234, 0.011213, -0.999861, -0.012327, -748.984, 35.7478, -0.745323)
-light_color = Color(1, 0.289063, 0.289063, 1)
-light_energy = 94.805
-shadow_enabled = true
-spot_range = 81.5806
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(0.952311, 0.0144374, -0.304788, 0.304924, -0.00832154, 0.95234, 0.011213, -0.999861, -0.012327, -748.984, 35.7478, 159.815)
-light_color = Color(1, 0.289063, 0.289063, 1)
-light_energy = 94.805
-shadow_enabled = true
-spot_range = 81.5806
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="."]
-transform = Transform3D(0.952311, 0.0144374, -0.304788, 0.304924, -0.00832154, 0.95234, 0.011213, -0.999861, -0.012327, -748.984, 35.7478, -179.187)
-light_color = Color(1, 0.289063, 0.289063, 1)
-light_energy = 94.805
-shadow_enabled = true
-spot_range = 81.5806
-
-[node name="DefaultTarget" type="StaticBody3D" parent="." node_paths=PackedStringArray("collision_shape")]
-script = ExtResource("14_4nwk4")
-collision_shape = NodePath("CollisionShape3D")
-init_hp = 1000.0
-target_priority = 1
-
-[node name="DefaultTargetMesh" type="MeshInstance3D" parent="DefaultTarget"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -248.735, 0, -234.279)
-mesh = SubResource("CylinderMesh_2njfi")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultTarget"]
-shape = SubResource("SphereShape3D_4nwk4")
-
 [node name="MobileReactor" parent="." node_paths=PackedStringArray("reactor_waypoint") instance=ExtResource("15_rq2m5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.3655, -0.0615381, 8.95834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85709, -0.0615381, 271.074)
 reactor_waypoint = NodePath("../ReactorWaypoint")
 
 [node name="ReactorWaypoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.8854, -0.204668, 8.95834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.14, -0.204668, 253.479)

@@ -287,6 +287,7 @@ script = ExtResource("1_qfvpq")
 body = NodePath(".")
 nav_agent = NodePath("NavigationAgent3D")
 collision_shape = NodePath("CollisionShape3D")
+init_hp = 5000.0
 
 [node name="mesh" type="Node3D" parent="."]
 transform = Transform3D(-2.64716, 0, 2.31422e-07, 0, 2.64716, 0, -2.31422e-07, 0, -2.64716, 0, 1.50209, 0)

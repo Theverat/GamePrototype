@@ -28,7 +28,7 @@ var roundPhase: RoundPhase = RoundPhase.BUILD
 var phaseStartTimeSec: float = 0
 var buildPhaseDurationSec: float = 120
 var buildPhaseEndedByPlayer: bool = false
-var fightPhaseDurationSec: float = 240
+var fightPhaseDurationSec: float = 60
 
 # Resources
 var base_metal_per_round = 200
@@ -50,6 +50,7 @@ func _process(delta: float) -> void:
 	var elapsed: float = Utils.elapsedSec()
 	maybeChangePhase(elapsed)
 	
+	# Get duration of current phase
 	var phaseDurationSec: float = 0
 	match roundPhase:
 		RoundPhase.BUILD: phaseDurationSec = buildPhaseDurationSec
