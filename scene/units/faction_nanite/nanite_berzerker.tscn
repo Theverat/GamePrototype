@@ -35,7 +35,7 @@ shader_parameter/spikeMin = 0.7
 height = 14.65
 radius = 8.265
 
-[node name="QuadloBlop" type="CharacterBody3D" node_paths=PackedStringArray("body", "nav_agent", "collision_shape", "attack_area") groups=["faction: nanite"]]
+[node name="NaniteBerzerker" type="CharacterBody3D" node_paths=PackedStringArray("body", "nav_agent", "collision_shape", "attack_area") groups=["faction: nanite"]]
 script = ExtResource("1_yimgi")
 body = NodePath(".")
 nav_agent = NodePath("Nanite_NavigationAgent3D")

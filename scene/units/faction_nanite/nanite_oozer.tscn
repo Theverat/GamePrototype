@@ -27,7 +27,7 @@ radius = 1.035
 height = 14.65
 radius = 8.265
 
-[node name="NaniteUnit" type="CharacterBody3D" node_paths=PackedStringArray("body", "nav_agent", "collision_shape", "attack_area") groups=["faction: nanite"]]
+[node name="NaniteOozer" type="CharacterBody3D" node_paths=PackedStringArray("body", "nav_agent", "collision_shape", "attack_area") groups=["faction: nanite"]]
 script = ExtResource("1_wt2wk")
 body = NodePath(".")
 nav_agent = NodePath("Nanite_NavigationAgent3D")
